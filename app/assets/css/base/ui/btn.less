@@ -1,13 +1,13 @@
 @import "../../_var.less";
 
 .btn {
-    --btn-bg-color: @cRed500;
-    --btn-border-color: @cRed500;
+    --btn-bg-color: @cGold500;
+    --btn-border-color: @cGold500;
     --btn-color: @cWhite;
     --btn-icon-color: currentColor;
 
-    --btn-hover-bg-color: fade(@cBlack900, 8);
-    --btn-hover-border-color: fade(@cRed500, 8);
+    --btn-hover-bg-color: fade(@cNavy950, 8);
+    --btn-hover-border-color: fade(@cGold500, 8);
     --btn-hover-color: @cWhite;
     --btn-hover-icon-color: currentColor;
 
@@ -148,7 +148,7 @@
             opacity: 0;
             height: var(--btn-border-width);
             display: block;
-            background: @cRed500;
+            background: @cGold500;
             transition: all 0.375s;
             transition-delay: 0.3s;
         }
@@ -168,7 +168,7 @@
                 .pseudo();
                 height: 0;
                 transition-delay: 0s;
-                background: @cRed500;
+                background: @cGold500;
                 display: block;
                 width: var(--btn-border-width);
                 transition: all 0.225s;
@@ -266,18 +266,18 @@
 
     &--white {
         --btn-bg-color: transparent;
-        --btn-border-color: @cWhite200;
+        --btn-border-color: @cGray100;
         --btn-hover-border-color: fade(@cWhite, 8);
     }
 
     &--grey {
-        --btn-bg-color: @cBlack600;
-        --btn-border-color: @cBlack500;
+        --btn-bg-color: @cNavy700;
+        --btn-border-color: @cGray900;
         --btn-color: @cWhite100;
 
-        --btn-hover-bg-color: fade(@cRed800, 12);
-        --btn-hover-border-color: @cRed800;
-        --btn-hover-color: @cRed800;
+        --btn-hover-bg-color: fade(@cError, 12);
+        --btn-hover-border-color: @cError;
+        --btn-hover-color: @cError;
 
     }
 

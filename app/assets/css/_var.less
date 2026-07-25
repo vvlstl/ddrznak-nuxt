@@ -29,8 +29,8 @@
 
     --icon-size: 1.5rem;
 
-    --page-bg-color: @cBlack900;
-    --page-text-color: @cWhite;
+    --page-bg-color: @cWhite;
+    --page-text-color: @cBlack;
 
     // Типографика
     --fs8: 0.5rem;
@@ -93,7 +93,7 @@
 
     --input-caption-color: @cGray800;
     --input-message-color: @cGray800;
-    --input-error-color: @cRed500;
+    --input-error-color: @cError;
 
     // border-radius, которые адаптивятся
     --br4: 0.25rem;
@@ -211,32 +211,37 @@
  * Цвета
  **/
 
-@cWhite: #fff;
-@cBlack: #000;
+@cWhite:      #FFFFFF;
+@cBlack:      #000000;
 
-@cBlack900: #050505;
-@cBlack800: #0f0f0f;
-@cBlack850: #0a0a0a;
-@cBlack600: #1a1a1a;
-@cBlack500: #2a2a2a;
+@cNavy950:    #081A3A;
+@cNavy900:    #0B2348; // основной бренд
+@cNavy800:    #12305F;
+@cNavy700:    #1C447E;
+@cNavy600:    #2E5A99;
 
-@cWhite200: #f5f5f5;
-@cWhite100: #eee;
+@cGold700:    #B88A2D;
+@cGold600:    #C99A3B;
+@cGold500:    #D4AF37; // основной акцент
+@cGold400:    #E2C76A;
+@cGold300:    #F0DEA4;
 
-@cGray800: #333;
-@cGray500: #8a8a8a;
-@cGray300: #d8d8d8;
+@cWhite200:   #F8F9FB;
+@cWhite150:   #F5F7FA;
+@cWhite100:   #EEF2F7;
 
-@cRed900: #9D0000;
-@cRed800: #e8453c;
-@cRed500: #ff1b1b;
-@cRed400: #ff4040;
-@cRedOrange: #ff2200;
-@cRedOrange450: #ff4422;
-@cRedOrange400: #ff5533;
-@cRedOrange300: #ff6633;
-@cRedOrange200: #ff6644;
-@cGreen400: #66ff44;
+@cGray900:    #1D2433;
+@cGray800:    #2F3A4C;
+@cGray700:    #566274;
+@cGray500:    #8A94A6;
+@cGray300:    #D9DEE7;
+@cGray200:    #E8ECF2;
+@cGray100:    #F4F6F9;
+
+@cSuccess:    #28A745;
+@cWarning:    #F4B400;
+@cError:      #D64545;
+@cInfo:       #2E7CF6;
 
 
 @cStroke: fade(@cWhite, 8);

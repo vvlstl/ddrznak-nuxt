@@ -391,10 +391,3 @@
     font: 400 @fontSize / 1 @font;
     letter-spacing: var(--letter-spacing);
 }
-
-.round-rem(@property
-,
-@value) {
-    @rem-value: (@value / 16);
-        @{property}: ~"round(@{rem-value}rem, 1px)";
-}
