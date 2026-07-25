@@ -1,0 +1,24 @@
+@import "../../_var";
+
+.footer {
+    box-sizing: border-box;
+    padding: var(--m24) 0;
+    border-top: 1px solid fade(@cWhite, 8);
+    font: 400 var(--fs12) / 1 @font;
+
+    &__content,
+    &__left {
+        display: flex;
+        gap: var(--m32);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media @mediaSm {
+        &__content,
+        &__left {
+            flex-direction: column;
+            gap: var(--m16);
+        }
+    }
+}
