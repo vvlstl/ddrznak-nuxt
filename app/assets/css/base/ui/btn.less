@@ -1,54 +1,53 @@
 @import "../../_var.less";
 
 .btn {
-    --btn-bg-color: @cGold500;
-    --btn-border-color: @cGold500;
+    --btn-bg-color: @cBlue600;
+    --btn-border-color: @cBlue600;
     --btn-color: @cWhite;
     --btn-icon-color: currentColor;
 
-    --btn-hover-bg-color: fade(@cNavy950, 8);
-    --btn-hover-border-color: fade(@cGold500, 8);
+    --btn-hover-bg-color: color-mix(in srgb, var(--btn-bg-color) 92%, @cBlack);
+    --btn-hover-border-color: color-mix(in srgb, var(--btn-border-color) 92%, @cBlack);
     --btn-hover-color: @cWhite;
     --btn-hover-icon-color: currentColor;
 
-    --btn-active-bg-color: color-mix(in hsl, var(--btn-hover-bg-color) 86%, transparent);
-    --btn-active-border-color: color-mix(in hsl, var(--btn-hover-border-color) 86%, transparent);
-    --btn-active-color: color-mix(in hsl, var(--btn-hover-color) 86%, transparent);
+    --btn-active-bg-color: color-mix(in hsl, var(--btn-hover-bg-color) 42%, transparent);
+    --btn-active-border-color: color-mix(in hsl, var(--btn-hover-border-color) 42%, transparent);
+    --btn-active-color: color-mix(in hsl, var(--btn-hover-color) 100%, transparent);
     --btn-active-icon-color: currentColor;
 
-    --btn-disabled-bg-color: color-mix(in hsl, var(--btn-bg-color) 32%, transparent);
-    --btn-disabled-border-color: color-mix(in hsl, var(--btn-border-color) 32%, transparent);
-    --btn-disabled-color: color-mix(in hsl, var(--btn-color) 48%, transparent);
+    --btn-disabled-bg-color: color-mix(in hsl, var(--btn-bg-color) 16%, transparent);
+    --btn-disabled-border-color: color-mix(in hsl, var(--btn-border-color) 16%, transparent);
+    --btn-disabled-color: color-mix(in hsl, var(--btn-color) 100%, transparent);
     --btn-disabled-icon-color: currentColor;
 
     --btn-border-width: 1px;
-    --btn-height: unit((48 / 16), rem);
-    --btn-icon-gap: var(--m4);
-    --btn-padding: 0 var(--m24);
-    --btn-border-radius: 0;
-    --btn-icon-size-container: unit((24 / 16), rem);
-    --btn-icon-size: 1rem;
+    --btn-height: unit((40 / 16), rem);
+    --btn-icon-gap: var(--m8);
+    --btn-padding: 0 var(--m8);
+    --btn-border-radius: unit((8 / 16), rem);
+    --btn-icon-size-container: unit((20 / 16), rem);
+    --btn-icon-size: unit((16 / 16), rem);
 
-    --btn-box-shadow: calc(-1 * var(--m2)) var(--m2) var(--m12) 0 fade(@cWhite, 10) inset;
-
-    --btn-fw: 500;
-    --btn-fs: var(--fs16);
+    --btn-fw: 600;
+    --btn-fs: var(--fs14);
+    --btn-lh: 1.15;
     --btn-font: @font;
 
     --btn-text-flex-grow: 0;
-    --btn-blur-size: 2px;
 
     .clear-link();
     .clear-btn();
     .transit(~'opacity, color, border-color, background-color, box-shadow');
-    .blur(var(--btn-blur-size));
     position: relative;
     display: inline-flex;
-    margin: 0; // fix ненужных отступов ios
+    margin: 0;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     gap: var(--btn-icon-gap);
+    background: var(--btn-bg-color);
+    border: var(--btn-border-width) solid var(--btn-border-color);
     border-radius: var(--btn-border-radius);
     color: var(--btn-color);
     height: var(--btn-height);
@@ -57,71 +56,28 @@
     text-align: center;
     user-select: none;
     flex-shrink: 0;
-    font: var(--btn-fw) var(--btn-fs) var(--btn-font);
+    font: var(--btn-fw) var(--btn-fs) / var(--btn-lh) var(--btn-font);
     letter-spacing: var(--letter-spacing);
-    text-transform: uppercase;
 
-    &:not(:where(.btn--bordered, .btn--outline)) {
-        @hoverRuleset: {
-            .btn {
-                &__line {
-                    &:before, &:after {
-                        transition-delay: 0s;
-                        width: 20%;
-                        opacity: 1;
-                    }
-
-                    &:before {
-                        left: 0;
-                    }
-
-                    &:after {
-                        right: 0;
-                    }
-
-                    span {
-                        &:before, &:after {
-                            height: 50%;
-                            transition-delay: 0.45s;
-                        }
-                    }
-                }
-
-                &__line-2 {
-                    background: transparent;
-                    transition-delay: 0s;
-                    opacity: 0;
-                }
-            }
-            .btn-hover-shadow();
-        }
-
-        .hover(@hoverRuleset: @hoverRuleset, @activeRuleset: @activeRuleset);
+    @hoverRuleset: {
+        .btn-hover();
     }
 
     @activeRuleset: {
         .btn-active();
     }
 
+    .hover(@hoverRuleset: @hoverRuleset, @activeRuleset: @activeRuleset);
+
     &__icon {
         .transit(~'opacity, color');
         .container(var(--btn-icon-size-container));
-        color: var(--btn-icon-color);
         position: relative;
 
-        svg, span {
+        svg {
             .size(var(--btn-icon-size));
+            fill: var(--btn-icon-color);
         }
-    }
-
-    &__picture {
-        .transit(~'opacity');
-        .container(var(--btn-icon-size-container));
-        .picture-fit(
-            @fit: contain,
-            @width: var(--btn-icon-size),
-            @height: var(--btn-icon-size)
-        );
     }
 
     &__text {
@@ -133,107 +89,9 @@
         flex-grow: var(--btn-text-flex-grow);
     }
 
-    &__line {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: all 0.225s;
-        transition-delay: 0.15s;
-
-        &:before, &:after {
-            .pseudo();
-            opacity: 0;
-            height: var(--btn-border-width);
-            display: block;
-            background: @cGold500;
-            transition: all 0.375s;
-            transition-delay: 0.3s;
-        }
-
-        &:before {
-            top: 0;
-            left: calc(50% - 30%);
-        }
-
-        &:after {
-            bottom: 0;
-            right: calc(50% - 30%);
-        }
-
-        span {
-            &:before, &:after {
-                .pseudo();
-                height: 0;
-                transition-delay: 0s;
-                background: @cGold500;
-                display: block;
-                width: var(--btn-border-width);
-                transition: all 0.225s;
-            }
-
-            &:before {
-                left: 0;
-                top: 0;
-            }
-
-            &:after {
-                right: 0;
-                bottom: 0;
-            }
-        }
-    }
-
-    &__line-2 {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: all 0.225s;
-        background: color-mix(in srgb, var(--btn-bg-color) 80%, transparent);
-        transition-delay: 0.45s;
-    }
-
-    &__corner {
-        .size(var(--btn-fs));
-        position: absolute;
-        bottom: 0;
-        right: 0;
-
-        &:after {
-            .pseudo();
-            .transit();
-            height: calc(var(--btn-border-width) * 2);
-            width: 200%;
-            top: 50%;
-            left: 50%;
-            translate: -45% -50%;
-            transform: rotate(135deg);
-            background-color: var(--btn-border-color);
-        }
-
-    }
-
-    &__count {
-        opacity: .4;
-        margin-left: var(--m4);
-    }
-
     // модификаторы размера
     &--md {
         --btn-height: unit((32 / 16), rem);
-        --btn-padding: 0 var(--m12);
-        --btn-fs: var(--fs12);
-    }
-
-    &--sm {
-        --btn-height: unit((24 / 16), rem);
-        --btn-padding: 0 var(--m10);
-        --btn-fs: var(--fs12);
     }
 
     // Модификаторы стейта
@@ -250,158 +108,105 @@
     }
 
     // Модификаторы цвета
-
     &--transparent {
-        --btn-color: currentColor;
-        --btn-hover-color: color-mix(in hsl, currentColor 80%, transparent);
-        --btn-active-color: color-mix(in hsl, currentColor 64%, transparent);
+        --btn-bg-color: transparent;
+        --btn-border-color: transparent;
+        --btn-color: @cGray900;
 
-        background: none !important;
-        border: none !important;
-        text-transform: unset;
-        font: unset;
-        filter: unset;
-        box-shadow: none;
+        --btn-hover-bg-color: transparent;
+        --btn-hover-border-color: transparent;
+        --btn-hover-color: @cGray900;
+    }
+
+    &--outline {
+        --btn-bg-color: transparent;
+        --btn-border-color: @cBlue600;
+        --btn-color: @cGray900;
+
+        --btn-hover-bg-color: fade(@cBlue600, 8);
+        --btn-hover-border-color: @cBlue600;
+        --btn-hover-color: @cGray900;
+
+        --btn-active-bg-color: transparent;
+        --btn-active-border-color: @cBlue600;
+        --btn-active-color: @cBlue600;
+    }
+
+    &--secondary {
+        --btn-bg-color: @cGray100;
+        --btn-border-color: @cGray100;
+        --btn-color: @cBlue600;
+
+        --btn-hover-bg-color: @cGray200;
+        --btn-hover-border-color: @cGray200;
+        --btn-hover-color: @cBlue600;
+
+        --btn-active-bg-color: @cGray100;
+        --btn-active-border-color: @cBlue600;
+        --btn-active-color: @cBlue600;
+    }
+
+    &--light-blue {
+        --btn-bg-color: fade(@cBlue600, 16);
+        --btn-border-color: fade(@cBlue600, 5);
+        --btn-color: @cBlue600;
+
+        --btn-hover-bg-color: fade(@cBlue600, 32);
+        --btn-hover-border-color: fade(@cBlue600, 10);
+        --btn-hover-color: @cBlue600;
+
+        --btn-active-bg-color: fade(@cBlue600, 16);
+        --btn-active-border-color: @cBlue600;
+        --btn-active-color: @cBlue600;
+
+        --btn-disabled-bg-color: fade(@cBlue600, 16);
+        --btn-disabled-border-color: fade(@cBlue600, 5);
+        --btn-disabled-color: fade(@cBlue600, 32);
+    }
+
+    &--tertiary {
+        --btn-bg-color: @cGray100;
+        --btn-border-color: @cGray100;
+        --btn-color: @cGray900;
+
+        --btn-hover-bg-color: @cGray200;
+        --btn-hover-border-color: @cGray200;
+        --btn-hover-color: @cGray900;
+
+        --btn-active-border-color: @cBlue600;
+        --btn-active-bg-color: @cGray100;
     }
 
     &--white {
-        --btn-bg-color: transparent;
-        --btn-border-color: @cGray100;
-        --btn-hover-border-color: fade(@cWhite, 8);
+        --btn-bg-color: @cWhite;
+        --btn-border-color: @cWhite;
+        --btn-color: @cGray900;
+        --btn-icon-color: @cGray600;
+
+        --btn-hover-bg-color: @cGray200;
+        --btn-hover-border-color: @cGray200;
+        --btn-hover-color: @cGray900;
+        --btn-hover-icon-color: @cGray600;
+
+        --btn-active-bg-color: @cWhite;
+        --btn-active-border-color: @cBlue600;
+        --btn-active-color: @cGray900;
+        --btn-active-icon-color: @cGray600;
+
+        --btn-disabled-color: @cGray400;
+        --btn-disabled-icon-color: @cGray400;
     }
 
-    &--grey {
-        --btn-bg-color: @cNavy700;
-        --btn-border-color: @cGray900;
-        --btn-color: @cWhite100;
-
-        --btn-hover-bg-color: fade(@cError, 12);
-        --btn-hover-border-color: @cError;
-        --btn-hover-color: @cError;
-
-    }
-
-
-    // Типы кнопок
+    // Квадратные кнопки
     &--square {
         .size(var(--btn-height));
         padding: 0;
     }
 
+    // Круглые кнопки
     &--round {
         .size(var(--btn-height));
         padding: 0;
         border-radius: 50%;
     }
-
-    &--bordered {
-        .btn {
-            &__line {
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                transition: all 0.2s;
-
-                &:before, &:after {
-                    .pseudo();
-                    height: var(--btn-border-width);
-                    opacity: 1;
-                    width: 30px;
-                    display: block;
-                    background: var(--btn-border-color);
-                    transition: all 0.2s;
-                    transition-delay: 0.4s;
-                }
-
-                &:before {
-                    left: 0;
-                    top: 0;
-                }
-
-                &:after {
-                    right: 0;
-                    bottom: 0;
-                }
-
-                span {
-
-                    &:before, &:after {
-                        .pseudo();
-                        background: var(--btn-border-color);
-                        display: block;
-                        width: var(--btn-border-width);
-                        height: 50%;
-                        transition: all 0.2s;
-                        transition-delay: 0.2s;
-                    }
-
-                    &:before {
-                        left: 0;
-                        top: 0;
-                    }
-
-                    &:after {
-                        right: 0;
-                        bottom: 0;
-                    }
-                }
-            }
-        }
-
-        @hoverRuleset: {
-            .btn-hover-shadow();
-
-            .btn {
-                &__line {
-                    &:before, &:after {
-                        width: 30%;
-                    }
-
-                    &:before {
-                        left: calc(50% - 15%);
-                    }
-
-                    &:after {
-                        right: calc(50% - 15%);
-                    }
-
-                    span {
-                        &:before, &:after {
-                            height: 0;
-                        }
-                    }
-                }
-            }
-
-        }
-        .hover(@hoverRuleset: @hoverRuleset, @activeRuleset: @activeRuleset);
-    }
-
-    &--outline {
-        border: var(--btn-border-width) solid var(--btn-border-color);
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--btn-fs)), calc(100% - var(--btn-fs)) 100%, 0 100%);
-
-        @hoverRuleset: {
-            --btn-icon-color: var(--btn-hover-icon-color);
-
-            color: var(--btn-hover-color);
-            border-color: var(--btn-hover-border-color);
-            background-color: var(--btn-hover-bg-color);
-
-            .btn {
-                &__corner {
-                    &:after {
-                        background-color: var(--btn-hover-border-color);
-                    }
-
-                }
-            }
-        }
-
-        .hover(@hoverRuleset: @hoverRuleset, @activeRuleset: @activeRuleset);
-    }
-
 }

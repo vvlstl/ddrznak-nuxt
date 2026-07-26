@@ -12,7 +12,7 @@
 /****
  * Ховеры
  ****/
-.hover(@hoverRuleset: false, @focusRuleset: @defaultFocusRuleset, @activeRuleset: @defaultActiveRuleset, @touch: true) {
+.hover(@hoverRuleset: false, @focusRuleset: @defaultFocusRuleset, @activeRuleset: @defaultActiveRuleset, @touch: false) {
     & when (@touch = true) {
         @media @mediaNotHover {
             & when not (@hoverRuleset = false) {
@@ -44,10 +44,13 @@
     }
 }
 
-.btn-hover-shadow() {
-    box-shadow: var(--btn-box-shadow);
-    transition-delay: 0.5s;
-    transition-duration: .5s;
+.btn-hover() {
+    --btn-icon-color: var(--btn-hover-icon-color);
+    --btn-animated-icon-offset: 100%;
+
+    color: var(--btn-hover-color);
+    border-color: var(--btn-hover-border-color);
+    background-color: var(--btn-hover-bg-color);
 }
 
 .btn-active() {
@@ -64,10 +67,8 @@
     color: var(--btn-disabled-color);
     border-color: var(--btn-disabled-border-color);
     background-color: var(--btn-disabled-bg-color);
-}
-
-.btn-animated() {
-    --btn-position: var(--btn-position-end);
+    opacity: var(--btn-disabled-opacity);
+    pointer-events: none;
 }
 
 /****
@@ -257,13 +258,10 @@
     overflow: @overflow;
     transform: translateZ(0); // fix safari квадратные углы у картинок
 
-    img, picture, video, .sx-video {
+    img, picture, video {
         .size(@size);
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        inset: 0;
         margin: auto;
         object-fit: @fit;
         border-radius: inherit;
@@ -354,7 +352,6 @@
     gap: var(--link-gap);
     cursor: pointer;
     text-decoration-color: color-mix(in hsl, var(--link-border-color) 60%, transparent);
-    will-change: color, opacity, transform, text-decoration-color;
 
     .hover({
         color: var(--link-hover-color);
@@ -378,14 +375,16 @@
     .blur(0.5rem);
 
     background: linear-gradient(229deg, fade(@cBlack, 16) 51.29%, fade(@cBlack, 48) 100%);
-    box-shadow: calc(-1 * 0.125rem) 0.125rem 0.75rem 0 fade(@cBlack, 16) inset;
+    box-shadow: calc(-1 * var(--m2)) var(--m2) var(--m12) 0 fade(@cBlack, 16) inset;
 }
 
+
 .link-uline-common() {
-    text-decoration-thickness: 0.0625rem;
-    text-underline-offset: 0.25rem;
+    text-decoration-thickness: 1px;
+    text-underline-offset: var(--m4);
     text-underline-position: left;
 }
+
 
 .title-block(@fontSize: var(--fs48)) {
     font: 400 @fontSize / 1 @font;
