@@ -1,0 +1,57 @@
+@import "../../_var";
+
+.promo-block {
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        .pseudo();
+        inset: 0;
+        background-image: url(~'@{imagePath}promo-block/bg-city.webp');
+        background-size: cover;
+        background-position: center;
+        mask-image: linear-gradient(to left, @cWhite 10%, transparent 100%),
+        linear-gradient(to bottom, @cWhite 95%, transparent 100%);
+        mask-composite: intersect;
+        opacity: 50%;
+        z-index: 0;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        min-height: unit((500 / 16), rem);
+        align-items: center;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: var(--m16);
+        z-index: 1;
+    }
+
+    &__title {
+        font: 600 var(--fs56) / 1 @font;
+        letter-spacing: var(--letter-spacing);
+    }
+
+    &__description {
+        max-width: unit((480 / 18), em);
+        font: 400 var(--fs18) / 1.2 @font;
+        letter-spacing: var(--letter-spacing);
+        color: @cNavy600;
+    }
+
+    &__picture {
+        position: absolute;
+        right: -10%; // выезжает за правый край
+        bottom: 0;
+        width: 55%;
+        max-width: unit((880 / 16), rem);
+        .picture-fit(contain, @additionalStyles: {
+            object-position: right bottom;
+        });
+        user-select: none;
+    }
+}

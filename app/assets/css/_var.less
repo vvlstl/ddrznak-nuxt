@@ -30,7 +30,7 @@
     --icon-size: 1.5rem;
 
     --page-bg-color: @cWhite;
-    --page-text-color: @cBlack;
+    --page-text-color: @cNavy900;
 
     // Типографика
     --fs8: 0.5rem;
@@ -150,11 +150,11 @@
 }
 
 //noinspection LessUnresolvedVariable
-@imagePath: '~/assets/images/';
+@imagePath: '/images/';
 // Шрифты лежат в public/fonts/ — отдаются статически по baseURL,
 // что даёт стабильный URL без хеша и позволяет rel=preload в useHead.
 //noinspection LessUnresolvedVariable
-@fontPath: '/skynet-nuxt/fonts/';
+@fontPath: '/fonts/';
 
 /**
  * Сетка
@@ -202,10 +202,8 @@
 /**
  * Шрифты
  **/
-@fontName: 'Share Tech Mono';
+@fontName: Montserrat;
 @font: @fontName, Arial, sans-serif, -apple-system;
-@fontBaseBender: 'Bender';
-@fontBender: @fontBaseBender, sans-serif;
 
 /**
  * Цвета

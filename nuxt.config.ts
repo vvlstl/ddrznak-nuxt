@@ -71,7 +71,7 @@ export default defineNuxtConfig({
                 less: {
                     javascriptEnabled: true,
                     globalVars: {
-                        imagePath: '~/assets/images/',
+                        imagePath: '/images/',
                         fontPath: '/fonts/'
                     }
                 }
