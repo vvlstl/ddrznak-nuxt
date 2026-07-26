@@ -1,0 +1,36 @@
+@import "../../_var";
+
+.advantages-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--m16);
+
+    &__item {
+        &:not(:last-child) {
+            box-sizing: content-box;
+            padding-right: var(--m16);
+            border-right: 1px solid @cGray200;
+        }
+    }
+
+    @media @mediaMoreMd and @mediaLg {
+        &__item {
+            &:not(:last-child) {
+                padding-right: var(--m12);
+            }
+        }
+    }
+
+    @media @mediaLg {
+        gap: var(--m12);
+    }
+
+    @media @mediaMd {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--m8);
+    }
+
+    @media @mediaSm {
+        grid-template-columns: 100%
+    }
+}

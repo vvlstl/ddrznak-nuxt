@@ -3,6 +3,9 @@
 .promo-block {
     position: relative;
     overflow: hidden;
+    box-sizing: content-box;
+    padding-bottom: var(--m32);
+    margin-bottom: calc(-1 * var(--m32));
 
     &:before {
         .pseudo();
@@ -18,6 +21,7 @@
     }
 
     &__content {
+        position: relative;
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         min-height: unit((500 / 16), rem);
@@ -45,7 +49,7 @@
 
     &__picture {
         position: absolute;
-        right: -10%; // выезжает за правый край
+        right: -15%; // выезжает за правый край
         bottom: 0;
         width: 55%;
         max-width: unit((880 / 16), rem);
@@ -53,5 +57,48 @@
             object-position: right bottom;
         });
         user-select: none;
+    }
+
+    &__advantages {
+        position: relative;
+        box-sizing: border-box;
+        padding: var(--m32);
+        z-index: 2;
+    }
+
+    @media @mediaLg {
+        &__advantages {
+            padding: var(--m16);
+        }
+    }
+
+    @media @mediaMoreMd {
+        &__advantages {
+            border-radius: unit((12 / 16), rem);
+            background: @cWhite;
+            box-shadow: 0 var(--m10) var(--m32) 0 fade(@cNavy900, 16);
+        }
+    }
+
+    @media @mediaMd {
+        &__content {
+            grid-template-columns: 100%;
+        }
+
+        &__advantages {
+            padding: 0;
+        }
+    }
+
+    @media @mediaMoreSm {
+        &__advantages {
+            margin-top: -8%;
+        }
+    }
+
+    @media @mediaSm {
+        &__picture {
+            display: none;
+        }
     }
 }

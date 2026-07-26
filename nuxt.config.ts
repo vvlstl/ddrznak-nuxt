@@ -60,7 +60,7 @@ export default defineNuxtConfig({
 
     icon: {
         serverBundle: {
-            collections: []
+            collections: ['tabler']
         }
     },
 

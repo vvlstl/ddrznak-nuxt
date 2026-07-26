@@ -1,0 +1,59 @@
+@import "../../_var";
+
+.advantage-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--m24);
+    border-radius: unit((12 / 16), rem);
+    background: @cWhite;
+
+    &__icon {
+        --size-container: unit((40 / 16), rem);
+        --size-icon: unit((20 / 16), rem);
+
+        .container(var(--size-container));
+        border-radius: 50%;
+        background: @cWhite;
+        border: 1px solid @cGray300;
+
+        svg, span {
+            .size(var(--size-icon));
+            color: @cNavy700;
+        }
+    }
+
+    &__title {
+        font: 600 var(--fs16) / 1.2 @font;
+        color: @cNavy700;
+    }
+
+    &__description {
+        font: 500 var(--fs14) / 1.4 @font;
+        color: @cNavy700;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: var(--m4);
+    }
+
+    @media @mediaLg {
+        gap: var(--m10);
+
+        &__description {
+            font-size: var(--fs12);
+        }
+
+        &__icon {
+            --size-container: unit((32 / 16), rem);
+            --size-icon: unit((16 / 16), rem);
+        }
+    }
+
+    @media @mediaMd {
+        box-sizing: border-box;
+        padding: var(--m16);
+        box-shadow: 0 1px var(--m4) 1px fade(@cNavy900, 16);
+    }
+}
