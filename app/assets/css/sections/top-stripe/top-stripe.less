@@ -1,0 +1,112 @@
+@import "../../_var";
+
+.top-stripe {
+    background: linear-gradient(90deg, @cNavy950, @cGray800, @cNavy950);
+    border-bottom: 1px solid @cGray300;
+    font-size: var(--fs14);
+    color: @cGray500;
+
+    &__container {
+        max-width: unit((1440 / 16), rem);
+        margin: 0 auto;
+        padding: unit((10 / 16), rem) var(--page-gutter);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--m16);
+    }
+
+    &__left,
+    &__right {
+        display: flex;
+        align-items: center;
+        gap: var(--m24);
+    }
+
+    &__status,
+    &__cert,
+    &__location,
+    &__phone {
+        display: flex;
+        align-items: center;
+        gap: var(--m8);
+        .clear-link(@cGray500);
+        .transit(color);
+
+        &:hover {
+            color: @cNavy900;
+        }
+    }
+
+    &__phone {
+        color: @cNavy900;
+        font-weight: 500;
+
+        &:hover {
+            color: @cBlue600;
+        }
+    }
+
+    &__pulse {
+        .size(unit((6 / 16), rem));
+        border-radius: 50%;
+        background: @cSuccess;
+        animation: pulse-dot 2.5s infinite;
+    }
+
+    &__cert svg {
+        color: @cBlue600;
+    }
+
+    &__location svg {
+        color: @cBlue600;
+    }
+
+    &__phone svg {
+        color: @cBlue600;
+    }
+
+    // адаптив
+    &--desktop {
+        @media @mediaSm {
+            display: none;
+        }
+    }
+
+    @media @mediaSm {
+        &__text--desktop {
+            display: none;
+        }
+
+        &__cert {
+            display: none;
+        }
+
+        &__location--desktop {
+            display: none;
+        }
+    }
+
+    @media @mediaMd {
+        &__location--desktop {
+            display: none;
+        }
+    }
+
+    @media @mediaLg {
+        &__text--mobile {
+            display: none;
+        }
+    }
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 fade(@cSuccess, 50);
+    }
+    50% {
+        opacity: 0.6;
+        box-shadow: 0 0 0 unit((6 / 16), rem) fade(@cSuccess, 0);
+    }
+}

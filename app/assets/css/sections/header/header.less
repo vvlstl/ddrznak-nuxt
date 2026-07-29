@@ -1,0 +1,126 @@
+@import "../../_var";
+
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--headerZIndex);
+    .transit(~'background-color, border-color, backdrop-filter');
+
+    &__container {
+        max-width: unit((1440 / 16), rem);
+        margin: 0 auto;
+        padding: var(--m20) var(--page-gutter);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &--scrolled {
+        background: fade(@cWhite, 85);
+        .blur(1.25rem);
+        border-bottom: 1px solid @cGray300;
+    }
+
+    // Логотип
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: var(--m12);
+        .clear-link(@cNavy900);
+    }
+
+    &__logo-icon {
+        .container(unit((44 / 16), rem));
+        background: @cBlue600;
+        color: @cWhite;
+        border-radius: unit((4 / 16), rem);
+        font-family: 'Oswald', @font;
+        font-weight: 700;
+        font-size: unit((24 / 16), rem);
+    }
+
+    &__logo-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__logo-name {
+        font: 700 unit((18 / 16), rem) / 1 @font;
+        letter-spacing: -0.02em;
+    }
+
+    &__logo-dot {
+        color: @cBlue600;
+    }
+
+    &__logo-sub {
+        font: 400 unit((10 / 16), rem) / 1 @font;
+        color: @cGray500;
+        letter-spacing: 0.25em;
+        margin-top: 2px;
+        font-variant: small-caps;
+    }
+
+    // Навигация
+    &__nav {
+        .clear-list();
+        display: flex;
+        align-items: center;
+        gap: var(--m36);
+    }
+
+    &__nav-link {
+        .clear-link(@cNavy900);
+        font: 500 var(--fs14) / 1 @font;
+        .transit(color);
+
+        &:hover {
+            color: @cBlue600;
+        }
+    }
+
+    // Действия
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: var(--m12);
+    }
+
+    &__phone {
+        .clear-link(@cGray700);
+        font: 400 var(--fs14) / 1 @font;
+        display: flex;
+        align-items: center;
+        gap: var(--m8);
+        .transit(color);
+
+        &:hover {
+            color: @cBlue600;
+        }
+
+        svg {
+            color: @cGray700;
+        }
+    }
+
+    .btn--primary {
+        --btn-bg-color: @cBlue600;
+        --btn-border-color: @cBlue600;
+        --btn-color: @cWhite;
+        --btn-height: unit((40 / 16), rem);
+        --btn-fs: var(--fs14);
+    }
+
+    // Адаптив
+    @media @mediaLg {
+        &__nav {
+            display: none;
+        }
+    }
+
+    @media @mediaMd {
+        &__phone {
+            display: none;
+        }
+    }
+}
