@@ -1,0 +1,40 @@
+@import "../../_var";
+
+.trust-marquee {
+    border-top: 1px solid @cGray300;
+    border-bottom: 1px solid @cGray300;
+    background: @cWhite100;
+    overflow: hidden;
+
+    &__track {
+        display: flex;
+        gap: var(--m64);
+        white-space: nowrap;
+        align-items: center;
+        width: max-content;
+        animation: marquee 50s linear infinite;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: var(--m12);
+        font: 400 var(--fs14) / 1 @font;
+        color: @cGray500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+
+        svg {
+            color: @cBlue600;
+        }
+    }
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
