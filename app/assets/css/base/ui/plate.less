@@ -1,0 +1,142 @@
+@import "../../_var";
+
+// ===== ПЛАСТИНА (ГОСНОМЕР) =====
+.plate {
+    border: 3px solid @cNavy900;
+    border-radius: unit((10 / 16), rem);
+    padding: unit((12 / 16), rem) unit((18 / 16), rem);
+    display: inline-flex;
+    align-items: center;
+    gap: unit((10 / 16), rem);
+    position: relative;
+    box-shadow:
+        0 1px 0 fade(@cWhite, 60) inset,
+        0 -1px 0 fade(@cBlack, 15) inset,
+        0 unit((30 / 16), rem) unit((60 / 16), rem) unit((-10 / 16), rem) fade(@cNavy900, 65),
+        0 unit((12 / 16), rem) unit((24 / 16), rem) unit((-8 / 16), rem) fade(@cNavy900, 40);
+    background: linear-gradient(
+        180deg,
+        @cWhite 0%,
+        #ededed 50%,
+        #d8d8d8 100%
+    );
+    font-family: 'Oswald', @font;
+    color: @cNavy900;
+
+    &::after {
+        .pseudo();
+        inset: unit((4 / 16), rem);
+        border-radius: unit((6 / 16), rem);
+        border: 1px solid fade(@cBlack, 18);
+        pointer-events: none;
+    }
+
+    &__char {
+        font-family: 'Oswald', @font;
+        font-weight: 700;
+        line-height: 1;
+        color: @cNavy900;
+    }
+
+    &__divider {
+        width: 2px;
+        align-self: stretch;
+        background: @cNavy900;
+        margin: unit((4 / 16), rem) unit((6 / 16), rem);
+        opacity: 0.85;
+    }
+
+    &__region {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        line-height: 1;
+    }
+
+    &__rus {
+        display: flex;
+        align-items: center;
+        gap: unit((6 / 16), rem);
+    }
+
+    &__rus-text {
+        font-family: 'Oswald', @font;
+        font-weight: 600;
+        font-size: 0.55em;
+        letter-spacing: 0.08em;
+        color: @cNavy900;
+    }
+
+    // Премиум-серии
+    &--yellow {
+        background: linear-gradient(180deg, #ffe14d 0%, #f5c400 50%, #d9a700 100%);
+    }
+
+    &--black {
+        background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+
+        .plate__char,
+        .plate__rus-text {
+            color: @cWhite;
+        }
+
+        .plate__divider {
+            background: @cWhite;
+        }
+    }
+}
+
+// ===== РФ ФЛАГ =====
+.ru-flag {
+    display: flex;
+    flex-direction: column;
+    width: 18px;
+    border: 1px solid @cNavy900;
+    border-radius: 1px;
+    overflow: hidden;
+
+    &__band {
+        flex: 1;
+
+        &--white {
+            background: @cWhite;
+        }
+
+        &--blue {
+            background: @cInfo;
+        }
+
+        &--red {
+            background: @cError;
+        }
+    }
+}
+
+// ===== РАМКА =====
+.frame {
+    padding: unit((8 / 16), rem);
+    border-radius: unit((14 / 16), rem);
+    display: inline-block;
+    position: relative;
+
+    &--black {
+        background: linear-gradient(135deg, @cGray900, @cNavy950);
+    }
+
+    &--chrome {
+        background: linear-gradient(135deg, #e8e8ec, #8a8a90, #d8d8dc);
+    }
+
+    &--carbon {
+        background: repeating-linear-gradient(
+            45deg,
+            @cGray900 0 2px,
+            @cNavy950 2px 4px
+        );
+    }
+
+    &--gold {
+        background: linear-gradient(135deg, #ecc798, #d4a574, #8a6a3f);
+    }
+}

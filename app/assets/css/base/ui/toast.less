@@ -1,0 +1,54 @@
+@import "../../_var";
+
+.toast {
+    position: fixed;
+    bottom: var(--m32);
+    right: var(--m32);
+    z-index: 300;
+    max-width: unit((340 / 16), rem);
+    background: @cWhite;
+    border: 1px solid @cGray300;
+    border-left: 3px solid @cBlue600;
+    border-radius: unit((6 / 16), rem);
+    padding: var(--m16) var(--m24);
+    box-shadow: 0 unit((20 / 16), rem) unit((50 / 16), rem) fade(@cNavy900, 24);
+
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--m12);
+    }
+
+    &__icon {
+        color: @cBlue600;
+        font-size: var(--fs20);
+        margin-top: 2px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--m4);
+    }
+
+    &__title {
+        font: 500 var(--fs14) / 1.2 @font;
+        color: @cNavy900;
+    }
+
+    &__text {
+        font: 400 var(--fs14) / 1.4 @font;
+        color: @cGray700;
+    }
+}
+
+// Teleport Transition
+.toast-enter-active,
+.toast-leave-active {
+    .transit(transform, 0.4s, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+.toast-enter-from,
+.toast-leave-to {
+    transform: translateY(120%);
+}
