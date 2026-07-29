@@ -1,0 +1,117 @@
+@import "../../_var";
+
+.process-steps {
+    padding: var(--m64) var(--page-gutter);
+    border-top: 1px solid @cGray300;
+
+    &__container {
+        max-width: unit((1440 / 16), rem);
+        margin: 0 auto;
+    }
+
+    &__header {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+        gap: var(--m48);
+        margin-bottom: var(--m64);
+
+        @media @mediaLg {
+            grid-template-columns: 1fr;
+            gap: var(--m24);
+        }
+    }
+
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--m12);
+        font: 400 var(--fs14) / 1 @font;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: @cBlue600;
+
+        &::before {
+            content: '';
+            .size(unit((28 / 16), rem), 1px);
+            background: @cBlue600;
+        }
+    }
+
+    &__title {
+        font: 800 var(--fs48) / 1.05 @font;
+        letter-spacing: -0.02em;
+        color: @cNavy900;
+        margin-top: var(--m24);
+
+        @media @mediaMd {
+            font-size: var(--fs40);
+        }
+
+        @media @mediaSm {
+            font-size: var(--fs32);
+        }
+    }
+
+    &__lead {
+        font: 400 var(--fs18) / 1.5 @font;
+        color: @cGray700;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: @cGray300;
+        border: 1px solid @cGray300;
+        border-radius: unit((12 / 16), rem);
+        overflow: hidden;
+
+        @media @mediaMd {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media @mediaSm {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.process-step {
+    background: @cWhite;
+    padding: var(--m40);
+    .transit(background-color);
+
+    &:hover {
+        background: @cWhite100;
+    }
+
+    &__num {
+        font: 200 var(--fs56) / 1 @font;
+        color: @cBlue600;
+        margin-bottom: var(--m24);
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__tag {
+        font: 400 var(--fs12) / 1 @font;
+        color: @cBlue600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: var(--m8);
+    }
+
+    &__title {
+        font: 700 var(--fs20) / 1.2 @font;
+        color: @cNavy900;
+        margin-bottom: var(--m12);
+    }
+
+    &__description {
+        font: 400 var(--fs14) / 1.5 @font;
+        color: @cGray700;
+    }
+
+    @media @mediaMd {
+        padding: var(--m24);
+    }
+}
