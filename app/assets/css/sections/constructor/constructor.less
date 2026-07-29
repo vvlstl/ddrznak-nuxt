@@ -1,0 +1,459 @@
+@import "../../_var";
+
+.constructor {
+    padding: var(--m64) var(--page-gutter);
+    position: relative;
+    border-top: 1px solid @cGray300;
+    overflow: hidden;
+
+    &::before {
+        .pseudo();
+        .cover();
+        background: radial-gradient(
+            ellipse 80% 60% at 50% 100%,
+            fade(@cBlue600, 8),
+            transparent 70%
+        );
+        pointer-events: none;
+    }
+
+    &__container {
+        max-width: unit((1440 / 16), rem);
+        margin: 0 auto;
+        position: relative;
+    }
+
+    &__header {
+        max-width: unit((768 / 16), rem);
+        margin: 0 auto var(--m64);
+        text-align: center;
+    }
+
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--m12);
+        font: 400 var(--fs14) / 1 @font;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: @cBlue600;
+
+        &::before {
+            content: '';
+            .size(unit((28 / 16), rem), 1px);
+            background: @cBlue600;
+        }
+
+        &::after {
+            content: '';
+            .size(unit((28 / 16), rem), 1px);
+            background: @cBlue600;
+        }
+    }
+
+    &__title {
+        font: 800 var(--fs48) / 1.05 @font;
+        letter-spacing: -0.02em;
+        color: @cNavy900;
+        margin-top: var(--m24);
+        margin-bottom: var(--m20);
+    }
+
+    &__title-accent {
+        color: @cBlue600;
+    }
+
+    &__lead {
+        font: 400 var(--fs18) / 1.5 @font;
+        color: @cGray700;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        gap: var(--m40);
+        align-items: start;
+    }
+
+    // Колонка контролов
+    &__controls {
+        background: @cWhite;
+        border: 1px solid @cGray300;
+        border-radius: unit((12 / 16), rem);
+        padding: var(--m40);
+        display: flex;
+        flex-direction: column;
+        gap: var(--m32);
+    }
+
+    // Колонка превью
+    &__preview {
+        position: sticky;
+        top: unit((112 / 16), rem);
+        background: @cWhite;
+        border: 1px solid @cGray300;
+        border-radius: unit((12 / 16), rem);
+        padding: var(--m40);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            .pseudo();
+            .cover();
+            background: radial-gradient(
+                ellipse at top,
+                fade(@cBlue600, 10),
+                transparent 60%
+            );
+            pointer-events: none;
+        }
+    }
+
+    &__preview-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: var(--m24);
+        position: relative;
+    }
+
+    &__preview-label {
+        font: 400 var(--fs14) / 1 @font;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: @cBlue600;
+    }
+
+    &__preview-live {
+        display: flex;
+        align-items: center;
+        gap: var(--m8);
+        font: 400 var(--fs12) / 1 @font;
+        color: @cGray500;
+    }
+
+    &__preview-dot {
+        .size(unit((6 / 16), rem));
+        border-radius: 50%;
+        background: @cSuccess;
+        animation: pulse-dot 2.5s infinite;
+    }
+
+    &__preview-plate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: unit((180 / 16), rem);
+        padding: var(--m48) 0;
+        position: relative;
+    }
+
+    &__specs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--m12);
+        margin-bottom: var(--m24);
+        position: relative;
+    }
+
+    &__spec {
+        border: 1px solid @cGray300;
+        border-radius: unit((4 / 16), rem);
+        padding: var(--m12);
+    }
+
+    &__spec-label {
+        font: 400 var(--fs12) / 1 @font;
+        color: @cGray500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: var(--m4);
+    }
+
+    &__spec-value {
+        font: 500 var(--fs14) / 1.2 @font;
+        color: @cNavy900;
+    }
+
+    &__price {
+        border-top: 1px solid @cGray300;
+        padding-top: var(--m24);
+        position: relative;
+    }
+
+    &__price-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: var(--m20);
+        gap: var(--m12);
+    }
+
+    &__price-label {
+        font: 400 var(--fs12) / 1 @font;
+        color: @cGray500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: var(--m4);
+    }
+
+    &__price-value {
+        font: 800 var(--fs40) / 1 @font;
+        color: @cNavy900;
+        letter-spacing: -0.02em;
+    }
+
+    &__price-currency {
+        font-size: var(--fs18);
+        color: @cBlue600;
+    }
+
+    &__price-meta {
+        text-align: right;
+        font: 400 var(--fs12) / 1.4 @font;
+        color: @cGray500;
+    }
+
+    &__order-btn {
+        width: 100%;
+        justify-content: center;
+        --btn-height: unit((48 / 16), rem);
+        --btn-fs: var(--fs16);
+    }
+
+    &__disclaimer {
+        font: 400 var(--fs12) / 1.5 @font;
+        color: @cGray500;
+        text-align: center;
+        margin-top: var(--m12);
+    }
+
+    @media @mediaLg {
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+
+        &__preview {
+            position: static;
+        }
+    }
+
+    @media @mediaMd {
+        &__controls,
+        &__preview {
+            padding: var(--m24);
+        }
+
+        &__title {
+            font-size: var(--fs40);
+        }
+    }
+}
+
+// ===== ПОЛЕ КОНСТРУКТОРА =====
+.constructor-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m16);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__label-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__label {
+        font: 600 var(--fs14) / 1 @font;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: @cNavy900;
+    }
+
+    &__step {
+        font: 400 var(--fs12) / 1 @font;
+        color: @cGray500;
+        letter-spacing: 0.1em;
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__hint {
+        font: 400 var(--fs12) / 1.4 @font;
+        color: @cGray500;
+    }
+
+    &__grid {
+        display: grid;
+        gap: var(--m12);
+
+        &--3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        &--4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        &--5 {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+
+        @media @mediaSm {
+            &--4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            &--5 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    }
+}
+
+// ===== КНОПКИ-СЕЛЕКТОРЫ =====
+.selector-btn {
+    .clear-btn();
+    border: 1px solid @cGray400;
+    padding: var(--m12) var(--m8);
+    border-radius: unit((6 / 16), rem);
+    text-align: center;
+    background: @cWhite100;
+    font: 500 var(--fs14) / 1.2 @font;
+    color: @cNavy900;
+    .transit(~'border-color, color, background-color');
+
+    &:hover {
+        border-color: @cBlue700;
+        color: @cBlue500;
+    }
+
+    &--active {
+        border-color: @cBlue600;
+        background: linear-gradient(
+            180deg,
+            fade(@cBlue600, 12),
+            fade(@cBlue600, 4)
+        );
+        color: @cBlue600;
+        box-shadow: 0 0 0 1px fade(@cBlue600, 20) inset;
+    }
+
+    &__icon {
+        display: block;
+        margin: 0 auto var(--m8);
+        font-size: var(--fs20);
+    }
+
+    &__swatch {
+        display: inline-block;
+        .size(unit((20 / 16), rem), unit((12 / 16), rem));
+        border-radius: 2px;
+        margin-bottom: var(--m4);
+        vertical-align: middle;
+
+        &--white {
+            background: @cWhite;
+            border: 1px solid fade(@cBlack, 40);
+        }
+
+        &--yellow {
+            background: #f5c400;
+            border: 1px solid fade(@cBlack, 40);
+        }
+
+        &--black {
+            background: @cNavy950;
+            border: 1px solid fade(@cWhite, 30);
+        }
+
+        &--frame-black {
+            background: linear-gradient(135deg, @cGray900, @cNavy950);
+        }
+
+        &--frame-chrome {
+            background: linear-gradient(135deg, #e8e8ec, #8a8a90, #d8d8dc);
+        }
+
+        &--frame-carbon {
+            background: repeating-linear-gradient(
+                45deg,
+                @cGray900 0 2px,
+                @cNavy950 2px 4px
+            );
+        }
+
+        &--frame-gold {
+            background: linear-gradient(135deg, #ecc798, #d4a574, #8a6a3f);
+        }
+    }
+}
+
+// ===== ВВОД КОМБИНАЦИИ =====
+.plate-input-group {
+    display: grid;
+    grid-template-columns: 2fr 4fr 3fr 3fr;
+    gap: var(--m12);
+    align-items: center;
+}
+
+.plate-input {
+    .clear-input();
+    background: @cWhite100;
+    border: 1px solid @cGray400;
+    color: @cNavy900;
+    padding: var(--m14) var(--m10);
+    text-align: center;
+    font-family: 'Oswald', @font;
+    font-size: unit((30 / 16), rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: unit((6 / 16), rem);
+    text-transform: uppercase;
+    width: 100%;
+    .transit(~'border-color, background-color, box-shadow');
+
+    &:focus {
+        outline: none;
+        border-color: @cBlue600;
+        background: @cWhite;
+        box-shadow: 0 0 0 3px fade(@cBlue600, 12);
+    }
+
+    &::placeholder {
+        color: @cGray400;
+    }
+}
+
+// ===== РЕГИОНЫ =====
+.region-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--m8);
+}
+
+.region-chip {
+    .clear-btn();
+    padding: var(--m6) var(--m12);
+    border-radius: unit((4 / 16), rem);
+    border: 1px solid @cGray400;
+    font-family: 'Oswald', @font;
+    font-size: var(--fs14);
+    cursor: pointer;
+    .transit(~'border-color, color, background-color');
+    background: fade(@cWhite, 40);
+    color: @cNavy900;
+
+    &:hover {
+        border-color: @cBlue600;
+        color: @cBlue600;
+    }
+
+    &--active {
+        border-color: @cBlue600;
+        background: @cBlue600;
+        color: @cWhite;
+        font-weight: 600;
+    }
+}
