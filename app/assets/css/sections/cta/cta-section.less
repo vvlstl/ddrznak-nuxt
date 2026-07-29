@@ -1,0 +1,102 @@
+@import "../../_var";
+
+.cta-section {
+    padding: var(--m64) var(--page-gutter);
+    border-top: 1px solid @cGray300;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    &__glow {
+        .pseudo();
+        .cover();
+        background: radial-gradient(
+            ellipse 60% 50% at 50% 50%,
+            fade(@cBlue600, 12),
+            transparent 70%
+        );
+        pointer-events: none;
+    }
+
+    &__content {
+        position: relative;
+        max-width: unit((768 / 16), rem);
+        margin: 0 auto;
+    }
+
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--m12);
+        font: 400 var(--fs14) / 1 @font;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: @cBlue600;
+        margin-bottom: var(--m24);
+
+        &::before {
+            content: '';
+            .size(unit((28 / 16), rem), 1px);
+            background: @cBlue600;
+        }
+
+        &::after {
+            content: '';
+            .size(unit((28 / 16), rem), 1px);
+            background: @cBlue600;
+        }
+    }
+
+    &__title {
+        font: 800 var(--fs48) / 1.05 @font;
+        letter-spacing: -0.02em;
+        color: @cNavy900;
+        margin-bottom: var(--m24);
+
+        @media @mediaMd {
+            font-size: var(--fs40);
+        }
+
+        @media @mediaSm {
+            font-size: var(--fs32);
+        }
+    }
+
+    &__title-accent {
+        color: @cBlue600;
+    }
+
+    &__lead {
+        font: 400 var(--fs18) / 1.5 @font;
+        color: @cGray700;
+        margin-bottom: var(--m48);
+        max-width: unit((600 / 18), em);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--m16);
+        justify-content: center;
+
+        .btn--primary {
+            --btn-bg-color: @cBlue600;
+            --btn-border-color: @cBlue600;
+            --btn-color: @cWhite;
+        }
+
+        .btn--outline {
+            --btn-bg-color: transparent;
+            --btn-border-color: @cGray400;
+            --btn-color: @cNavy900;
+
+            &:hover {
+                --btn-bg-color: fade(@cBlue600, 8);
+                --btn-border-color: @cBlue600;
+                --btn-color: @cBlue600;
+            }
+        }
+    }
+}
