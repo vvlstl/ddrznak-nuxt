@@ -1,0 +1,109 @@
+@import "../../_var";
+
+.work-card {
+    border-radius: unit((12 / 16), rem);
+    background: @cWhite;
+    overflow: hidden;
+    box-shadow: 0 1px var(--m4) 1px fade(@cNavy900, 16);
+    .transit(~'transform, box-shadow');
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 unit((12 / 16), rem) var(--m32) 0 fade(@cNavy900, 16);
+    }
+
+    &__visual {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, @cGray100, @cWhite100);
+    }
+
+    &__visual-glow {
+        .cover();
+        background: radial-gradient(
+            ellipse at center,
+            fade(@cBlue600, 8),
+            transparent 60%
+        );
+        pointer-events: none;
+    }
+
+    &__plate {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__num {
+        position: absolute;
+        top: var(--m16);
+        left: var(--m16);
+        font: 400 var(--fs12) / 1 @font;
+        color: @cGray500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__type {
+        position: absolute;
+        top: var(--m16);
+        right: var(--m16);
+        font: 400 var(--fs12) / 1 @font;
+        color: @cBlue600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    &__body {
+        padding: var(--m24);
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--m16);
+        margin-bottom: var(--m12);
+    }
+
+    &__cell--right {
+        text-align: right;
+    }
+
+    &__label {
+        font: 400 var(--fs12) / 1 @font;
+        color: @cGray500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: var(--m4);
+    }
+
+    &__value {
+        font: 500 var(--fs14) / 1.2 @font;
+        color: @cNavy900;
+    }
+
+    &__value--date {
+        font-size: var(--fs12);
+        font-weight: 400;
+        color: @cGray700;
+    }
+
+    &__car {
+        display: flex;
+        align-items: center;
+        gap: var(--m8);
+        font: 400 var(--fs14) / 1.4 @font;
+        color: @cNavy700;
+        border-top: 1px solid @cGray200;
+        padding-top: var(--m12);
+        margin-top: var(--m12);
+
+        svg {
+            color: @cBlue600;
+        }
+    }
+}
