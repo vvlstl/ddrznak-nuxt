@@ -1,5 +1,5 @@
 <template>
-	<section id="constructor" class="constructor">
+	<section id="constructor" class="constructor reveal">
 		<div class="constructor__container">
 			<header class="constructor__header">
 				<span class="constructor__eyebrow">Конструктор номера</span>

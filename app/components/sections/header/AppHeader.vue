@@ -2,7 +2,7 @@
 	<nav
 		ref="navRef"
 		class="app-header"
-		:class="{ 'app-header--scrolled': isScrolled }"
+		:class="{'app-header--scrolled': isScrolled}"
 	>
 		<div class="app-header__container">
 			<NuxtLink to="/" class="app-header__logo">

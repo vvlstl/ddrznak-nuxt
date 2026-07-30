@@ -1,5 +1,5 @@
 <template>
-	<section id="faq" class="faq-section">
+	<section id="faq" class="faq-section reveal">
 		<div class="faq-section__container">
 			<div class="faq-section__grid">
 				<div class="faq-section__aside">

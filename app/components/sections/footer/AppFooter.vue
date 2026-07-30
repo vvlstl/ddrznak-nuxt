@@ -69,49 +69,49 @@
 		{
 			title: 'Услуги',
 			items: [
-				{ label: 'Легковые номера', href: '#' },
-				{ label: 'Мото-номера', href: '#' },
-				{ label: 'Прицепы', href: '#' },
-				{ label: 'Трактора', href: '#' },
-				{ label: 'Дипломатические', href: '#' },
+				{ label: 'Легковые номера', href: '#works' },
+				{ label: 'Мото-номера', href: '#works' },
+				{ label: 'Прицепы', href: '#works' },
+				{ label: 'Трактора', href: '#works' },
+				{ label: 'Дипломатические', href: '#works' },
 			],
 		},
 		{
 			title: 'Компания',
 			items: [
-				{ label: 'О нас', href: '#' },
-				{ label: 'Сертификаты', href: '#' },
-				{ label: 'Производство', href: '#' },
-				{ label: 'Партнёрам', href: '#' },
-				{ label: 'Вакансии', href: '#' },
+				{ label: 'О нас', href: '#works' },
+				{ label: 'Сертификаты', href: '#works' },
+				{ label: 'Производство', href: '#works' },
+				{ label: 'Партнёрам', href: '#works' },
+				{ label: 'Вакансии', href: '#works' },
 			],
 		},
 		{
 			title: 'Клиентам',
 			items: [
 				{ label: 'Конструктор', href: '#constructor' },
-				{ label: 'Доставка', href: '#' },
-				{ label: 'Оплата', href: '#' },
-				{ label: 'Гарантия', href: '#' },
-				{ label: 'Клуб Premium-Park', href: '#' },
+				{ label: 'Доставка', href: '#works' },
+				{ label: 'Оплата', href: '#works' },
+				{ label: 'Гарантия', href: '#works' },
+				{ label: 'Клуб Premium-Park', href: '#works' },
 			],
 		},
 		{
 			title: 'Контакты',
 			items: [
-				{ label: 'Москва, ул. Производственная 12к3', href: '#' },
+				{ label: 'Москва, ул. Производственная 12к3', href: '#works' },
 				{ label: '8 800 200-12-34', href: 'tel:88002001234' },
-				{ label: 'Ежедневно, 08:00–22:00', href: '#' },
+				{ label: 'Ежедневно, 08:00–22:00', href: '#works' },
 				{ label: 'info@gosnomer-premium.ru', href: 'mailto:info@gosnomer-premium.ru' },
 			],
 		},
 	];
 
 	const socials = [
-		{ icon: 'tabler:brand-telegram', href: '#', label: 'Telegram' },
-		{ icon: 'tabler:brand-vk', href: '#', label: 'ВКонтакте' },
-		{ icon: 'tabler:brand-youtube', href: '#', label: 'YouTube' },
-		{ icon: 'tabler:brand-whatsapp', href: '#', label: 'WhatsApp' },
+		{ icon: 'tabler:brand-telegram', href: '#works', label: 'Telegram' },
+		{ icon: 'tabler:brand-vk', href: '#works', label: 'ВКонтакте' },
+		{ icon: 'tabler:brand-youtube', href: '#works', label: 'YouTube' },
+		{ icon: 'tabler:brand-whatsapp', href: '#works', label: 'WhatsApp' },
 	];
 
 	console.debug('AppFooter:mount');

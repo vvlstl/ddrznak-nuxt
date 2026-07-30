@@ -1,5 +1,5 @@
 <template>
-	<section id="process" class="process-steps">
+	<section id="process" class="process-steps reveal">
 		<div class="process-steps__container">
 			<header class="process-steps__header">
 				<div class="process-steps__intro">

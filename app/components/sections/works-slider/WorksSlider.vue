@@ -1,5 +1,5 @@
 <template>
-	<section id="works" class="works-slider">
+	<section id="works" class="works-slider reveal">
 		<div class="works-slider__container">
 			<div class="works-slider__header">
 				<div class="works-slider__intro">
@@ -44,7 +44,7 @@
 
 			<div class="works-slider__footer">
 				<p class="works-slider__stat">
-					<span class="works-slider__stat-value">12 486</span> номеров произведено за последние 30 дней
+					<span class="works-slider__stat-value" data-counter="12486">12 486</span> номеров произведено за последние 30 дней
 				</p>
 				<a href="#" class="works-slider__catalog">
 					Смотреть весь каталог
