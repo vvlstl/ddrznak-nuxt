@@ -29,7 +29,7 @@
 	}
 
 	const items: TMarqueeItem[] = [
-		{ icon: 'tabler:certificate', text: 'Сертификат соответствия ГОСТ Р' },
+		{ icon: 'tabler:certificate', text: 'Сертификат соответствия ГОСТ Р 50577-2018' },
 		{ icon: 'tabler:building-factory', text: 'Аккредитация Минпромторга' },
 		{ icon: 'tabler:id', text: 'Регистрация в реестре ГИБДД' },
 		{ icon: 'tabler:shield-check', text: 'Гарантия 2 года на каждую пластину' },

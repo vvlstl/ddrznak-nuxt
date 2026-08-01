@@ -3,7 +3,7 @@
 		<TopStripe/>
 		<AppHeader/>
 		<main>
-			<PromoBlock class="page__section"/>
+			<PromoBlock/>
 			<TrustMarquee class="page__section"/>
 			<AdvantagesSection class="page__section" :items="advantages"/>
 			<WorksSlider class="page__section"/>

@@ -24,31 +24,36 @@
 	//TODO для верстки
 
 	import AdvantagesList from "~/components/partials/advantages/AdvantagesList.vue";
+	import type {TAdvantageCard} from "~/types/advantages/TAdvantageCard.ts";
 
-	const advantages = [
+	const advantages: TAdvantageCard[] = [
 		{
 			id: 1,
-			icon: 'tabler:bolt',
-			title: 'Быстро',
-			description: 'Срок изготовления&nbsp;&mdash; от&nbsp;15&nbsp;до&nbsp;30&nbsp;минут',
+			icon: 'tabler:calendar-stats',
+			title: '2&nbsp;года',
+			counter: '2 года',
+			description: 'на&nbsp;рынке',
 		},
 		{
 			id: 2,
-			icon: 'tabler:rosette-discount-check',
-			title: 'Законно',
-			description: 'Соответствуем ГОСТ и&nbsp;требованиям ГИБДД',
+			icon: 'tabler:users',
+			title: '+128k',
+			counter: '+128k',
+			description: 'довольных клиентов',
 		},
 		{
 			id: 3,
-			icon: 'tabler:award',
-			title: 'Качественно',
-			description: 'Премиальные материалы и&nbsp;контроль качества',
+			icon: 'tabler:clock-bolt',
+			title: '15&nbsp;мин',
+			counter: '15 мин',
+			description: 'среднее время выдачи',
 		},
 		{
 			id: 4,
-			icon: 'tabler:clock-24',
-			title: 'Всегда на&nbsp;связи',
-			description: 'Работаем без выходных, включая праздники.',
-		}
+			icon: 'tabler:star',
+			title: '4.9',
+			counter: '4.9',
+			description: '8&nbsp;432 отзыва',
+		},
 	];
 </script>

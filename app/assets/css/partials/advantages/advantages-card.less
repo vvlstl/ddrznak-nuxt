@@ -2,9 +2,8 @@
 
 .advantage-card {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--m24);
-    border-radius: unit((12 / 16), rem);
     background: @cWhite;
 
     &__icon {
@@ -23,7 +22,7 @@
     }
 
     &__title {
-        font: 600 var(--fs16) / 1.2 @font;
+        font: 700 var(--fs32) / 1.2 @font;
         color: @cNavy700;
     }
 
@@ -33,6 +32,7 @@
     }
 
     &__info {
+        text-align: center;
         display: flex;
         flex-direction: column;
         gap: var(--m4);
@@ -52,6 +52,7 @@
     }
 
     @media @mediaMd {
+        border-radius: unit((12 / 16), rem);
         box-sizing: border-box;
         padding: var(--m16);
         box-shadow: 0 1px var(--m4) 1px fade(@cNavy900, 16);

@@ -4,8 +4,6 @@
     position: relative;
     overflow: hidden;
     box-sizing: content-box;
-    padding-bottom: var(--m32);
-    margin-bottom: calc(-1 * var(--m32));
 
     &:before {
         .pseudo();
@@ -25,7 +23,6 @@
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         min-height: unit((500 / 16), rem);
-        align-items: center;
     }
 
     &__info {
@@ -50,7 +47,7 @@
     &__picture {
         position: absolute;
         right: -15%; // выезжает за правый край
-        bottom: 0;
+        bottom: var(--m32);
         width: 55%;
         max-width: unit((880 / 16), rem);
         .picture-fit(contain, @additionalStyles: {
@@ -60,7 +57,10 @@
     }
 
     &__advantages {
-        position: relative;
+        position: absolute;
+        bottom: var(--m32);
+        left: var(--page-gutter);
+        right: var(--page-gutter);
         box-sizing: border-box;
         padding: var(--m32);
         z-index: 2;
@@ -87,12 +87,6 @@
 
         &__advantages {
             padding: 0;
-        }
-    }
-
-    @media @mediaMoreSm {
-        &__advantages {
-            margin-top: -8%;
         }
     }
 

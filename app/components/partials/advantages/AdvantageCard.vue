@@ -4,16 +4,36 @@
 			<Icon :name="item.icon"/>
 		</div>
 		<div class="advantage-card__info">
-			<div class="advantage-card__title" v-html="item.title"/>
-			<div class="advantage-card__description" v-html="item.description"/>
+			<div class="advantage-card__title">
+                <span
+	                v-if="item.counter"
+	                ref="counterRef"
+	                v-html="item.title"
+	                :data-counter="item.counter"
+                />
+				<span
+					v-else
+					v-html="item.title"
+				/>
+			</div>
+			<div
+				v-if="item.description"
+				class="advantage-card__description"
+				v-html="item.description"
+			/>
 		</div>
 	</div>
 </template>
+
 <script setup lang="ts">
 	import type {TAdvantageCard} from "~/types/advantages/TAdvantageCard.ts";
+	import {useCounterAnimation} from '~/composables/useCounterAnimation';
 
 	type TComponentProps = {
 		item: TAdvantageCard;
 	}
 	defineProps<TComponentProps>();
+
+	const counterRef = ref<HTMLElement | null>(null);
+	useCounterAnimation(counterRef);
 </script>
