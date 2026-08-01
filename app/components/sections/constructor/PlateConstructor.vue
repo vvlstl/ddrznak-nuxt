@@ -2,14 +2,11 @@
 	<section id="constructor" class="constructor reveal">
 		<div class="constructor__container">
 			<header class="constructor__header">
-				<span class="constructor__eyebrow">Конструктор номера</span>
-				<h2 class="constructor__title">
-					Соберите свой номер<br>
-					<span class="constructor__title-accent">за 60 секунд</span>
-				</h2>
-				<p class="constructor__lead">
-					Введите желаемую комбинацию, выберите тип и&nbsp;рамку. Цена рассчитывается мгновенно. Готовый проект можно сразу отправить в&nbsp;производство.
-				</p>
+				<SectionHeader
+					eyebrow="Конструктор номера"
+					title="Соберите свой номер<br><strong>за 60 секунд</strong>"
+					lead="Введите желаемую комбинацию, выберите тип и рамку. Цена рассчитывается мгновенно. Готовый проект можно сразу отправить в производство."
+				/>
 			</header>
 
 			<div class="constructor__grid">
@@ -115,6 +112,7 @@
 	import PlatePreview from '~/components/ui/plate/PlatePreview.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
 	import type { TPlateType } from '~/types/plate/TPlateColor.ts';
+	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
 	const state = reactive({
 		type: 'auto' as TPlateType,
@@ -167,17 +165,12 @@
 		toast.title = 'Заявка принята';
 		toast.text = `Номер ${plate} отправлен в производство. Менеджер свяжется в течение 15 минут.`;
 		toast.visible = true;
-		console.debug('PlateConstructor:order', plate);
 
 		if (toastTimer) clearTimeout(toastTimer);
 		toastTimer = setTimeout(() => {
 			toast.visible = false;
 		}, 4500);
 	}
-
-	onMounted(() => {
-		console.debug('PlateConstructor:mount', state);
-	});
 
 	onUnmounted(() => {
 		if (toastTimer) clearTimeout(toastTimer);

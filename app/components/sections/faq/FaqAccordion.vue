@@ -3,13 +3,11 @@
 		<div class="faq-section__container">
 			<div class="faq-section__grid">
 				<div class="faq-section__aside">
-					<span class="faq-section__eyebrow">Частые вопросы</span>
-					<h2 class="faq-section__title">
-						Отвечаем<br>клиентам
-					</h2>
-					<p class="faq-section__lead">
-						За 12&nbsp;лет работы мы&nbsp;собрали и&nbsp;ответили на&nbsp;самые частые вопросы. Если ваш вопрос не&nbsp;вошёл в&nbsp;список&nbsp;— позвоните, мы&nbsp;на&nbsp;связи.
-					</p>
+					<SectionHeader
+						eyebrow="Частые вопросы"
+						title="Отвечаем<br>клиентам"
+						lead="За 12 лет работы мы собрали и ответили на самые частые вопросы. Если ваш вопрос не вошёл в список — позвоните, мы на связи."
+					/>
 					<div class="faq-section__contacts">
 						<a href="tel:88002001234" class="faq-section__contact">
 							<span class="faq-section__contact-icon">
@@ -49,6 +47,7 @@
 <script setup lang="ts">
 	import FaqItem from '~/components/partials/faq/FaqItem.vue';
 	import type { TFaqItem } from '~/types/faq/TFaqItem.ts';
+	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
 	const items: TFaqItem[] = [
 		{
@@ -87,6 +86,5 @@
 
 	function onToggle(id: number) {
 		openId.value = openId.value === id ? 0 : id;
-		console.debug('FaqAccordion:toggle', id, openId.value);
 	}
 </script>

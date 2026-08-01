@@ -3,10 +3,10 @@
 		<div class="works-slider__container">
 			<div class="works-slider__header">
 				<div class="works-slider__intro">
-					<span class="works-slider__eyebrow">Выполненные работы</span>
-					<h2 class="works-slider__title">
-						Номера, которые мы<br>произвели за последний месяц
-					</h2>
+					<SectionHeader
+						eyebrow="Выполненные работы"
+						title="Номера, которые мы<br>произвели за последний месяц"
+					/>
 				</div>
 				<div class="works-slider__nav">
 					<button
@@ -58,6 +58,7 @@
 <script setup lang="ts">
 	import WorkCard from '~/components/partials/works-slider/WorkCard.vue';
 	import type { TWorkCard } from '~/types/works/TWorkCard.ts';
+	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
 	const items: TWorkCard[] = [
 		{ id: 1, num: 'А 777 АА', region: '77', type: 'white', frame: 'black', client: 'Частный клиент', car: 'Mercedes S-Class', date: '14.11.2024', n: '12 486' },
@@ -79,7 +80,6 @@
 		const el = trackRef.value;
 		if (!el) return;
 		el.scrollBy({ left: direction * CARD_WIDTH, behavior: 'smooth' });
-		console.debug('WorksSlider:scrollBy', direction);
 	}
 
 	// Drag-прокрутка
@@ -102,7 +102,6 @@
 		dragState.active = true;
 		dragState.startX = getPageX(e) - el.offsetLeft;
 		dragState.scrollLeft = el.scrollLeft;
-		console.debug('WorksSlider:dragStart');
 	}
 
 	function onDragMove(e: MouseEvent | TouchEvent) {
@@ -116,7 +115,6 @@
 	function onDragEnd() {
 		if (dragState.active) {
 			dragState.active = false;
-			console.debug('WorksSlider:dragEnd');
 		}
 	}
 

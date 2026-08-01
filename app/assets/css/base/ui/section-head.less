@@ -1,0 +1,45 @@
+@import "../../_var";
+
+.section-header {
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--m12);
+        font: 400 var(--fs14) / 1 @font;
+        letter-spacing: var(--letter-spacing);
+        text-transform: uppercase;
+        color: @cBlue600;
+        margin-bottom: var(--m24);
+
+        &::before {
+            .pseudo(relative);
+            width: unit((20 / 16), rem);
+            height: 1px;
+            background: @cBlue600;
+        }
+    }
+
+    &__eyebrow-right {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--m8);
+        font: 400 var(--fs12) / 1 @font;
+        color: @cGray500;
+    }
+
+    &__title {
+        font: 800 var(--fs48) / 1.05 @font;
+        letter-spacing: var(--letter-spacing);
+        color: @cNavy900;
+        margin-bottom: var(--m24);
+    }
+
+    &__lead {
+        font: 400 var(--fs18) / 1.5 @font;
+        color: @cGray700;
+        margin-bottom: var(--m48);
+        max-width: unit((600 / 18), em);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
