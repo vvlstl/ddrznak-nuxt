@@ -3,7 +3,6 @@
 .promo-block {
     position: relative;
     overflow: hidden;
-    box-sizing: content-box;
 
     &:before {
         .pseudo();
@@ -21,7 +20,10 @@
     &__content {
         position: relative;
         display: grid;
+        align-items: center;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        box-sizing: border-box;
+        padding-bottom: calc((var(--m32) * 4) + var(--fs32) + var(--fs14) + var(--m4));
         min-height: unit((500 / 16), rem);
     }
 
