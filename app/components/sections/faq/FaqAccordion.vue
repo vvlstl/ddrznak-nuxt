@@ -1,43 +1,49 @@
 <template>
-	<section id="faq" class="faq-section reveal">
-		<div class="faq-section__container">
-			<div class="faq-section__grid">
-				<div class="faq-section__aside">
-					<SectionHeader
-						eyebrow="Частые вопросы"
-						title="Отвечаем<br>клиентам"
-						lead="За 12 лет работы мы собрали и ответили на самые частые вопросы. Если ваш вопрос не вошёл в список — позвоните, мы на связи."
-					/>
-					<div class="faq-section__contacts">
-						<a href="tel:88002001234" class="faq-section__contact">
+	<section class="faq-section">
+		<div class="container">
+			<div class="faq-section__container">
+				<div class="faq-section__grid">
+					<div class="faq-section__slide">
+						<SectionHeader
+							eyebrow="Частые вопросы"
+							title="Отвечаем<br>клиентам"
+						>
+							<p class="section-header__lead">
+								За 12 лет работы мы собрали и ответили на самые частые вопросы. Если ваш вопрос не вошёл
+								в список — позвоните, мы на связи.
+							</p>
+						</SectionHeader>
+						<div class="faq-section__contacts">
+							<a href="tel:88002001234" class="faq-section__contact">
 							<span class="faq-section__contact-icon">
 								<Icon name="tabler:phone"/>
 							</span>
-							<span class="faq-section__contact-info">
+								<span class="faq-section__contact-info">
 								<span class="faq-section__contact-label">Линия 24/7</span>
 								<span class="faq-section__contact-value">8 800 200-12-34</span>
 							</span>
-						</a>
-						<a href="mailto:info@gosnomer-premium.ru" class="faq-section__contact">
+							</a>
+							<a href="mailto:info@gosnomer-premium.ru" class="faq-section__contact">
 							<span class="faq-section__contact-icon">
 								<Icon name="tabler:mail"/>
 							</span>
-							<span class="faq-section__contact-info">
+								<span class="faq-section__contact-info">
 								<span class="faq-section__contact-label">Почта</span>
 								<span class="faq-section__contact-value">info@gosnomer-premium.ru</span>
 							</span>
-						</a>
+							</a>
+						</div>
 					</div>
-				</div>
 
-				<div class="faq-section__list">
-					<FaqItem
-						v-for="item in items"
-						:key="item.id"
-						:item="item"
-						:is-open="openId === item.id"
-						@toggle="onToggle"
-					/>
+					<div class="faq-section__list">
+						<FaqItem
+							v-for="item in items"
+							:key="item.id"
+							:item="item"
+							:is-open="openId === item.id"
+							@toggle="onToggle"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -46,7 +52,7 @@
 
 <script setup lang="ts">
 	import FaqItem from '~/components/partials/faq/FaqItem.vue';
-	import type { TFaqItem } from '~/types/faq/TFaqItem.ts';
+	import type {TFaqItem} from '~/types/faq/TFaqItem.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
 	const items: TFaqItem[] = [

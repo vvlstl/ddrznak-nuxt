@@ -1,104 +1,105 @@
 <template>
-	<section id="constructor" class="constructor reveal">
-		<div class="constructor__container">
-			<header class="constructor__header">
+	<section class="constructor">
+		<div class="container">
+			<div class="constructor__container">
 				<SectionHeader
 					eyebrow="Конструктор номера"
 					title="Соберите свой номер<br><strong>за 60 секунд</strong>"
 					lead="Введите желаемую комбинацию, выберите тип и рамку. Цена рассчитывается мгновенно. Готовый проект можно сразу отправить в производство."
 				/>
-			</header>
 
-			<div class="constructor__grid">
-				<!-- Контролы -->
-				<div class="constructor__controls">
-					<PlateTypeSelector
-						v-model="state.type"
-						@update:price="onTypePrice"
-					/>
-					<PlateColorSelector v-model="state.color"/>
-					<PlateInputGroup v-model="state.combination"/>
-					<RegionChips v-model="state.combination.region"/>
-					<FrameSelector
-						v-model="state.frame"
-						@update:priceAdd="onFramePriceAdd"
-					/>
-				</div>
+				<div class="constructor__grid">
+					<!-- Контролы -->
+					<div class="constructor__controls">
+						<PlateTypeSelector
+							v-model="state.type"
+							@update:price="onTypePrice"
+						/>
+						<PlateColorSelector v-model="state.color"/>
+						<PlateInputGroup v-model="state.combination"/>
+						<RegionChips v-model="state.combination.region"/>
+						<FrameSelector
+							v-model="state.frame"
+							@update:priceAdd="onFramePriceAdd"
+						/>
+					</div>
 
-				<!-- Превью -->
-				<aside class="constructor__preview">
-					<div class="constructor__preview-header">
-						<span class="constructor__preview-label">Предпросмотр</span>
-						<span class="constructor__preview-live">
+					<!-- Превью -->
+					<aside class="constructor__preview">
+						<div class="constructor__preview-header">
+							<span class="constructor__preview-label">Предпросмотр</span>
+							<span class="constructor__preview-live">
 							<span class="constructor__preview-dot"/>
 							Обновляется в&nbsp;реальном времени
 						</span>
-					</div>
+						</div>
 
-					<div class="constructor__preview-plate">
-						<PlateFrame :frame="state.frame">
-							<PlatePreview
-								:combination="state.combination"
-								:color="state.color"
-								:font-size="44"
-								:flag-height="11"
-							/>
-						</PlateFrame>
-					</div>
+						<div class="constructor__preview-plate">
+							<PlateFrame :frame="state.frame">
+								<PlatePreview
+									:combination="state.combination"
+									:color="state.color"
+									:font-size="44"
+									:flag-height="11"
+								/>
+							</PlateFrame>
+						</div>
 
-					<div class="constructor__specs">
-						<div class="constructor__spec">
-							<div class="constructor__spec-label">Размер</div>
-							<div class="constructor__spec-value">{{ sizeByType }}</div>
+						<div class="constructor__specs">
+							<div class="constructor__spec">
+								<div class="constructor__spec-label">Размер</div>
+								<div class="constructor__spec-value">{{ sizeByType }}</div>
+							</div>
+							<div class="constructor__spec">
+								<div class="constructor__spec-label">Материал</div>
+								<div class="constructor__spec-value">Al 1.0 + 3M™</div>
+							</div>
+							<div class="constructor__spec">
+								<div class="constructor__spec-label">Срок</div>
+								<div class="constructor__spec-value">24 часа</div>
+							</div>
+							<div class="constructor__spec">
+								<div class="constructor__spec-label">Гарантия</div>
+								<div class="constructor__spec-value">2 года</div>
+							</div>
 						</div>
-						<div class="constructor__spec">
-							<div class="constructor__spec-label">Материал</div>
-							<div class="constructor__spec-value">Al 1.0 + 3M™</div>
-						</div>
-						<div class="constructor__spec">
-							<div class="constructor__spec-label">Срок</div>
-							<div class="constructor__spec-value">24 часа</div>
-						</div>
-						<div class="constructor__spec">
-							<div class="constructor__spec-label">Гарантия</div>
-							<div class="constructor__spec-value">2 года</div>
-						</div>
-					</div>
 
-					<div class="constructor__price">
-						<div class="constructor__price-row">
-							<div>
-								<div class="constructor__price-label">Итого</div>
-								<div class="constructor__price-value">
-									{{ formattedTotal }} <span class="constructor__price-currency">₽</span>
+						<div class="constructor__price">
+							<div class="constructor__price-row">
+								<div>
+									<div class="constructor__price-label">Итого</div>
+									<div class="constructor__price-value">
+										{{ formattedTotal }} <span class="constructor__price-currency">₽</span>
+									</div>
+								</div>
+								<div class="constructor__price-meta">
+									<div>Производство 24ч</div>
+									<div>Доставка бесплатно</div>
 								</div>
 							</div>
-							<div class="constructor__price-meta">
-								<div>Производство 24ч</div>
-								<div>Доставка бесплатно</div>
-							</div>
+							<button
+								type="button"
+								class="btn btn--primary constructor__order-btn"
+								@click="onOrder"
+							>
+								<Icon name="tabler:check"/>
+								Отправить в&nbsp;производство
+							</button>
+							<p class="constructor__disclaimer">
+								Нажимая кнопку, вы&nbsp;подтверждаете наличие оригинала номера или СТС. Производство
+								осуществляется в&nbsp;соответствии с&nbsp;Постановлением №&nbsp;1416.
+							</p>
 						</div>
-						<button
-							type="button"
-							class="btn btn--primary constructor__order-btn"
-							@click="onOrder"
-						>
-							<Icon name="tabler:check"/>
-							Отправить в&nbsp;производство
-						</button>
-						<p class="constructor__disclaimer">
-							Нажимая кнопку, вы&nbsp;подтверждаете наличие оригинала номера или СТС. Производство осуществляется в&nbsp;соответствии с&nbsp;Постановлением №&nbsp;1416.
-						</p>
-					</div>
-				</aside>
+					</aside>
+				</div>
 			</div>
-		</div>
 
-		<ToastNotification
-			:visible="toast.visible"
-			:title="toast.title"
-			:text="toast.text"
-		/>
+			<ToastNotification
+				:visible="toast.visible"
+				:title="toast.title"
+				:text="toast.text"
+			/>
+		</div>
 	</section>
 </template>
 
@@ -111,7 +112,7 @@
 	import PlateFrame from '~/components/ui/plate/PlateFrame.vue';
 	import PlatePreview from '~/components/ui/plate/PlatePreview.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
-	import type { TPlateType } from '~/types/plate/TPlateColor.ts';
+	import type {TPlateType} from '~/types/plate/TPlateColor.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
 	const state = reactive({

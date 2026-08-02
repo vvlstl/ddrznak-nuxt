@@ -1,22 +1,20 @@
 <template>
-	<section id="process" class="process-steps reveal">
-		<div class="process-steps__container">
-			<header class="process-steps__header">
-				<div class="process-steps__intro">
-					<SectionHeader
-						eyebrow="Процесс"
-						title="От заявки до номера<br>на вашем автомобиле"
-						lead="Прозрачный и предсказуемый процесс. Каждый шаг подтверждается документально — от проверки данных до момента, когда номер устанавливается на ваш автомобиль."
+	<section class="process-steps">
+		<div class="container">
+			<div class="process-steps__container">
+				<SectionHeader
+					eyebrow="Процесс"
+					title="От заявки до номера<br>на вашем автомобиле"
+					lead="Прозрачный и предсказуемый процесс. Каждый шаг подтверждается документально — от проверки данных до момента, когда номер устанавливается на ваш автомобиль."
+				/>
+
+				<div class="process-steps__grid">
+					<ProcessStep
+						v-for="item in steps"
+						:key="item.id"
+						:item="item"
 					/>
 				</div>
-			</header>
-
-			<div class="process-steps__grid">
-				<ProcessStep
-					v-for="item in steps"
-					:key="item.id"
-					:item="item"
-				/>
 			</div>
 		</div>
 	</section>
@@ -24,7 +22,7 @@
 
 <script setup lang="ts">
 	import ProcessStep from '~/components/partials/process/ProcessStep.vue';
-	import type { TProcessStep } from '~/types/process/TProcessStep.ts';
+	import type {TProcessStep} from '~/types/process/TProcessStep.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
 	const steps: TProcessStep[] = [

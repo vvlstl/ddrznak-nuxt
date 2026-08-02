@@ -1,32 +1,28 @@
 <template>
-	<div class="page">
-		<TopStripe/>
-		<AppHeader/>
 		<main>
 			<PromoBlock/>
 			<TrustMarquee class="page__section"/>
-			<AdvantagesSection class="page__section" :items="advantages"/>
-			<WorksSlider class="page__section"/>
-			<PlateConstructor class="page__section"/>
-			<ProcessSteps class="page__section"/>
-			<FaqAccordion class="page__section"/>
+			<AdvantagesSection
+				id="advantages"
+				class="page__section reveal"
+				:items="advantages"
+			/>
+			<WorksSlider id="works" class="page__section reveal"/>
+			<PlateConstructor id="constructor" class="page__section reveal"/>
+			<ProcessSteps id="process" class="page__section reveal"/>
+			<FaqAccordion id="faq" class="page__section reveal"/>
 			<CtaSection class="page__section"/>
 		</main>
-		<AppFooter/>
-	</div>
 </template>
 
 <script setup lang="ts">
 	import PromoBlock from '~/components/sections/promo-block/PromoBlock.vue';
-	import TopStripe from '~/components/sections/top-stripe/TopStripe.vue';
-	import AppHeader from '~/components/sections/header/AppHeader.vue';
 	import TrustMarquee from '~/components/sections/trust-marquee/TrustMarquee.vue';
 	import WorksSlider from '~/components/sections/works-slider/WorksSlider.vue';
 	import PlateConstructor from '~/components/sections/constructor/PlateConstructor.vue';
 	import ProcessSteps from '~/components/sections/process/ProcessSteps.vue';
 	import FaqAccordion from '~/components/sections/faq/FaqAccordion.vue';
 	import CtaSection from '~/components/sections/cta/CtaSection.vue';
-	import AppFooter from '~/components/sections/footer/AppFooter.vue';
 	import type {TAdvantageCard} from '~/types/advantages/TAdvantageCard.ts';
 	import AdvantagesSection from "~/components/sections/advantages/AdvantagesSection.vue";
 

@@ -1,6 +1,10 @@
 @import "../../_var";
 
 .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m24);
+
     &__eyebrow {
         display: inline-flex;
         align-items: center;
@@ -9,7 +13,7 @@
         letter-spacing: var(--letter-spacing);
         text-transform: uppercase;
         color: @cBlue600;
-        margin-bottom: var(--m24);
+        margin-bottom: var(--m48);
 
         &::before {
             .pseudo(relative);
@@ -31,15 +35,17 @@
         font: 800 var(--fs48) / 1.05 @font;
         letter-spacing: var(--letter-spacing);
         color: @cNavy900;
-        margin-bottom: var(--m24);
     }
 
     &__lead {
         font: 400 var(--fs18) / 1.5 @font;
         color: @cGray700;
-        margin-bottom: var(--m48);
-        max-width: unit((600 / 18), em);
-        margin-left: auto;
-        margin-right: auto;
+        max-width: unit((600 / 18), em);;
+    }
+
+    &__info {
+        display: flex;
+        gap: var(--grid-gap);
+        justify-content: space-between;
     }
 }

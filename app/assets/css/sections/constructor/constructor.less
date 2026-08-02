@@ -1,10 +1,10 @@
 @import "../../_var";
 
 .constructor {
-    padding: var(--m64) var(--page-gutter);
     position: relative;
+    box-sizing: border-box;
+    padding-top: var(--m48);
     border-top: 1px solid @cGray300;
-    overflow: hidden;
 
     &::before {
         .pseudo();
@@ -18,54 +18,9 @@
     }
 
     &__container {
-        max-width: unit((1440 / 16), rem);
-        margin: 0 auto;
-        position: relative;
-    }
-
-    &__header {
-        max-width: unit((768 / 16), rem);
-        margin: 0 auto var(--m64);
-        text-align: center;
-    }
-
-    &__eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--m12);
-        font: 400 var(--fs14) / 1 @font;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: @cBlue600;
-
-        &::before {
-            content: '';
-            .size(unit((28 / 16), rem), 1px);
-            background: @cBlue600;
-        }
-
-        &::after {
-            content: '';
-            .size(unit((28 / 16), rem), 1px);
-            background: @cBlue600;
-        }
-    }
-
-    &__title {
-        font: 800 var(--fs48) / 1.05 @font;
-        letter-spacing: -0.02em;
-        color: @cNavy900;
-        margin-top: var(--m24);
-        margin-bottom: var(--m20);
-    }
-
-    &__title-accent {
-        color: @cBlue600;
-    }
-
-    &__lead {
-        font: 400 var(--fs18) / 1.5 @font;
-        color: @cGray700;
+        display: flex;
+        flex-direction: column;
+        gap: var(--m48);
     }
 
     &__grid {
@@ -88,8 +43,6 @@
 
     // Колонка превью
     &__preview {
-        position: sticky;
-        top: unit((112 / 16), rem);
         background: @cWhite;
         border: 1px solid @cGray300;
         border-radius: unit((12 / 16), rem);
@@ -119,7 +72,7 @@
 
     &__preview-label {
         font: 400 var(--fs14) / 1 @font;
-        letter-spacing: 0.15em;
+        letter-spacing: var(--letter-spacing);
         text-transform: uppercase;
         color: @cBlue600;
     }
@@ -165,7 +118,7 @@
     &__spec-label {
         font: 400 var(--fs12) / 1 @font;
         color: @cGray500;
-        letter-spacing: 0.1em;
+        letter-spacing: var(--letter-spacing);
         text-transform: uppercase;
         margin-bottom: var(--m4);
     }
@@ -200,7 +153,7 @@
     &__price-value {
         font: 800 var(--fs40) / 1 @font;
         color: @cNavy900;
-        letter-spacing: -0.02em;
+        letter-spacing: var(--letter-spacing);
     }
 
     &__price-currency {
@@ -226,27 +179,6 @@
         color: @cGray500;
         text-align: center;
         margin-top: var(--m12);
-    }
-
-    @media @mediaLg {
-        &__grid {
-            grid-template-columns: 1fr;
-        }
-
-        &__preview {
-            position: static;
-        }
-    }
-
-    @media @mediaMd {
-        &__controls,
-        &__preview {
-            padding: var(--m24);
-        }
-
-        &__title {
-            font-size: var(--fs40);
-        }
     }
 }
 
@@ -405,10 +337,9 @@
     color: @cNavy900;
     padding: var(--m14) var(--m10);
     text-align: center;
-    font-family: 'Oswald', @font;
     font-size: unit((30 / 16), rem);
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing);
     border-radius: unit((6 / 16), rem);
     text-transform: uppercase;
     width: 100%;
@@ -438,7 +369,6 @@
     padding: var(--m6) var(--m12);
     border-radius: unit((4 / 16), rem);
     border: 1px solid @cGray400;
-    font-family: 'Oswald', @font;
     font-size: var(--fs14);
     cursor: pointer;
     .transit(~'border-color, color, background-color');
