@@ -1,0 +1,26 @@
+@import "../../_var";
+
+/**
+ * Базовые стили слайдеров
+ */
+
+.slider {
+    &__picture {
+        .picture-fit(contain);
+    }
+
+    &__thumbnail {
+        .transit(opacity);
+        position: relative;
+        aspect-ratio: 1.5;
+
+        picture, img {
+            .cover();
+            object-fit: cover;
+        }
+
+        &--active {
+            opacity: .5;
+        }
+    }
+}
