@@ -34,8 +34,8 @@
 </template>
 
 <script setup lang="ts">
-	import PlateFrame from '~/components/ui/plate/PlateFrame.vue';
-	import PlatePreview from '~/components/ui/plate/PlatePreview.vue';
+	import PlateFrame from '~/components/partials/plate/PlateFrame.vue';
+	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
 	import type { TWorkCard } from '~/types/works/TWorkCard.ts';
 	import type { TPlateCombination } from '~/types/plate/TPlateColor.ts';
 

@@ -109,8 +109,8 @@
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
 	import RegionChips from '~/components/partials/constructor/RegionChips.vue';
 	import FrameSelector from '~/components/partials/constructor/FrameSelector.vue';
-	import PlateFrame from '~/components/ui/plate/PlateFrame.vue';
-	import PlatePreview from '~/components/ui/plate/PlatePreview.vue';
+	import PlateFrame from '~/components/partials/plate/PlateFrame.vue';
+	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
 	import type {TPlateType} from '~/types/plate/TPlateColor.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
