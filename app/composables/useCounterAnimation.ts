@@ -1,5 +1,3 @@
-import {type Ref, onMounted} from '#imports';
-
 export function useCounterAnimation(el: Ref<HTMLElement | null>) {
     onMounted(() => {
         if (!el.value) return;
