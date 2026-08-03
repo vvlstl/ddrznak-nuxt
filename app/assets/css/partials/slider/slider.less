@@ -9,6 +9,17 @@
         .picture-fit(contain);
     }
 
+    &__header {
+        display: flex;
+        gap: var(--grid-gap);
+        justify-content: space-between;
+        align-items: flex-end;
+
+        &:not(:last-child) {
+            margin-bottom: var(--m48);
+        }
+    }
+
     &__thumbnail {
         .transit(opacity);
         position: relative;

@@ -55,7 +55,9 @@ export default defineNuxtConfig({
     },
 
     css: [
-        '~/assets/css/style.less'
+        '~/assets/css/style.less',
+        'swiper/css',
+        'swiper/css/navigation',
     ],
 
     icon: {

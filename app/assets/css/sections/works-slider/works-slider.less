@@ -5,90 +5,22 @@
     box-sizing: border-box;
     padding-top: var(--m48);
     border-top: 1px solid @cGray300;
+    overflow: hidden;
 
-    &__header {
-        display: flex;
-        flex-direction: column;
-        gap: var(--m24);
-        margin-bottom: var(--m48);
+    &__swiper {
+        --slide-width: unit((400 / 16), rem);
+        --slider-gap: var(--m20);
+        --slider-overflow: visible;
+
+        margin-right: calc(-1 * var(--page-gutter));
+        margin-left: calc(-1 * var(--page-gutter));
+        padding: 0 var(--page-gutter);
     }
 
-    &__nav {
-        display: flex;
-        gap: var(--m12);
-    }
-
-    &__nav-btn {
-        .clear-btn();
-        .container(unit((48 / 16), rem));
-        border-radius: 50%;
-        border: 1px solid @cGray400;
-        color: @cNavy900;
-        .transit(~'border-color, color');
-
-        &:hover {
-            border-color: @cBlue600;
-            color: @cBlue600;
-        }
-    }
-
-    &__track {
-        display: flex;
-        gap: var(--m20);
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-        padding: var(--m20) var(--m4) var(--m32);
-        cursor: grab;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        &:active {
-            cursor: grabbing;
-        }
-    }
-
-    &__card {
-        flex: 0 0 unit((380 / 16), rem);
-        scroll-snap-align: start;
-    }
-
-    &__footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--m16);
-        margin-top: var(--m32);
-        padding-top: var(--m24);
-        border-top: 1px solid @cGray300;
-    }
-
-    &__stat {
-        font: 400 var(--fs14) / 1.4 @font;
-        color: @cGray500;
-    }
-
-    &__stat-value {
-        color: @cBlue600;
-        font-weight: 500;
-    }
-
-    &__catalog {
-        .clear-link(@cNavy900);
-        font: 500 var(--fs14) / 1 @font;
-        display: inline-flex;
-        align-items: center;
-        gap: var(--m8);
-        .transit(color);
-
-        &:hover {
-            color: @cBlue600;
-        }
-
-        svg {
-            font-size: var(--fs12);
-        }
+    // Swiper контейнер — дочерний элемент .works-slider__swiper
+    .swiper {
+        --slide-width: unit((400 / 16), rem);
+        --slider-gap: var(--m20);
+        --slider-overflow: visible;
     }
 }

@@ -1,56 +1,29 @@
 <template>
-	<section class="works-slider">
+	<div class="works-slider">
 		<div class="container">
-			<div class="works-slider__container">
-				<div class="works-slider__header">
-					<SectionHeader
-						eyebrow="Выполненные работы"
-						title="Номера, которые мы<br>произвели за последний месяц"
-					/>
-					<div class="works-slider__nav">
-						<button
-							type="button"
-							class="works-slider__nav-btn"
-							aria-label="Предыдущие работы"
-							@click="scrollBy(-1)"
-						>
-							<Icon name="tabler:arrow-left"/>
-						</button>
-						<button
-							type="button"
-							class="works-slider__nav-btn"
-							aria-label="Следующие работы"
-							@click="scrollBy(1)"
-						>
-							<Icon name="tabler:arrow-right"/>
-						</button>
-					</div>
-				</div>
-
-				<div
-					ref="trackRef"
-					class="works-slider__track custom-scrollbar--hidden"
-					@mousedown="onDragStart"
-					@touchstart.passive="onDragStart"
-				>
-					<WorkCard
-						v-for="item in items"
-						:key="item.id"
-						:item="item"
-						class="works-slider__card"
-					/>
-				</div>
-			</div>
+			<SliderTemplate
+				:items="worksItems"
+				blockName="Выполненные работы"
+				title="Номера, которые мы<br>произвели за последний месяц"
+				slider-name="works-slider"
+				use-click-navigation
+				ref="swiperRef"
+			>
+				<template #header></template>
+				<template #slide="{ item }">
+					<WorkCard :item="item"/>
+				</template>
+			</SliderTemplate>
 		</div>
-	</section>
+	</div>
 </template>
 
 <script setup lang="ts">
-	import WorkCard from '~/components/partials/works-slider/WorkCard.vue';
+	import SliderTemplate from "~/components/slider/SliderTemplate.vue";
+	import WorkCard from "~/components/partials/works-slider/WorkCard.vue";
 	import type {TWorkCard} from '~/types/works/TWorkCard.ts';
-	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
-	const items: TWorkCard[] = [
+	const worksItems: TWorkCard[] = [
 		{
 			id: 1,
 			num: 'А 777 АА',
@@ -162,64 +135,4 @@
 			n: '12 477'
 		},
 	];
-
-	const trackRef = ref<HTMLElement | null>(null);
-	const CARD_WIDTH = 400;
-
-	function scrollBy(direction: 1 | -1) {
-		const el = trackRef.value;
-		if (!el) return;
-		el.scrollBy({left: direction * CARD_WIDTH, behavior: 'smooth'});
-	}
-
-	// Drag-прокрутка
-	const dragState = reactive({
-		active: false,
-		startX: 0,
-		scrollLeft: 0,
-	});
-
-	function getPageX(e: MouseEvent | TouchEvent): number {
-		if (window.TouchEvent && e instanceof TouchEvent) {
-			return e.touches[0]?.pageX ?? 0;
-		}
-		return (e as MouseEvent).pageX;
-	}
-
-	function onDragStart(e: MouseEvent | TouchEvent) {
-		const el = trackRef.value;
-		if (!el) return;
-		dragState.active = true;
-		dragState.startX = getPageX(e) - el.offsetLeft;
-		dragState.scrollLeft = el.scrollLeft;
-	}
-
-	function onDragMove(e: MouseEvent | TouchEvent) {
-		const el = trackRef.value;
-		if (!el || !dragState.active) return;
-		e.preventDefault?.();
-		const x = getPageX(e) - el.offsetLeft;
-		el.scrollLeft = dragState.scrollLeft - (x - dragState.startX) * 1.5;
-	}
-
-	function onDragEnd() {
-		if (dragState.active) {
-			dragState.active = false;
-		}
-	}
-
-	onMounted(() => {
-		window.addEventListener('mousemove', onDragMove);
-		window.addEventListener('mouseup', onDragEnd);
-		window.addEventListener('touchmove', onDragMove, {passive: false});
-		window.addEventListener('touchend', onDragEnd);
-		console.debug('WorksSlider:mount');
-	});
-
-	onUnmounted(() => {
-		window.removeEventListener('mousemove', onDragMove);
-		window.removeEventListener('mouseup', onDragEnd);
-		window.removeEventListener('touchmove', onDragMove);
-		window.removeEventListener('touchend', onDragEnd);
-	});
 </script>
