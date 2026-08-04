@@ -4,7 +4,7 @@
 			<label class="constructor-field__label">Тип пластины</label>
 			<span class="constructor-field__step">Шаг 1 / 4</span>
 		</div>
-		<div class="constructor-field__grid constructor-field__grid--4">
+		<div class="constructor-field__grid constructor-field__grid--3">
 			<button
 				v-for="option in options"
 				:key="option.value"
@@ -42,10 +42,42 @@
 	const props = defineProps<TComponentProps>();
 
 	const options: TOption[] = [
-		{ value: 'auto', label: 'Легковой', icon: 'tabler:car', price: 4900 },
-		{ value: 'moto', label: 'Мото', icon: 'tabler:motorbike', price: 5400 },
-		{ value: 'trailer', label: 'Прицеп', icon: 'tabler:truck', price: 5400 },
-		{ value: 'tractor', label: 'Трактор', icon: 'tabler:tractor', price: 5900 },
+		{
+			value: 'auto',
+			label: 'Легковой',
+			icon: 'tabler:car',
+			price: 4900,
+		},
+		{
+			value: 'moto',
+			label: 'Мотоцикл',
+			icon: 'tabler:motorbike',
+			price: 5400,
+		},
+		{
+			value: 'trailer',
+			label: 'Прицеп',
+			icon: 'tabler:truck',
+			price: 5400,
+		},
+		{
+			value: 'tractor',
+			label: 'Трактор',
+			icon: 'tabler:tractor',
+			price: 5900,
+		},
+		{
+			value: 'moped',
+			label: 'Мопед',
+			icon: 'tabler:scooter',
+			price: 4900,
+		},
+		{
+			value: 'bicycle',
+			label: 'Велосипед',
+			icon: 'tabler:bike',
+			price: 2900,
+		},
 	];
 
 	function onSelect(option: TOption) {

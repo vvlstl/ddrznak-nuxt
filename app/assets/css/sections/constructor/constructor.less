@@ -9,11 +9,9 @@
     &::before {
         .pseudo();
         .cover();
-        background: radial-gradient(
-            ellipse 80% 60% at 50% 100%,
-            fade(@cBlue600, 8),
-            transparent 70%
-        );
+        background: radial-gradient(ellipse 80% 60% at 50% 100%,
+        fade(@cBlue600, 8),
+        transparent 70%);
         pointer-events: none;
     }
 
@@ -53,11 +51,9 @@
         &::before {
             .pseudo();
             .cover();
-            background: radial-gradient(
-                ellipse at top,
-                fade(@cBlue600, 10),
-                transparent 60%
-            );
+            background: radial-gradient(ellipse at top,
+            fade(@cBlue600, 10),
+            transparent 60%);
             pointer-events: none;
         }
     }
@@ -179,211 +175,5 @@
         color: @cGray500;
         text-align: center;
         margin-top: var(--m12);
-    }
-}
-
-// ===== ПОЛЕ КОНСТРУКТОРА =====
-.constructor-field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--m16);
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    &__label-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    &__label {
-        font: 600 var(--fs14) / 1 @font;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: @cNavy900;
-    }
-
-    &__step {
-        font: 400 var(--fs12) / 1 @font;
-        color: @cGray500;
-        letter-spacing: 0.1em;
-        font-variant-numeric: tabular-nums;
-    }
-
-    &__hint {
-        font: 400 var(--fs12) / 1.4 @font;
-        color: @cGray500;
-    }
-
-    &__grid {
-        display: grid;
-        gap: var(--m12);
-
-        &--3 {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        &--4 {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-
-        &--5 {
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-        }
-
-        @media @mediaSm {
-            &--4 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            &--5 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-    }
-}
-
-// ===== КНОПКИ-СЕЛЕКТОРЫ =====
-.selector-btn {
-    .clear-btn();
-    border: 1px solid @cGray400;
-    padding: var(--m12) var(--m8);
-    border-radius: unit((6 / 16), rem);
-    text-align: center;
-    background: @cWhite100;
-    font: 500 var(--fs14) / 1.2 @font;
-    color: @cNavy900;
-    .transit(~'border-color, color, background-color');
-
-    &:hover {
-        border-color: @cBlue700;
-        color: @cBlue500;
-    }
-
-    &--active {
-        border-color: @cBlue600;
-        background: linear-gradient(
-            180deg,
-            fade(@cBlue600, 12),
-            fade(@cBlue600, 4)
-        );
-        color: @cBlue600;
-        box-shadow: 0 0 0 1px fade(@cBlue600, 20) inset;
-    }
-
-    &__icon {
-        display: block;
-        margin: 0 auto var(--m8);
-        font-size: var(--fs20);
-    }
-
-    &__swatch {
-        display: inline-block;
-        .size(unit((20 / 16), rem), unit((12 / 16), rem));
-        border-radius: 2px;
-        margin-bottom: var(--m4);
-        vertical-align: middle;
-
-        &--white {
-            background: @cWhite;
-            border: 1px solid fade(@cBlack, 40);
-        }
-
-        &--yellow {
-            background: #f5c400;
-            border: 1px solid fade(@cBlack, 40);
-        }
-
-        &--black {
-            background: @cNavy950;
-            border: 1px solid fade(@cWhite, 30);
-        }
-
-        &--frame-black {
-            background: linear-gradient(135deg, @cGray900, @cNavy950);
-        }
-
-        &--frame-chrome {
-            background: linear-gradient(135deg, #e8e8ec, #8a8a90, #d8d8dc);
-        }
-
-        &--frame-carbon {
-            background: repeating-linear-gradient(
-                45deg,
-                @cGray900 0 2px,
-                @cNavy950 2px 4px
-            );
-        }
-
-        &--frame-gold {
-            background: linear-gradient(135deg, #ecc798, #d4a574, #8a6a3f);
-        }
-    }
-}
-
-// ===== ВВОД КОМБИНАЦИИ =====
-.plate-input-group {
-    display: grid;
-    grid-template-columns: 2fr 4fr 3fr 3fr;
-    gap: var(--m12);
-    align-items: center;
-}
-
-.plate-input {
-    .clear-input();
-    background: @cWhite100;
-    border: 1px solid @cGray400;
-    color: @cNavy900;
-    padding: var(--m14) var(--m10);
-    text-align: center;
-    font-size: unit((30 / 16), rem);
-    font-weight: 700;
-    letter-spacing: var(--letter-spacing);
-    border-radius: unit((6 / 16), rem);
-    text-transform: uppercase;
-    width: 100%;
-    .transit(~'border-color, background-color, box-shadow');
-
-    &:focus {
-        outline: none;
-        border-color: @cBlue600;
-        background: @cWhite;
-        box-shadow: 0 0 0 3px fade(@cBlue600, 12);
-    }
-
-    &::placeholder {
-        color: @cGray400;
-    }
-}
-
-// ===== РЕГИОНЫ =====
-.region-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--m8);
-}
-
-.region-chip {
-    .clear-btn();
-    padding: var(--m6) var(--m12);
-    border-radius: unit((4 / 16), rem);
-    border: 1px solid @cGray400;
-    font-size: var(--fs14);
-    cursor: pointer;
-    .transit(~'border-color, color, background-color');
-    background: fade(@cWhite, 40);
-    color: @cNavy900;
-
-    &:hover {
-        border-color: @cBlue600;
-        color: @cBlue600;
-    }
-
-    &--active {
-        border-color: @cBlue600;
-        background: @cBlue600;
-        color: @cWhite;
-        font-weight: 600;
     }
 }

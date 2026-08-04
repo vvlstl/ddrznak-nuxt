@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-	import type { TPlateColor } from '~/types/plate/TPlateColor.ts';
+	import type {TPlateColor} from '~/types/plate/TPlateColor.ts';
 
 	type TOption = {
 		value: TPlateColor;
@@ -36,13 +36,14 @@
 	defineProps<TComponentProps>();
 
 	const options: TOption[] = [
-		{ value: 'white', label: 'Белый' },
-		{ value: 'yellow', label: 'Жёлтый' },
-		{ value: 'black', label: 'Чёрный' },
+		{value: 'white', label: 'Белый'},
+		{value: 'blue', label: 'Синий'},
+		{value: 'black', label: 'Чёрный'},
+		{value: 'yellow', label: 'Жёлтый'},
+		{value: 'red', label: 'Красный'},
 	];
 
 	function onSelect(option: TOption) {
 		emit('update:modelValue', option.value);
-		console.debug('PlateColorSelector:select', option.value);
 	}
 </script>

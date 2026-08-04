@@ -18,10 +18,6 @@
 						<PlateColorSelector v-model="state.color"/>
 						<PlateInputGroup v-model="state.combination"/>
 						<RegionChips v-model="state.combination.region"/>
-						<FrameSelector
-							v-model="state.frame"
-							@update:priceAdd="onFramePriceAdd"
-						/>
 					</div>
 
 					<!-- Превью -->
@@ -45,25 +41,6 @@
 							</PlateFrame>
 						</div>
 
-						<div class="constructor__specs">
-							<div class="constructor__spec">
-								<div class="constructor__spec-label">Размер</div>
-								<div class="constructor__spec-value">{{ sizeByType }}</div>
-							</div>
-							<div class="constructor__spec">
-								<div class="constructor__spec-label">Материал</div>
-								<div class="constructor__spec-value">Al 1.0 + 3M™</div>
-							</div>
-							<div class="constructor__spec">
-								<div class="constructor__spec-label">Срок</div>
-								<div class="constructor__spec-value">24 часа</div>
-							</div>
-							<div class="constructor__spec">
-								<div class="constructor__spec-label">Гарантия</div>
-								<div class="constructor__spec-value">2 года</div>
-							</div>
-						</div>
-
 						<div class="constructor__price">
 							<div class="constructor__price-row">
 								<div>
@@ -72,10 +49,13 @@
 										{{ formattedTotal }} <span class="constructor__price-currency">₽</span>
 									</div>
 								</div>
-								<div class="constructor__price-meta">
-									<div>Производство 24ч</div>
-									<div>Доставка бесплатно</div>
+
+
+								<div class="constructor__spec">
+									<div class="constructor__spec-label">Размер</div>
+									<div class="constructor__spec-value">{{ sizeByType }}</div>
 								</div>
+
 							</div>
 							<button
 								type="button"
@@ -108,7 +88,6 @@
 	import PlateColorSelector from '~/components/partials/constructor/PlateColorSelector.vue';
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
 	import RegionChips from '~/components/partials/constructor/RegionChips.vue';
-	import FrameSelector from '~/components/partials/constructor/FrameSelector.vue';
 	import PlateFrame from '~/components/partials/plate/PlateFrame.vue';
 	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
@@ -118,7 +97,6 @@
 	const state = reactive({
 		type: 'auto' as TPlateType,
 		color: 'white' as 'white' | 'yellow' | 'black',
-		frame: 'none' as 'none' | 'black' | 'chrome' | 'carbon' | 'gold',
 		combination: {
 			letterFirst: 'А',
 			digits: '777',
@@ -131,9 +109,11 @@
 
 	const SIZE_BY_TYPE: Record<TPlateType, string> = {
 		auto: '520 × 112 мм',
-		moto: '285 × 184 мм',
-		trailer: '285 × 184 мм',
-		tractor: '285 × 205 мм',
+		moto: '245 × 160 мм',
+		trailer: '520 × 112 мм',
+		tractor: '288 × 206 мм',
+		moped: '190 × 145 мм',
+		bicycle: '150 × 100 мм',
 	};
 
 	const sizeByType = computed(() => SIZE_BY_TYPE[state.type]);

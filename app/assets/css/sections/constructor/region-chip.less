@@ -1,0 +1,25 @@
+@import "../../_var";
+
+.region-chip {
+    .clear-btn();
+    padding: var(--m6) var(--m12);
+    border-radius: unit((4 / 16), rem);
+    border: 1px solid @cGray400;
+    font-size: var(--fs14);
+    cursor: pointer;
+    .transit(~'border-color, color, background-color');
+    background: fade(@cWhite, 40);
+    color: @cNavy900;
+
+    &:hover {
+        border-color: @cBlue600;
+        color: @cBlue600;
+    }
+
+    &--active {
+        border-color: @cBlue600;
+        background: @cBlue600;
+        color: @cWhite;
+        font-weight: 600;
+    }
+}

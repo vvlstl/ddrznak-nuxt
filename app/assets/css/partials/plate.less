@@ -68,11 +68,49 @@
         color: @cNavy900;
     }
 
-    // Премиум-серии
+    // Желтые (Общественный транспорт / Такси) — ваш вариант, он отличный
     &--yellow {
         background: linear-gradient(180deg, #ffe14d 0%, #f5c400 50%, #d9a700 100%);
+
+        .plate__char,
+        .plate__rus-text {
+            color: #000000;
+        }
+
+        .plate__divider {
+            background: #000000;
+        }
     }
 
+    // Синие (МВД / Полиция) — насыщенный сигнальный синий
+    &--blue {
+        background: linear-gradient(180deg, #1e52ba 0%, #0033a0 50%, #002270 100%);
+
+        .plate__char,
+        .plate__rus-text {
+            color: @cWhite;
+        }
+
+        .plate__divider {
+            background: @cWhite;
+        }
+    }
+
+    // Красные (Дипломатические) — глубокий красный, не уходящий в розовый или оранжевый
+    &--red {
+        background: linear-gradient(180deg, #e52d2d 0%, #c41212 50%, #990000 100%);
+
+        .plate__char,
+        .plate__rus-text {
+            color: @cWhite;
+        }
+
+        .plate__divider {
+            background: @cWhite;
+        }
+    }
+
+    // Черные (Военные) — ваш вариант, дает правильный металлический объем
     &--black {
         background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
 

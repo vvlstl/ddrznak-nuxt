@@ -1,0 +1,84 @@
+@import "../../_var";
+
+.selector-btn {
+    .clear-btn();
+    border: 1px solid @cGray400;
+    padding: var(--m12) var(--m8);
+    border-radius: unit((6 / 16), rem);
+    text-align: center;
+    background: @cWhite100;
+    font: 500 var(--fs14) / 1.2 @font;
+    color: @cNavy900;
+    .transit(~'border-color, color, background-color');
+
+    &:hover {
+        border-color: @cBlue700;
+        color: @cBlue500;
+    }
+
+    &--active {
+        border-color: @cBlue600;
+        background: linear-gradient(180deg,
+        fade(@cBlue600, 12),
+        fade(@cBlue600, 4));
+        color: @cBlue600;
+        box-shadow: 0 0 0 1px fade(@cBlue600, 20) inset;
+    }
+
+    &__icon {
+        display: block;
+        margin: 0 auto var(--m8);
+        font-size: var(--fs20);
+    }
+
+    &__swatch {
+        display: inline-block;
+        .size(unit((20 / 16), rem), unit((12 / 16), rem));
+        border-radius: 2px;
+        margin-bottom: var(--m4);
+        vertical-align: middle;
+
+        &--white {
+            background: @cWhite;
+            border: 1px solid fade(@cBlack, 40);
+        }
+
+        &--yellow {
+            background: #f5c400;
+            border: 1px solid fade(@cBlack, 40);
+        }
+
+        &--black {
+            background: #1a1a1a;
+            border: 1px solid fade(@cWhite, 30);
+        }
+
+        &--blue {
+            background: #0033a0;
+            border: 1px solid fade(@cWhite, 30);
+        }
+
+        &--red {
+            background: #c41212;
+            border: 1px solid fade(@cWhite, 30);
+        }
+
+        &--frame-black {
+            background: linear-gradient(135deg, @cGray900, @cNavy950);
+        }
+
+        &--frame-chrome {
+            background: linear-gradient(135deg, #e8e8ec, #8a8a90, #d8d8dc);
+        }
+
+        &--frame-carbon {
+            background: repeating-linear-gradient(45deg,
+            @cGray900 0 2px,
+            @cNavy950 2px 4px);
+        }
+
+        &--frame-gold {
+            background: linear-gradient(135deg, #ecc798, #d4a574, #8a6a3f);
+        }
+    }
+}
