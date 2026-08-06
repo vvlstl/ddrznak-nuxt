@@ -1,0 +1,24 @@
+@import "../../_var";
+
+.spoiler {
+    .transit(height, var(--spoiler-speed, @transitTime), var(--spoiler-easing, cubic-bezier(0.61, 1, 0.88, 1)));
+    height: var(--content-height, 0rem);
+    transition-delay: var(--delay, 0ms);
+    will-change: height;
+    overflow: hidden;
+
+    &__content {
+        .transit(opacity, var(--spoiler-speed, @transitTime), var(--spoiler-easing, cubic-bezier(0.61, 1, 0.88, 1)));
+        opacity: var(--content-start-opacity, 0);
+        padding: var(--content-padding, 0);
+    }
+
+    &--open {
+        .spoiler {
+            &__content {
+                opacity: 1;
+            }
+        }
+    }
+}
+

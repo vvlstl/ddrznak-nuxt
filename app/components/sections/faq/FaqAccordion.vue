@@ -41,7 +41,6 @@
 							:key="item.id"
 							:item="item"
 							:is-open="openId === item.id"
-							@toggle="onToggle"
 						/>
 					</div>
 				</div>
@@ -51,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-	import FaqItem from '~/components/partials/faq/FaqItem.vue';
+	import FaqItem from '~/components/sections/faq/FaqItem.vue';
 	import type {TFaqItem} from '~/types/faq/TFaqItem.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
@@ -89,8 +88,4 @@
 	];
 
 	const openId = ref<number>(1);
-
-	function onToggle(id: number) {
-		openId.value = openId.value === id ? 0 : id;
-	}
 </script>

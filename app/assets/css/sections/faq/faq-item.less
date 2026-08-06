@@ -31,30 +31,15 @@
         }
     }
 
-    &__content {
-        max-height: 0;
-        overflow: hidden;
-        .transit(max-height, 0.45s, ease);
-
-        &-inner {
-            font: 400 var(--fs16) / 1.6 @font;
-            color: @cGray700;
-            padding-bottom: 0;
-        }
+    &__content-inner {
+        font: 400 var(--fs16) / 1.6 @font;
+        color: @cGray700;
     }
 
     &--open {
         .faq-item__icon {
             transform: rotate(45deg);
             color: @cBlue600;
-        }
-
-        .faq-item__content {
-            max-height: unit((400 / 16), rem);
-
-            &-inner {
-                padding-bottom: var(--m24);
-            }
         }
     }
 }

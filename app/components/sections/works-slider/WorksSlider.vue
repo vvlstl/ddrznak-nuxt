@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 	import SliderTemplate from "~/components/slider/SliderTemplate.vue";
-	import WorkCard from "~/components/partials/works-slider/WorkCard.vue";
+	import WorkCard from "~/components/sections/works-slider/WorkCard.vue";
 	import type {TWorkCard} from '~/types/works/TWorkCard.ts';
 
 	const worksItems: TWorkCard[] = [
