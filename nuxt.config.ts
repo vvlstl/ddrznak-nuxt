@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     },
 
     app: {
-        baseURL: '/'
+        baseURL: '/ddrznak-nuxt/'
     },
 
     nitro: {
