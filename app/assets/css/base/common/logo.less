@@ -1,5 +1,61 @@
 @import "../../_var";
 
 .logo {
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--m8);
+    align-items: center;
+    user-select: none;
 
+    &__icon {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1450 / 248;
+    }
+
+    &__wordmark {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    &__meta {
+        display: flex;
+        flex-direction: column;
+        gap: var(--m2);
+        align-items: center;
+    }
+
+    &__brand {
+        font: 700 var(--fs16) / 1 @font;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    &__tagline {
+        display: flex;
+        align-items: center;
+        gap: var(--m8);
+        font: 500 var(--fs8) / 1 @font;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: @cBlue600;
+    }
+
+    &__tagline-line {
+        display: block;
+        width: unit((20 / 16), rem);
+        height: 1px;
+        background: @cBlue600;
+        flex-shrink: 0;
+    }
+
+    @media @mediaLg {
+        &__icon{
+            max-height: unit((24 / 16), rem);
+        }
+        &__meta {
+            display: none;
+        }
+    }
 }
