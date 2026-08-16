@@ -13,6 +13,7 @@
 				<SectionHeader
 					:title="title"
 					:eyebrow="blockName"
+					theme="w-100"
 				/>
 
 				<SliderArrows

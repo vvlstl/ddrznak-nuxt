@@ -4,12 +4,13 @@
 			<div class="advantages-section__content">
 				<SectionHeader
 					eyebrow="Преимущества"
-					title="Почему профессионалы<br>выбирают нас"
+					title="Почему профессионалы выбирают нас"
 					lead="Мы&nbsp;— крупнейший официальный производитель дубликатов государственных регистрационных знаков в&nbsp;России.
 					Сочетаем банковскую точность процессов с&nbsp;премиальным подходом к&nbsp;каждому клиенту."
 				/>
-				<div class="advantages-section__grid">
+				<div class="advantages-section__grid custom-scrollbar custom-scrollbar--hidden">
 					<AdvantageGridCard
+						class="advantages-section__item"
 						v-for="item in items"
 						:key="item.id"
 						:item="item"

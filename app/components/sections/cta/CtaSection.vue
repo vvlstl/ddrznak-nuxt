@@ -11,11 +11,11 @@
 				Сборка номера в&nbsp;конструкторе занимает меньше минуты. Готовый проект можно сразу отправить в&nbsp;производство&nbsp;— мы&nbsp;изготовим за&nbsp;24&nbsp;часа.
 			</p>
 			<div class="cta-section__actions">
-				<a href="#constructor" class="btn btn--primary btn--md">
+				<a href="#constructor" class="btn btn--primary">
 					<Icon name="tabler:wand"/>
 					Открыть конструктор
 				</a>
-				<a href="tel:88002001234" class="btn btn--outline btn--md">
+				<a href="tel:88002001234" class="btn btn--outline">
 					<Icon name="tabler:phone"/>
 					Заказать звонок
 				</a>

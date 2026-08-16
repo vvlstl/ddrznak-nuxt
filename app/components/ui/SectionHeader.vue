@@ -1,5 +1,8 @@
 <template>
-	<div class="section-header">
+	<div
+		class="section-header"
+		:class="{[`section-header--${theme}`]: theme}"
+	>
 		<div class="section-header__info">
 			<div class="section-header__title-container">
 				<div v-if="eyebrow" class="section-header__eyebrow">
@@ -22,6 +25,7 @@
 		eyebrow?: string;
 		title?: string;
 		lead?: string;
+		theme?: string;
 	}
 
 	defineProps<TComponentProps>();
