@@ -3,119 +3,85 @@
 .advantage-grid-card {
     background: @cWhite;
     border: 1px solid @cNavy800;
-    border-radius: 8px;
-    padding: 32px 24px;
-    transition: all 0.3s ease;
-
-    &:hover {
-        border-color: @cBlue600;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        transform: translateY(-2px);
-    }
+    border-radius: var(--br8);
+    padding: var(--m32);
 
     &__header {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 12px;
-        margin-bottom: 20px;
-        min-height: 48px;
+        gap: var(--m12);
+        margin-bottom: var(--m20);
     }
 
     &__icon {
-        flex-shrink: 0;
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        --size-container: unit((48 / 16), rem);
+        --size-icon: unit((24 / 16), rem);
+        .container(var(--size-container));
         background: @cWhite150;
-        border-radius: 8px;
+        border-radius: var(--br8);
         color: @cBlue600;
-        font-size: 24px;
+
+        svg, span {
+            .size(var(--size-icon));
+        }
     }
 
     &__index {
         flex-shrink: 0;
-        font-size: 48px;
-        font-weight: 700;
+        font: 700 var(--fs48) / 1 @font;
         color: @cBlue300;
-        line-height: 1;
     }
 
     &__title {
-        font-size: 18px;
-        font-weight: 600;
+        font: 600 var(--fs18) / 1.2 @font;
         color: @cNavy900;
-        margin-bottom: 12px;
-        line-height: 1.3;
+        margin-bottom: var(--m12);
     }
 
     &__description {
-        font-size: 15px;
-        line-height: 1.6;
+        font: 400 var(--fs16) / 1.6 @font;
         color: @cNavy700;
     }
-}
 
-.advantage-grid-card--grid {
-    display: flex;
-    flex-direction: column;
-}
-
-@media (max-width: 768px) {
-    .advantage-grid-card {
-        padding: 24px 20px;
-
-        &__header {
-            min-height: 42px;
-        }
+    @media @mediaMd {
+        padding: var(--m20);
 
         &__icon {
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
+            --size-container: unit((40 / 16), rem);
+            --size-icon: unit((20 / 16), rem);
         }
 
         &__index {
-            font-size: 40px;
+            font-size: var(--fs40);
         }
 
         &__title {
-            font-size: 16px;
+            font-size: var(--fs16);
         }
 
         &__description {
-            font-size: 14px;
+            font-size: var(--fs14);
         }
     }
-}
 
-@media (max-width: 480px) {
-    .advantage-grid-card {
-        padding: 20px 16px;
-
+    @media @mediaSm {
         &__header {
-            gap: 10px;
-            margin-bottom: 16px;
+            gap: var(--m10);
+            margin-bottom: var(--m16);
         }
 
         &__icon {
-            width: 36px;
-            height: 36px;
-            font-size: 18px;
+            --size-container: unit((36 / 16), rem);
+            --size-icon: unit((18 / 16), rem);
         }
 
         &__index {
-            font-size: 32px;
-        }
-
-        &__title {
-            font-size: 15px;
+            font-size: var(--fs32);
         }
 
         &__description {
-            font-size: 13px;
+            font-size: var(--fs12);
         }
     }
 }

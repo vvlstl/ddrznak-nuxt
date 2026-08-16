@@ -16,4 +16,23 @@
         gap: var(--m24);
         margin: 0 auto;
     }
+
+    @media @mediaMd {
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--m16);
+        }
+    }
+
+    @media @mediaSm {
+        &__grid {
+            display: flex;
+            overflow: auto;
+        }
+
+        &__item {
+            flex-shrink: 0;
+            max-width: unit((220 / 16), rem);
+        }
+    }
 }

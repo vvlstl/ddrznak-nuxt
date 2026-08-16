@@ -1,15 +1,15 @@
 @import "../../_var";
 
 .app-header {
+    .transit(~'background-color, border-color, backdrop-filter');
     position: sticky;
     top: 0;
-    z-index: var(--headerZIndex);
-    .transit(~'background-color, border-color, backdrop-filter');
+    box-sizing: border-box;
+    padding: var(--m20) 0;
+    background-color: color-mix(in oklab, @cWhite 80%, transparent);
+    z-index: @headerZIndex;
 
     &__container {
-        max-width: unit((1440 / 16), rem);
-        margin: 0 auto;
-        padding: var(--m20) var(--page-gutter);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -113,13 +113,8 @@
 
     // Адаптив
     @media @mediaLg {
+        padding: var(--m8) 0;
         &__nav {
-            display: none;
-        }
-    }
-
-    @media @mediaMd {
-        &__phone {
             display: none;
         }
     }

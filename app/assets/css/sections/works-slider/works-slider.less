@@ -16,4 +16,11 @@
         margin-left: calc(-1 * var(--page-gutter));
         padding: 0 var(--page-gutter);
     }
+
+    @media @mediaSm {
+        &__swiper {
+            --slide-width: unit((280 / 16), rem);
+            --slider-gap: var(--grid-gap);
+        }
+    }
 }
