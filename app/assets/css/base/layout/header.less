@@ -2,21 +2,20 @@
 
 .header {
     .transit(~'background-color, box-shadow, backdrop-filter');
+    .blur(1.25rem);
     position: sticky;
     top: 0;
+    height: var(--default-header-height);
     box-sizing: border-box;
-    padding: var(--m20) 0;
+    padding: var(--m16) 0;
     background-color: color-mix(in oklab, @cWhite 80%, transparent);
+    overflow: hidden;
     z-index: @headerZIndex;
 
     &__container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-
-    &__logo {
-        .clear-link();
     }
 
     &__nav {
@@ -27,13 +26,7 @@
     }
 
     &__nav-link {
-        .clear-link(@cNavy900);
         font: 500 var(--fs14) / 1 @font;
-        .transit(color);
-
-        &:hover {
-            color: @cBlue600;
-        }
     }
 
     &__actions {
@@ -43,8 +36,11 @@
     }
 
     &--fixed {
-        .blur(1.25rem);
         box-shadow: 0 var(--m4) var(--m4) fade(@cNavy950, 8);
+    }
+
+    &--menu-open {
+        height: 100dvh;
     }
 
     @media @mediaMoreLg {
@@ -59,6 +55,16 @@
 
         &__login-btn,
         &__nav {
+            display: none;
+        }
+
+        &__actions {
+            gap: var(--m4);
+        }
+    }
+
+    @media @mediaSm {
+        &__favourites-btn {
             display: none;
         }
     }

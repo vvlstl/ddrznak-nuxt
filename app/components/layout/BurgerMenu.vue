@@ -1,45 +1,27 @@
 <template>
 	<div class="burger-menu">
-		<nav class="burger-menu__nav">
-			<CyberBtn
-				class="burger-menu__btn"
-				v-for="(item, index) in menu"
-				:isLink="true"
-				:href="item.url"
-				:key="index"
-				:label="item.text"
-				theme="grey"
-				@click.prevent="onClick(item.url)"
-			>
-			</CyberBtn>
-			<CyberBtn
-				class="burger-menu__btn"
-				theme="grey"
-				:label="t('header.support')"
-			>
-			</CyberBtn>
-			<CyberBtn
-				class="burger-menu__btn"
-				theme="grey"
-				:label="t('header.login')"
-			>
-			</CyberBtn>
+		<nav class="burger-menu__nav-container">
+			<ul class="burger-menu__nav">
+				<li class="burger-menu__item">
+					<a class="link burger-menu__nav-link">Избранное</a>
+				</li>
+				<li class="burger-menu__item" v-for="link in menu" :key="link.url">
+					<a :href="link.url" class="link burger-menu__nav-link">{{ link.text }}</a>
+				</li>
+			</ul>
 		</nav>
 	</div>
 </template>
 
 <script setup lang="ts">
 
-	import type {TLink} from "~/types/TLink";
-	import CyberBtn from "~/components/ui/CyberBtn.vue";
+	import type {TLink} from "~/types/TLink.ts";
 
 	type TComponentProps = {
 		menu: TLink[];
 	};
 
 	defineProps<TComponentProps>();
-
-	const {t} = useI18n()
 
 	const emit = defineEmits<{
 		close: [];

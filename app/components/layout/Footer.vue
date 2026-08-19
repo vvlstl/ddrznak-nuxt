@@ -1,24 +1,24 @@
 <template>
-	<footer class="app-footer">
-		<div class="app-footer__container">
-			<div class="app-footer__top">
-				<div class="app-footer__brand">
-					<NuxtLink to="/" class="app-footer__logo">
-						<span class="app-footer__logo-icon">Г</span>
-						<span class="app-footer__logo-text">
-							<span class="app-footer__logo-name">ГОСНОМЕР<span class="app-footer__logo-dot">.</span>ПРЕМИУМ</span>
-							<span class="app-footer__logo-sub">DUBLIKAT • EST. 2012</span>
+	<footer class="footer">
+		<div class="footer__container">
+			<div class="footer__top">
+				<div class="footer__brand">
+					<NuxtLink to="/public" class="footer__logo">
+						<span class="footer__logo-icon">Г</span>
+						<span class="footer__logo-text">
+							<span class="footer__logo-name">ГОСНОМЕР<span class="footer__logo-dot">.</span>ПРЕМИУМ</span>
+							<span class="footer__logo-sub">DUBLIKAT • EST. 2012</span>
 						</span>
 					</NuxtLink>
-					<p class="app-footer__about">
+					<p class="footer__about">
 						Официальный аккредитованный производитель дубликатов государственных регистрационных знаков. Работаем с 2012 года в 85 регионах России.
 					</p>
-					<div class="app-footer__socials">
+					<div class="footer__socials">
 						<a
 							v-for="s in socials"
 							:key="s.icon"
 							:href="s.href"
-							class="app-footer__social"
+							class="footer__social"
 							:aria-label="s.label"
 						>
 							<Icon :name="s.icon"/>
@@ -29,25 +29,25 @@
 				<div
 					v-for="col in columns"
 					:key="col.title"
-					class="app-footer__col"
+					class="footer__col"
 				>
-					<div class="app-footer__col-title">{{ col.title }}</div>
-					<ul class="app-footer__list">
+					<div class="footer__col-title">{{ col.title }}</div>
+					<ul class="footer__list">
 						<li v-for="item in col.items" :key="item.label">
-							<a :href="item.href" class="app-footer__link">{{ item.label }}</a>
+							<a :href="item.href" class="footer__link">{{ item.label }}</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="app-footer__bottom">
-				<div class="app-footer__copy">
+			<div class="footer__bottom">
+				<div class="footer__copy">
 					© 2012–2025 ГОСНОМЕР.ПРЕМИУМ • ИНН 7728XXXXXX • ОГРН 1127746XXXXXX
 				</div>
-				<div class="app-footer__legal">
-					<a href="#" class="app-footer__link">Политика конфиденциальности</a>
-					<a href="#" class="app-footer__link">Оферта</a>
-					<a href="#" class="app-footer__link">Реквизиты</a>
+				<div class="footer__legal">
+					<a href="#" class="footer__link">Политика конфиденциальности</a>
+					<a href="#" class="footer__link">Оферта</a>
+					<a href="#" class="footer__link">Реквизиты</a>
 				</div>
 			</div>
 		</div>

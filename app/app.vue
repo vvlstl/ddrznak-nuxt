@@ -1,13 +1,13 @@
 <template>
 	<div class="page">
-		<AppHeader/>
+		<Header/>
 		<NuxtPage/>
-		<AppFooter/>
+		<Footer/>
 	</div>
 </template>
 <script setup lang="ts">
-	import AppFooter from "~/components/sections/footer/AppFooter.vue";
-	import AppHeader from "~/components/sections/header/AppHeader.vue";
+	import Footer from "~/components/layout/Footer.vue";
+	import Header from "~/components/layout/Header.vue";
 
 	/**
 	 * preload с crossorigin=anonymous обязателен для font/woff2, иначе браузер

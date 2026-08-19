@@ -8,9 +8,9 @@
 </template>
 
 <script setup lang="ts">
-type TComponentProps = {
-	isCross?: boolean,
-};
+	type TComponentProps = {
+		isCross?: boolean,
+	};
 
-defineProps<TComponentProps>();
+	defineProps<TComponentProps>();
 </script>

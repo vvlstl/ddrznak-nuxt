@@ -3,7 +3,7 @@
 .logo {
     display: inline-flex;
     flex-direction: column;
-    gap: var(--m8);
+    gap: var(--m4);
     align-items: center;
     user-select: none;
 
@@ -12,6 +12,7 @@
         width: 100%;
         height: auto;
         aspect-ratio: 1450 / 248;
+        max-height: unit((24 / 16), rem);
     }
 
     &__wordmark {
@@ -27,7 +28,7 @@
     }
 
     &__brand {
-        font: 700 var(--fs16) / 1 @font;
+        font: 700 var(--fs14) / 1 @font;
         letter-spacing: 0.12em;
         text-transform: uppercase;
     }
@@ -51,9 +52,6 @@
     }
 
     @media @mediaLg {
-        &__icon{
-            max-height: unit((24 / 16), rem);
-        }
         &__meta {
             display: none;
         }

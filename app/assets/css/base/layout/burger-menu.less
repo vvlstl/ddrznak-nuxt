@@ -1,23 +1,23 @@
 @import "../../_var";
 
 .burger-menu {
-    .size(100%);
     position: fixed;
     top: var(--default-header-height);
     left: 0;
+    right: 0;
     box-sizing: border-box;
-    padding: var(--m16) var(--page-gutter);
-    background: @cNavy950;
-    border-top: 1px solid fade(@cWhite, 8);
+    border-top: 1px solid fade(@cNavy950, 8);
+    height: calc(100dvh - var(--default-header-height));
 
     &__nav {
+        .clear-list();
         display: flex;
         flex-direction: column;
-        gap: var(--m8);
     }
 
-    &__btn {
-        text-align: left;
-        justify-content: left;
+    &__item {
+        font: 500 var(--fs18) / 1 @font;
+        box-sizing: border-box;
+        padding: var(--m16) var(--page-gutter);
     }
 }

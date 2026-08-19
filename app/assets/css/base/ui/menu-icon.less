@@ -1,13 +1,13 @@
 @import "../../_var.less";
 
 .menu-icon {
-    --menu-icon-width: unit((20 / 16), rem);;
-    --menu-icon-height: unit((14 / 16), rem);
-    --menu-icon-line-width: 1px;
+    --menu-icon-width: unit((14 / 16), rem);;
+    --menu-icon-height: unit((10 / 16), rem);
+    --menu-icon-line-width: 2px;
+    --btn-icon-size: var(--menu-icon-width);
 
     .clear-link();
-    .size(var(--menu-icon-width), var(--menu-icon-height));
-    display: block;
+    .container(var(--menu-icon-width), var(--menu-icon-height));
     position: relative;
     z-index: 2;
     transform: translateZ(0);
@@ -32,6 +32,10 @@
     }
 
     &--cross {
+        --menu-icon-width: unit((20 / 16), rem);;
+        --menu-icon-height: unit((20 / 16), rem);
+        --menu-icon-line-width: 1px;
+
         i {
             &:nth-child(1) {
                 transform: rotate(45deg) scaleY(1.5) scaleX(.7);
