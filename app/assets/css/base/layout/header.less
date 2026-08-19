@@ -1,97 +1,65 @@
 @import "../../_var";
 
 .header {
-    .transit(~'background-color', @transitTimeMedium);
+    .transit(~'background-color, box-shadow, backdrop-filter');
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
+    padding: var(--m20) 0;
+    background-color: color-mix(in oklab, @cWhite 80%, transparent);
     z-index: @headerZIndex;
 
-    &__inner {
-        .transit(~'backdrop-filter, background-color, transform, box-shadow', @transitTimeMedium);
-        padding: var(--m18) var(--m32);
-    }
-
-    &--scrolled {
-        .header {
-            &__inner {
-                backdrop-filter: blur(var(--m40)) saturate(180%);
-                background-color: fade(@cNavy950, 80);
-                box-shadow: 0 1px 1px fade(@cWhite, 8);
-            }
-        }
-    }
-
-    &__content {
+    &__container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: var(--m24);
+    }
+
+    &__logo {
+        .clear-link();
+    }
+
+    &__nav {
+        .clear-list();
+        display: flex;
+        align-items: center;
+        gap: var(--m36);
+    }
+
+    &__nav-link {
+        .clear-link(@cNavy900);
+        font: 500 var(--fs14) / 1 @font;
+        .transit(color);
+
+        &:hover {
+            color: @cBlue600;
+        }
     }
 
     &__actions {
         display: flex;
         align-items: center;
         gap: var(--m12);
-        flex-shrink: 0;
-    }
-
-    &__menu-btn {
-        --btn-icon-size: unit((20 / 16), rem);
-    }
-
-    &__nav {
-        display: flex;
-        align-items: center;
-        gap: var(--gap-anchors, var(--m20));
     }
 
     &--fixed {
-        position: sticky;
-        top: 0;
-
-        .header {
-            &__inner {
-                backdrop-filter: blur(var(--m40)) saturate(180%);
-                background-color: fade(@cNavy950, 80);
-                box-shadow: 0 1px 1px fade(@cWhite, 8);
-            }
-        }
+        .blur(1.25rem);
+        box-shadow: 0 var(--m4) var(--m4) fade(@cNavy950, 8);
     }
 
-    &--hidden {
-        .header {
-            &__inner {
-                transform: translateY(-100%);
-            }
-        }
-    }
-
-    &--open-menu {
-        background-color: @cNavy950;
-    }
-
-    @media @mediaMoreMd {
+    @media @mediaMoreLg {
+        &__user-btn,
         &__menu-btn {
             display: none;
         }
     }
 
-    @media @mediaMd {
-        &__inner {
-            padding: var(--m14) var(--m16);
-        }
+    @media @mediaLg {
+        padding: var(--m8) 0;
 
-        &__btn-bot,
+        &__login-btn,
         &__nav {
             display: none;
         }
-
-        &--fixed {
-            .header {
-                &__inner {
-                    backdrop-filter: none;
-                    background-color: @cNavy950;
-                }
-            }
-        }
     }
 }
-
