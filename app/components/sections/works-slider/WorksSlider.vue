@@ -11,8 +11,11 @@
 					ref="swiperRef"
 				>
 					<template #header></template>
-					<template #slide="{ item }">
-						<WorkCard :item="item"/>
+					<template #slide="{ item, index }">
+						<WorkCard
+							:item="item"
+							@click="openGallery(index)"
+						/>
 					</template>
 				</SliderTemplate>
 			</div>
@@ -24,6 +27,20 @@
 	import SliderTemplate from "~/components/slider/SliderTemplate.vue";
 	import WorkCard from "~/components/sections/works-slider/WorkCard.vue";
 	import type {TWorkCard} from '~/types/works/TWorkCard.ts';
+	import type {TGalleryItem} from '~/types/gallery/TGalleryItem.ts';
+
+	const {show} = usePopup();
+
+	function openGallery(index: number) {
+		const clicked = worksItems[index];
+		if (!clicked) return;
+
+		const sources = clicked.gallery ?? worksItems.map((item) => item.srcImg);
+		const items: TGalleryItem[] = sources.map((src) => ({picture: {src}}));
+		const initialSlide = clicked.gallery ? 0 : index;
+
+		show('gallery', {items, initialSlide});
+	}
 
 	const worksItems: TWorkCard[] = [
 		{

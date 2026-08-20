@@ -1,11 +1,12 @@
 @import "../../_var";
 
 .work-card {
-    border-radius: unit((12 / 16), rem);
+    .transit(box-shadow);
     background: @cWhite;
+    border-radius: unit((12 / 16), rem);
     overflow: hidden;
     box-shadow: 0 1px var(--m4) 1px fade(@cNavy900, 16);
-    .transit(box-shadow);
+    cursor: pointer;
 
     .hover({
         box-shadow: 0 unit((12 / 16), rem) var(--m32) 0 fade(@cNavy900, 16);

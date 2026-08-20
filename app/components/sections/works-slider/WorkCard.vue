@@ -1,5 +1,8 @@
 <template>
-	<article class="work-card">
+	<div
+		class="work-card"
+		@click="emit('click')"
+	>
 		<div class="work-card__visual">
 			<div class="work-card__visual-glow"/>
 			<div class="work-card__picture">
@@ -23,7 +26,7 @@
 				{{ item.car }}
 			</div>
 		</div>
-	</article>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -33,5 +36,9 @@
 		item: TWorkCard;
 	}
 
-	const props = defineProps<TComponentProps>();
+	defineProps<TComponentProps>();
+
+	const emit = defineEmits<{
+		click: [];
+	}>();
 </script>

@@ -4,4 +4,5 @@ export type TWorkCard = {
 	car: string;
 	date: string;
 	srcImg: string;
+	gallery?: string[];
 }

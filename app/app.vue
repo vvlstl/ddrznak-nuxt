@@ -3,9 +3,11 @@
 		<Header/>
 		<NuxtPage/>
 		<Footer/>
+		<AppPopups/>
 	</div>
 </template>
 <script setup lang="ts">
+	import AppPopups from "~/components/popup/AppPopups.vue";
 	import Footer from "~/components/layout/Footer.vue";
 	import Header from "~/components/layout/Header.vue";
 
