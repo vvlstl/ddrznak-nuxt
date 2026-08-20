@@ -5,7 +5,12 @@
     box-sizing: border-box;
     padding-top: var(--m48);
     border-top: 1px solid @cGray300;
-    overflow: hidden;
+
+    &__container {
+        margin: calc(-1 * var(--m48)) calc(-1 * var(--page-gutter));
+        padding: var(--m48) var(--page-gutter);
+        overflow: hidden;
+    }
 
     &__swiper {
         --slide-width: unit((400 / 16), rem);

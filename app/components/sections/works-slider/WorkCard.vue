@@ -2,17 +2,10 @@
 	<article class="work-card">
 		<div class="work-card__visual">
 			<div class="work-card__visual-glow"/>
-			<PlateFrame :frame="item.frame">
-				<PlatePreview
-					class="work-card__plate"
-					:combination="combination"
-					:color="item.type"
-					:font-size="30"
-					:flag-height="9"
-				/>
-			</PlateFrame>
-			<span class="work-card__num">№ {{ item.n }}</span>
-			<span class="work-card__type">{{ typeName }}</span>
+			<div class="work-card__picture">
+				<NuxtPicture :src="item.srcImg"/>
+			</div>
+			<span class="work-card__type">Стандарт</span>
 		</div>
 		<div class="work-card__body">
 			<div class="work-card__row">
@@ -34,32 +27,11 @@
 </template>
 
 <script setup lang="ts">
-	import PlateFrame from '~/components/partials/plate/PlateFrame.vue';
-	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
-	import type { TWorkCard } from '~/types/works/TWorkCard.ts';
-	import type { TPlateCombination } from '~/types/plate/TPlateColor.ts';
+	import type {TWorkCard} from '~/types/works/TWorkCard.ts';
 
 	type TComponentProps = {
 		item: TWorkCard;
 	}
 
 	const props = defineProps<TComponentProps>();
-
-	const combination = computed<TPlateCombination>(() => {
-		const parts = props.item.num.split(' ').filter(Boolean);
-		return {
-			letterFirst: parts[0] ?? '',
-			digits: parts[1] ?? '',
-			lettersLast: parts[2] ?? '',
-			region: props.item.region,
-		};
-	});
-
-	const typeName = computed(() => ({
-		white: 'Стандарт',
-		yellow: 'Жёлтый',
-		black: 'Чёрный',
-	}[props.item.type] ?? 'Стандарт'));
-
-	console.debug('WorkCard:mount', props.item.id);
 </script>

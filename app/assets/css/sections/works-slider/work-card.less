@@ -5,12 +5,11 @@
     background: @cWhite;
     overflow: hidden;
     box-shadow: 0 1px var(--m4) 1px fade(@cNavy900, 16);
-    .transit(~'transform, box-shadow');
+    .transit(box-shadow);
 
-    &:hover {
-        transform: translateY(-4px);
+    .hover({
         box-shadow: 0 unit((12 / 16), rem) var(--m32) 0 fade(@cNavy900, 16);
-    }
+    }, @activeRuleset: false);
 
     &__visual {
         position: relative;
@@ -24,12 +23,14 @@
 
     &__visual-glow {
         .cover();
-        background: radial-gradient(
-            ellipse at center,
-            fade(@cBlue600, 8),
-            transparent 60%
-        );
+        background: radial-gradient(ellipse at center,
+        fade(@cBlue600, 8),
+        transparent 60%);
         pointer-events: none;
+    }
+
+    &__picture{
+        .picture-fit(contain);
     }
 
     &__plate {
@@ -37,25 +38,17 @@
         z-index: 1;
     }
 
-    &__num {
-        position: absolute;
-        top: var(--m16);
-        left: var(--m16);
-        font: 400 var(--fs12) / 1 @font;
-        color: @cGray500;
-        letter-spacing: var(--letter-spacing);
-        text-transform: uppercase;
-        font-variant-numeric: tabular-nums;
-    }
-
     &__type {
         position: absolute;
         top: var(--m16);
         right: var(--m16);
-        font: 400 var(--fs12) / 1 @font;
-        color: @cBlue600;
+        box-sizing: border-box;
+        padding: var(--m8);
+        border-radius: var(--br8);
+        font: 600 var(--fs12) / 1 @font;
         letter-spacing: var(--letter-spacing);
-        text-transform: uppercase;
+        text-transform: lowercase;
+        background: @cWhite;
     }
 
     &__body {

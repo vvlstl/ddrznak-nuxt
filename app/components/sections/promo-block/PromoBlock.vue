@@ -9,7 +9,7 @@
 					</div>
 				</div>
 				<div class="promo-block__picture">
-					<NuxtImg src="/images/promo-block/car.webp"/>
+					<NuxtPicture src="/images/promo-block/car.webp"/>
 				</div>
 			</div>
 			<div class="promo-block__advantages">
