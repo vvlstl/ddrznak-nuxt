@@ -10,13 +10,15 @@
     &__content {
         .transit(opacity, var(--spoiler-speed, @transitTime), var(--spoiler-easing, cubic-bezier(0.61, 1, 0.88, 1)));
         opacity: var(--content-start-opacity, 0);
+        box-sizing: border-box;
         padding: var(--content-padding, 0);
     }
 
     &--open {
         .spoiler {
             &__content {
-                opacity: 1;
+                --content-start-opacity: 1;
+                --content-padding: 0 0 var(--m16) 0;
             }
         }
     }

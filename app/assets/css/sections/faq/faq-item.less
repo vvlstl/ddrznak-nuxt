@@ -21,13 +21,13 @@
     }
 
     &__icon {
+        .transit(~'transform, color', @transitTimeMedium);
         .container(unit((24 / 16), rem));
         flex-shrink: 0;
         color: @cNavy900;
-        .transit(~'transform, color');
 
-        svg {
-            .size(var(--fs20));
+        svg, span {
+            .size(unit((20 / 16), rem));
         }
     }
 
@@ -38,7 +38,7 @@
 
     &--open {
         .faq-item__icon {
-            transform: rotate(45deg);
+            transform: rotate(180deg);
             color: @cBlue600;
         }
     }

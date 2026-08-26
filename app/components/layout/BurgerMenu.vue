@@ -6,7 +6,12 @@
 					<a class="link burger-menu__nav-link">Избранное</a>
 				</li>
 				<li class="burger-menu__item" v-for="link in menu" :key="link.url">
-					<a :href="link.url" class="link burger-menu__nav-link">{{ link.text }}</a>
+					<a
+						:href="link.url"
+						class="link burger-menu__nav-link"
+						v-html="link.text"
+						@click="onClick"
+					/>
 				</li>
 			</ul>
 		</nav>
@@ -27,11 +32,7 @@
 		close: [];
 	}>();
 
-	function onClick(url: string) {
+	function onClick() {
 		emit('close');
-		const el = document.querySelector(url);
-		if (el) {
-			el.scrollIntoView({behavior: 'smooth'});
-		}
 	}
 </script>

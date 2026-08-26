@@ -27,13 +27,16 @@
     &__info {
         display: flex;
         flex-direction: column;
-        gap: var(--m16);
         z-index: 1;
     }
 
     &__title {
         font: 600 var(--fs56) / 1 @font;
         letter-spacing: var(--letter-spacing);
+
+        &:not(:last-child) {
+            margin-bottom: var(--m16);
+        }
     }
 
     &__description {
@@ -60,6 +63,15 @@
         box-sizing: border-box;
         padding: var(--m32);
         z-index: 2;
+    }
+
+    &__footer {
+        display: flex;
+        gap: var(--m16);
+
+        &:not(:first-child) {
+            margin-top: var(--m32);
+        }
     }
 
     @media @mediaLg {

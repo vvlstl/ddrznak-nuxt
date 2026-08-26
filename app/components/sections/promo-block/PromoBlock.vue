@@ -7,6 +7,20 @@
 					<div class="promo-block__description">
 						Дубликаты номерных знаков по&nbsp;всей России. Собственное производство, никаких посредников.
 					</div>
+					<div class="promo-block__footer">
+						<a href="#constructor" class="btn">
+							<span class="btn__icon">
+								<Icon name="tabler:wand"/>
+							</span>
+							<span class="btn__text">Собрать номер</span>
+						</a>
+						<a href="#works" class="btn btn--light-blue">
+							<span class="btn__icon">
+								<Icon name="tabler:library-photo"/>
+							</span>
+							<span class="btn__text">Наши работы</span>
+						</a>
+					</div>
 				</div>
 				<div class="promo-block__picture">
 					<NuxtPicture src="/images/promo-block/car.webp"/>
@@ -20,12 +34,10 @@
 </template>
 
 <script setup lang="ts">
-
-	//TODO для верстки
-
 	import AdvantagesList from "~/components/partials/advantages/AdvantagesList.vue";
 	import type {TAdvantageCard} from "~/types/advantages/TAdvantageCard.ts";
 
+	//TODO для верстки
 	const advantages: TAdvantageCard[] = [
 		{
 			id: 1,

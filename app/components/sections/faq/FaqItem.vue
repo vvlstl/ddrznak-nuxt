@@ -11,7 +11,7 @@
 		>
 			<span class="faq-item__question">{{ item.question }}</span>
 			<span class="faq-item__icon" aria-hidden="true">
-				<Icon name="tabler:plus"/>
+				<Icon name="tabler:chevron-down"/>
 			</span>
 		</button>
 		<Spoiler :is-open="isOpen">
