@@ -1,0 +1,72 @@
+@import "../_var";
+
+// ===== ПЛАСТИНА (ГОСНОМЕР) =====
+.plate {
+    display: inline-flex;
+    border: 4px solid red;
+    border-radius: unit((10 / 16), rem);
+    position: relative;
+    box-shadow: 0 1px 0 fade(@cWhite, 60) inset,
+        0 -1px 0 fade(@cBlack, 15) inset,
+    0 unit((30 / 16), rem) unit((60 / 16), rem) unit((-10 / 16), rem) fade(@cNavy900, 65),
+    0 unit((12 / 16), rem) unit((24 / 16), rem) unit((-8 / 16), rem) fade(@cNavy900, 40);
+    background: linear-gradient(180deg, @cWhite 0%, #ededed 50%, #d8d8d8 100%);
+    color: @cBlack;
+
+    &__number {
+        margin: -4px;
+        display: inline-flex;
+        align-items: center;
+        gap: unit((10 / 16), rem);
+        box-sizing: border-box;
+        padding: unit((12 / 16), rem) unit((18 / 16), rem);
+        border-radius: unit((10 / 16), rem);
+        border: 4px solid @cBlack;
+    }
+
+    &__char {
+        font: 400 72px / 1 @fontPlate;
+        letter-spacing: 0.06em;
+    }
+
+    &__region {
+        margin: -4px -4px -4px 0;
+        padding: unit((12 / 16), rem) unit((18 / 16), rem);
+        border-radius: unit((10 / 16), rem);
+        border: 4px solid @cBlack;
+        font: 400 44px / 1 @fontPlate;
+        letter-spacing: 0.06em;
+    }
+
+    &--yellow {
+        background: linear-gradient(180deg, #ffe14d 0%, #f5c400 50%, #d9a700 100%);
+
+        .plate__char {
+            color: #000000;
+        }
+    }
+
+    &--blue {
+        background: linear-gradient(180deg, #1e52ba 0%, #0033a0 50%, #002270 100%);
+
+        .plate__char {
+            color: @cWhite;
+        }
+    }
+
+    &--red {
+        background: linear-gradient(180deg, #e52d2d 0%, #c41212 50%, #990000 100%);
+
+        .plate__char {
+            color: @cWhite;
+        }
+    }
+
+    &--black {
+        background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+
+        .plate__char {
+            color: @cWhite;
+        }
+    }
+}
