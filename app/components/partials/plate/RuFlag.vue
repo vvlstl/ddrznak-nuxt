@@ -1,23 +1,23 @@
 <template>
-	<span class="ru-flag" :style="flagStyle">
-		<span class="ru-flag__band ru-flag__band--white"/>
-		<span class="ru-flag__band ru-flag__band--blue"/>
-		<span class="ru-flag__band ru-flag__band--red"/>
-	</span>
+	<div class="flag">
+		<div class="flag__text">RUS</div>
+		<svg
+			class="flag__icon"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 25 15"
+			width="25"
+			height="15"
+		>
+			<rect x="0" y="0" width="25" height="5" fill="#FFFFFF"/>
+			<rect x="0" y="5" width="25" height="5" fill="#0000FF"/>
+			<rect x="0" y="10" width="25" height="5" fill="#FF0000"/>
+			<rect x="0" y="0" width="25" height="15" rx="1"
+			      fill="none"
+			      stroke="#000"
+			      stroke-width="2"
+			/>
+		</svg>
+	</div>
 </template>
-
 <script setup lang="ts">
-	type TComponentProps = {
-		height?: number;
-	}
-
-	const props = withDefaults(defineProps<TComponentProps>(), {
-		height: 18,
-	});
-
-	const flagStyle = computed(() => ({
-		height: `${props.height}px`,
-	}));
-
-	console.debug('RuFlag:mount', props);
 </script>

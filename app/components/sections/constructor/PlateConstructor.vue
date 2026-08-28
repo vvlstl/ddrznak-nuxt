@@ -31,14 +31,10 @@
 						</div>
 
 						<div class="constructor__preview-plate">
-							<PlateFrame :frame="state.frame">
-								<PlatePreview
-									:combination="state.combination"
-									:color="state.color"
-									:font-size="44"
-									:flag-height="11"
-								/>
-							</PlateFrame>
+							<PlatePreview
+								:combination="state.combination"
+								:color="state.color"
+							/>
 						</div>
 
 						<div class="constructor__price">
@@ -88,7 +84,6 @@
 	import PlateColorSelector from '~/components/partials/constructor/PlateColorSelector.vue';
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
 	import RegionChips from '~/components/partials/constructor/RegionChips.vue';
-	import PlateFrame from '~/components/partials/plate/PlateFrame.vue';
 	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
 	import type {TPlateType} from '~/types/plate/TPlateColor.ts';

@@ -46,10 +46,12 @@
     --fs24: 1.5rem;
     --fs32: 2rem;
     --fs40: 2.5rem;
+    --fs44: 2.75rem;
     --fs48: 3rem;
     .responsive(--fs48, 48 / 16rem, .9);
     --fs56: 3.5rem;
     .responsive(--fs56, 56 / 16rem, .9);
+    --fs72: 4.5rem;
 
     --letter-spacing: -0.02em;
 
@@ -209,48 +211,51 @@
 @fontName: Montserrat;
 @font: @fontName, Arial, sans-serif, -apple-system;
 
+@fontRoadNumbers: 'RoadNumbers';
+@fontPlate: @fontRoadNumbers, 'Oswald', sans-serif;
+
 /**
  * Цвета
  **/
 
-@cWhite:      #FFFFFF;
-@cBlack:      #000000;
+@cWhite: #FFFFFF;
+@cBlack: #000000;
 
 //Brand
-@cNavy950:    #081A3A;
-@cNavy900:    #0B2348; // Primary
-@cNavy800:    #16325D;
-@cNavy700:    #224274;
-@cNavy600:    #33568F;
+@cNavy950: #081A3A;
+@cNavy900: #0B2348; // Primary
+@cNavy800: #16325D;
+@cNavy700: #224274;
+@cNavy600: #33568F;
 
 // Accent
-@cBlue700:    #1D4ED8;
-@cBlue600:    #2563EB; // Accent
-@cBlue500:    #3B82F6;
-@cBlue400:    #60A5FA;
-@cBlue300:    #93C5FD;
+@cBlue700: #1D4ED8;
+@cBlue600: #2563EB; // Accent
+@cBlue500: #3B82F6;
+@cBlue400: #60A5FA;
+@cBlue300: #93C5FD;
 
 //White
-@cWhite200:   #F8F9FB;
-@cWhite150:   #F5F7FA;
-@cWhite100:   #EEF2F7;
+@cWhite200: #F8F9FB;
+@cWhite150: #F5F7FA;
+@cWhite100: #EEF2F7;
 
 //Gray
-@cGray900:    #1D2433;
-@cGray800:    #2F3A4C;
-@cGray700:    #5C6778;
-@cGray600:    #7A8699;
-@cGray500:    #98A2B3;
-@cGray400:    #C7CFDB;
-@cGray300:    #DCE2EA;
-@cGray200:    #E8ECF2;
-@cGray100:    #F4F6F9;
+@cGray900: #1D2433;
+@cGray800: #2F3A4C;
+@cGray700: #5C6778;
+@cGray600: #7A8699;
+@cGray500: #98A2B3;
+@cGray400: #C7CFDB;
+@cGray300: #DCE2EA;
+@cGray200: #E8ECF2;
+@cGray100: #F4F6F9;
 
 //Status
-@cSuccess:    #22C55E;
-@cWarning:    #F59E0B;
-@cError:      #EF4444;
-@cInfo:       #3B82F6;
+@cSuccess: #22C55E;
+@cWarning: #F59E0B;
+@cError: #EF4444;
+@cInfo: #3B82F6;
 
 
 @cStroke: fade(@cWhite, 8);

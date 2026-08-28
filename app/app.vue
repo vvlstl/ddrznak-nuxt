@@ -45,6 +45,13 @@
 			type: 'font/woff2',
 			crossorigin: 'anonymous'
 		},
+		{
+			rel: 'preload',
+			href: `${fontBase}RoadNumbers.woff2`,
+			as: 'font',
+			type: 'font/woff2',
+			crossorigin: 'anonymous'
+		},
 	]))
 
 	const headData = computed(() => ({
