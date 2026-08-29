@@ -20,8 +20,6 @@ export default defineNuxtPlugin({
             document.querySelectorAll('.reveal').forEach((el) => {
                 observer.observe(el);
             });
-
-            console.debug('RevealAnimations:observer', { elements: document.querySelectorAll('.reveal').length });
         },
     },
 });

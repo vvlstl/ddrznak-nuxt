@@ -36,6 +36,4 @@
 		{ icon: 'tabler:truck-delivery', text: 'Доставка по 85 регионам РФ' },
 		{ icon: 'tabler:stamp', text: 'Заводская штамповка и фотоэкспозиция' },
 	];
-
-	console.debug('TrustMarquee:mount');
 </script>

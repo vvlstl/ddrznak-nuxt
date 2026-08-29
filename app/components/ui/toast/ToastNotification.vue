@@ -27,8 +27,4 @@
 	}
 
 	const props = defineProps<TComponentProps>();
-
-	watch(() => props.visible, (v) => {
-		console.debug('ToastNotification:visible', v);
-	});
 </script>
