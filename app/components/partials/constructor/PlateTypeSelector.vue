@@ -2,26 +2,27 @@
 	<div class="constructor-field">
 		<div class="constructor-field__label-row">
 			<label class="constructor-field__label">Тип пластины</label>
-			<span class="constructor-field__step">Шаг 1 / 4</span>
 		</div>
-		<div class="constructor-field__grid constructor-field__grid--3">
+		<div class="constructor-field__grid">
 			<button
 				v-for="option in options"
 				:key="option.value"
 				type="button"
-				class="selector-btn"
+				class="selector-btn constructor-field__item"
 				:class="{ 'selector-btn--active': option.value === modelValue }"
 				@click="onSelect(option)"
 			>
-				<Icon :name="option.icon" class="selector-btn__icon"/>
-				<span>{{ option.label }}</span>
+				<span class="selector-btn__icon">
+					<Icon :name="option.icon"/>
+				</span>
+				<span class="selector-btn__text">{{ option.label }}</span>
 			</button>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-	import type { TPlateType } from '~/types/plate/TPlateColor.ts';
+	import type {TPlateType} from '~/types/plate/TPlateColor.ts';
 
 	type TOption = {
 		value: TPlateType;
@@ -83,6 +84,5 @@
 	function onSelect(option: TOption) {
 		emit('update:modelValue', option.value);
 		emit('update:price', option.price);
-		console.debug('PlateTypeSelector:select', option.value, option.price);
 	}
 </script>

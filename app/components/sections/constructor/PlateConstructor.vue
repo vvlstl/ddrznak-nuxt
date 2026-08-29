@@ -17,7 +17,6 @@
 						/>
 						<PlateColorSelector v-model="state.color"/>
 						<PlateInputGroup v-model="state.combination"/>
-						<RegionChips v-model="state.combination.region"/>
 					</div>
 
 					<!-- Превью -->
@@ -83,7 +82,6 @@
 	import PlateTypeSelector from '~/components/partials/constructor/PlateTypeSelector.vue';
 	import PlateColorSelector from '~/components/partials/constructor/PlateColorSelector.vue';
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
-	import RegionChips from '~/components/partials/constructor/RegionChips.vue';
 	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
 	import type {TPlateType} from '~/types/plate/TPlateColor.ts';

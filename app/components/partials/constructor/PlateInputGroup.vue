@@ -2,14 +2,13 @@
 	<div class="constructor-field">
 		<div class="constructor-field__label-row">
 			<label class="constructor-field__label">Комбинация</label>
-			<span class="constructor-field__step">Шаг 2 / 4</span>
 		</div>
 		<div class="plate-input-group">
 			<input
 				ref="l1Ref"
 				v-model="letterFirst"
 				type="text"
-				class="plate-input plate-input--letter-1"
+				class="plate-input"
 				maxlength="1"
 				placeholder="А"
 				@input="onInput('letterFirst', $event, 'letter', 1)"
@@ -18,7 +17,7 @@
 				ref="n1Ref"
 				v-model="digits"
 				type="text"
-				class="plate-input plate-input--digits"
+				class="plate-input"
 				maxlength="3"
 				placeholder="777"
 				@input="onInput('digits', $event, 'digit', 3)"
@@ -27,7 +26,7 @@
 				ref="l2Ref"
 				v-model="lettersLast"
 				type="text"
-				class="plate-input plate-input--letter-2"
+				class="plate-input"
 				maxlength="2"
 				placeholder="АА"
 				@input="onInput('lettersLast', $event, 'letter', 2)"
@@ -36,7 +35,7 @@
 				ref="regionRef"
 				v-model="region"
 				type="text"
-				class="plate-input plate-input--region"
+				class="plate-input"
 				maxlength="3"
 				placeholder="77"
 				@input="onInput('region', $event, 'digit', 3)"
@@ -114,8 +113,6 @@
 			lettersLast: lettersLast.value,
 			region: region.value,
 		});
-
-		console.debug('PlateInputGroup:input', field, sanitized);
 	}
 
 	defineExpose({ l1Ref, n1Ref, l2Ref, regionRef });

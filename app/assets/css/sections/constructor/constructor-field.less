@@ -5,10 +5,6 @@
     flex-direction: column;
     gap: var(--m16);
 
-    &:last-child {
-        margin-bottom: 0;
-    }
-
     &__label-row {
         display: flex;
         align-items: center;
@@ -17,16 +13,9 @@
 
     &__label {
         font: 600 var(--fs14) / 1 @font;
-        letter-spacing: 0.1em;
+        letter-spacing: var(--letter-spacing);
         text-transform: uppercase;
         color: @cNavy900;
-    }
-
-    &__step {
-        font: 400 var(--fs12) / 1 @font;
-        color: @cGray500;
-        letter-spacing: 0.1em;
-        font-variant-numeric: tabular-nums;
     }
 
     &__hint {
@@ -35,29 +24,12 @@
     }
 
     &__grid {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         gap: var(--m12);
+    }
 
-        &--3 {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        &--4 {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-
-        &--5 {
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-        }
-
-        @media @mediaSm {
-            &--4 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            &--5 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
+    &__item {
+        flex: 1 1 unit((100 / 16), rem);
     }
 }

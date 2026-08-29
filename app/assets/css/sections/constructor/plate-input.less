@@ -2,6 +2,7 @@
 
 .plate-input {
     .clear-input();
+    .transit(~'border-color, background-color, box-shadow');
     background: @cWhite100;
     border: 1px solid @cGray400;
     color: @cNavy900;
@@ -13,7 +14,6 @@
     border-radius: unit((6 / 16), rem);
     text-transform: uppercase;
     width: 100%;
-    .transit(~'border-color, background-color, box-shadow');
 
     &:focus {
         outline: none;

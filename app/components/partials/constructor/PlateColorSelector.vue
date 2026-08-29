@@ -1,7 +1,7 @@
 <template>
 	<div class="constructor-field">
 		<label class="constructor-field__label">Цвет пластины</label>
-		<div class="constructor-field__grid constructor-field__grid--3">
+		<div class="constructor-field__grid">
 			<button
 				v-for="option in options"
 				:key="option.value"
