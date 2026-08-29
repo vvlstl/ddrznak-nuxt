@@ -1,0 +1,65 @@
+@import "../../_var";
+
+.plate-flag-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--m12);
+
+    &__row {
+        display: flex;
+        align-items: center;
+        gap: var(--m10);
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-family: inherit;
+        transition: opacity @transitTime @transitEase;
+
+        &:disabled {
+            cursor: default;
+            opacity: @disabledOpacity;
+        }
+    }
+
+    &__toggle {
+        .size(unit((40 / 16), rem), unit((22 / 16), rem));
+        border-radius: unit((11 / 16), rem);
+        background: @cGray300;
+        position: relative;
+        flex-shrink: 0;
+        transition: background @transitTime @transitEase;
+    }
+
+    &__knob {
+        .size(unit((16 / 16), rem));
+        border-radius: 50%;
+        background: @cWhite;
+        position: absolute;
+        left: unit((3 / 16), rem);
+        top: unit((3 / 16), rem);
+        transition: transform @transitTime @transitEase;
+    }
+
+    &__toggle--on {
+        background: @cBlue600;
+
+        .plate-flag-selector__knob {
+            transform: translateX(unit((18 / 16), rem));
+        }
+    }
+
+    &__text {
+        display: flex;
+        align-items: baseline;
+        gap: var(--m6);
+        font: 400 var(--fs14) / 1.4 @font;
+        color: @cGray800;
+    }
+
+    &__price {
+        font: 500 var(--fs12) / 1.2 @font;
+        color: @cBlue600;
+    }
+}

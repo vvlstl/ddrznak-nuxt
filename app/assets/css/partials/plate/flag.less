@@ -9,3 +9,9 @@
         letter-spacing: 0.15em;
     }
 }
+
+// Рельефный флаг: имитация штамповки — объёмная тень со смещением вниз-вправо
+.plate__flag--raised {
+    filter: drop-shadow(1px 1px 0 fade(@cBlack, 35))
+    drop-shadow(2px 2px 1px fade(@cBlack, 18));
+}

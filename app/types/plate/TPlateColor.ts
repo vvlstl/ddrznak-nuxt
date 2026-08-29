@@ -22,6 +22,13 @@ export type TPlateFormat =
 
 export type TPlateFlag = 'flag' | 'no-flag';
 
+export type TPlateSize =
+    | '520x112'
+    | '245x160'
+    | '288x206'
+    | '190x145'
+    | '150x100';
+
 export type TPlateFont = 'standard' | 'strict' | 'maximum' | 'vip';
 
 export type TPlateCombination = {

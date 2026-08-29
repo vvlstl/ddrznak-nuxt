@@ -10,7 +10,11 @@
 		</div>
 		<div class="plate__region">
 			<div class="plate__region-value">{{ combination.region }}</div>
-			<RuFlag class="plate__flag" />
+			<RuFlag
+				v-if="flag"
+				class="plate__flag"
+				:class="{ 'plate__flag--raised': raisedFlag }"
+			/>
 		</div>
 	</div>
 </template>
@@ -23,11 +27,15 @@
 		combination: TPlateCombination;
 		color?: TPlateColor;
 		font?: TPlateFont;
+		flag?: boolean;
+		raisedFlag?: boolean;
 	}
 
 	const props = withDefaults(defineProps<TComponentProps>(), {
 		color: 'white',
 		font: 'standard',
+		flag: true,
+		raisedFlag: false,
 	});
 
 	const fontClass = computed(() =>
