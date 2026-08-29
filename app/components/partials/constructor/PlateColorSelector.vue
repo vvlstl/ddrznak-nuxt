@@ -6,11 +6,15 @@
 				v-for="option in options"
 				:key="option.value"
 				type="button"
-				class="selector-btn"
-				:class="{ 'selector-btn--active': option.value === modelValue }"
+				class="color-btn"
+				:class="{ 'color-btn--active': option.value === modelValue }"
 				@click="onSelect(option)"
 			>
-				<span class="selector-btn__swatch" :class="`selector-btn__swatch--${option.value}`"/>
+				<span class="color-btn__swatch" :class="`color-btn__swatch--${option.value}`">
+					<span class="color-btn__check">
+						<Icon name="tabler:check" />
+					</span>
+				</span>
 				<span>{{ option.label }}</span>
 			</button>
 		</div>
