@@ -2,6 +2,7 @@
 
 .plate {
     --color: @cBlack;
+    --font-stroke-width: 0px;
 
     position: relative;
     display: inline-flex;
@@ -9,8 +10,8 @@
     border-radius: var(--br8);
     box-shadow: 0 1px 0 fade(@cWhite, 60) inset,
         0 -1px 0 fade(@cBlack, 15) inset,
-    0 unit((30 / 16), rem) unit((60 / 16), rem) unit((-10 / 16), rem) fade(@cNavy900, 65),
-    0 unit((12 / 16), rem) unit((24 / 16), rem) unit((-8 / 16), rem) fade(@cNavy900, 40);
+        0 unit((30 / 16), rem) unit((60 / 16), rem) unit((-10 / 16), rem) fade(@cNavy900, 65),
+        0 unit((12 / 16), rem) unit((24 / 16), rem) unit((-8 / 16), rem) fade(@cNavy900, 40);
     background: linear-gradient(180deg, @cWhite 0%, #ededed 50%, #d8d8d8 100%);
     color: var(--color);
 
@@ -35,6 +36,8 @@
     &__char {
         font: 400 var(--fs72) / 1 @fontPlate;
         letter-spacing: 0.06em;
+        -webkit-text-stroke: var(--font-stroke-width) var(--color);
+        paint-order: stroke fill;
     }
 
     &__region {
@@ -51,9 +54,27 @@
         letter-spacing: 0.06em;
     }
 
+    &__region-value {
+        font: 400 var(--fs44) / 1 @fontPlate;
+        -webkit-text-stroke: var(--font-stroke-width) var(--color);
+        paint-order: stroke fill;
+    }
+
     &__flag {
         margin-top: auto;
         color: var(--color);
+    }
+
+    &--font-strict {
+        --font-stroke-width: 1px;
+    }
+
+    &--font-maximum {
+        --font-stroke-width: 2px;
+    }
+
+    &--font-vip {
+        --font-stroke-width: 3px;
     }
 
     &--yellow {

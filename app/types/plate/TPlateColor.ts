@@ -22,6 +22,8 @@ export type TPlateFormat =
 
 export type TPlateFlag = 'flag' | 'no-flag';
 
+export type TPlateFont = 'standard' | 'strict' | 'maximum' | 'vip';
+
 export type TPlateCombination = {
     letterFirst: string;
     digits: string;

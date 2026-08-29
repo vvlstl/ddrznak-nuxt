@@ -1,0 +1,31 @@
+@import "../../../_var";
+
+.font-tab {
+    .clear-btn();
+    .transit(color);
+    flex: 1;
+    text-align: center;
+    box-sizing: border-box;
+    padding: var(--m8);
+    font: 400 var(--fs13) / 1 @font;
+    color: @cGray500;
+    background: @cWhite;
+    cursor: pointer;
+
+    .hover({
+        &:not(&--active) {
+            color: @cBlue500;
+        }
+    });
+
+    &__hint {
+        font: 400 var(--fs12) / 1.4 @font;
+        color: @cGray500;
+    }
+
+    &--active {
+        background: @cBlue600;
+        color: @cWhite;
+        font-weight: 600;
+    }
+}

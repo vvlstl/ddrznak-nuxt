@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="plate"
-		:class="`plate--${color}`"
+		:class="[`plate--${color}`, fontClass]"
 	>
 		<div class="plate__number">
 			<div class="plate__char">{{ combination.letterFirst }}</div>
@@ -17,14 +17,20 @@
 
 <script setup lang="ts">
 	import RuFlag from '~/components/partials/plate/RuFlag.vue';
-	import type {TPlateColor, TPlateCombination} from '~/types/plate/TPlateColor.ts';
+	import type {TPlateColor, TPlateCombination, TPlateFont} from '~/types/plate/TPlateColor.ts';
 
 	type TComponentProps = {
 		combination: TPlateCombination;
 		color?: TPlateColor;
+		font?: TPlateFont;
 	}
 
 	const props = withDefaults(defineProps<TComponentProps>(), {
 		color: 'white',
+		font: 'standard',
 	});
+
+	const fontClass = computed(() =>
+		props.font !== 'standard' ? `plate--font-${props.font}` : null,
+	);
 </script>

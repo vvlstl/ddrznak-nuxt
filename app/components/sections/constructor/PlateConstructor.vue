@@ -16,6 +16,7 @@
 							@update:price="onTypePrice"
 						/>
 						<PlateColorSelector v-model="state.color"/>
+						<PlateFontSelector v-model="state.font"/>
 						<PlateInputGroup v-model="state.combination"/>
 					</div>
 
@@ -33,6 +34,7 @@
 							<PlatePreview
 								:combination="state.combination"
 								:color="state.color"
+								:font="state.font"
 							/>
 						</div>
 
@@ -81,10 +83,12 @@
 <script setup lang="ts">
 	import PlateTypeSelector from '~/components/partials/constructor/PlateTypeSelector.vue';
 	import PlateColorSelector from '~/components/partials/constructor/PlateColorSelector.vue';
+	import PlateFontSelector from '~/components/partials/constructor/PlateFontSelector.vue';
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
 	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
 	import type {TPlateType} from '~/types/plate/TPlateColor.ts';
+	import type {TPlateFont} from '~/types/plate/TPlateColor.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
 	const state = reactive({
@@ -96,6 +100,7 @@
 			lettersLast: 'АА',
 			region: '77',
 		},
+		font: 'standard' as TPlateFont,
 		basePrice: 4900,
 		framePriceAdd: 0,
 	});
@@ -109,9 +114,25 @@
 		bicycle: '150 × 100 мм',
 	};
 
+	const FONT_PRICE_WITH_FLAG: Record<TPlateFont, number> = {
+		standard: 700,
+		strict: 1250,
+		maximum: 1500,
+		vip: 1500,
+	};
+
+	const FONT_PRICE_WITHOUT_FLAG: Record<TPlateFont, number> = {
+		standard: 799,
+		strict: 1250,
+		maximum: 1500,
+		vip: 1500,
+	};
+
+	const RAISED_FLAG_PRICE = 250;
+
 	const sizeByType = computed(() => SIZE_BY_TYPE[state.type]);
 
-	const total = computed(() => state.basePrice + state.framePriceAdd);
+	const total = computed(() => FONT_PRICE_WITH_FLAG[state.font]);
 
 	const formattedTotal = computed(() =>
 		total.value.toLocaleString('ru-RU').replace(/,/g, ' '),
