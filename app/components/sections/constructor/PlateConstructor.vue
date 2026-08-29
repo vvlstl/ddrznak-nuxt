@@ -17,6 +17,11 @@
 						/>
 						<PlateColorSelector v-model="state.color"/>
 						<PlateFontSelector v-model="state.font"/>
+						<PlateFlagSelector
+							v-model:flag="state.flag"
+							v-model:raised="state.raisedFlag"
+						/>
+						<PlateSizeSelector v-model="state.size"/>
 						<PlateInputGroup v-model="state.combination"/>
 					</div>
 
@@ -35,6 +40,8 @@
 								:combination="state.combination"
 								:color="state.color"
 								:font="state.font"
+								:flag="state.flag"
+								:raised-flag="state.raisedFlag"
 							/>
 						</div>
 
@@ -84,10 +91,12 @@
 	import PlateTypeSelector from '~/components/partials/constructor/PlateTypeSelector.vue';
 	import PlateColorSelector from '~/components/partials/constructor/PlateColorSelector.vue';
 	import PlateFontSelector from '~/components/partials/constructor/PlateFontSelector.vue';
+	import PlateFlagSelector from '~/components/partials/constructor/PlateFlagSelector.vue';
+	import PlateSizeSelector from '~/components/partials/constructor/PlateSizeSelector.vue';
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
 	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
-	import type {TPlateType} from '~/types/plate/TPlateColor.ts';
+	import type {TPlateType, TPlateSize} from '~/types/plate/TPlateColor.ts';
 	import type {TPlateFont} from '~/types/plate/TPlateColor.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
@@ -101,6 +110,9 @@
 			region: '77',
 		},
 		font: 'standard' as TPlateFont,
+		flag: true,
+		raisedFlag: false,
+		size: '520x112' as TPlateSize,
 		basePrice: 4900,
 		framePriceAdd: 0,
 	});
@@ -112,6 +124,23 @@
 		tractor: '288 × 206 мм',
 		moped: '190 × 145 мм',
 		bicycle: '150 × 100 мм',
+	};
+
+	const DEFAULT_SIZE_BY_TYPE: Record<TPlateType, TPlateSize> = {
+		auto: '520x112',
+		moto: '245x160',
+		trailer: '520x112',
+		tractor: '288x206',
+		moped: '190x145',
+		bicycle: '150x100',
+	};
+
+	const SIZE_LABEL: Record<TPlateSize, string> = {
+		'520x112': '520 × 112 мм',
+		'245x160': '245 × 160 мм',
+		'288x206': '288 × 206 мм',
+		'190x145': '190 × 145 мм',
+		'150x100': '150 × 100 мм',
 	};
 
 	const FONT_PRICE_WITH_FLAG: Record<TPlateFont, number> = {
@@ -130,9 +159,17 @@
 
 	const RAISED_FLAG_PRICE = 250;
 
-	const sizeByType = computed(() => SIZE_BY_TYPE[state.type]);
+	const sizeByType = computed(() => SIZE_LABEL[state.size]);
 
-	const total = computed(() => FONT_PRICE_WITH_FLAG[state.font]);
+	const total = computed(() => {
+		const priceTable = state.flag ? FONT_PRICE_WITH_FLAG : FONT_PRICE_WITHOUT_FLAG;
+		const raised = state.raisedFlag ? RAISED_FLAG_PRICE : 0;
+		return priceTable[state.font] + raised;
+	});
+
+	watch(() => state.type, (type) => {
+		state.size = DEFAULT_SIZE_BY_TYPE[type];
+	});
 
 	const formattedTotal = computed(() =>
 		total.value.toLocaleString('ru-RU').replace(/,/g, ' '),

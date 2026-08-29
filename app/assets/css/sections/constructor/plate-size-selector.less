@@ -1,0 +1,138 @@
+@import "../../_var";
+
+// Кастомизация vue-multiselect под дизайн-систему.
+// Стандартные стили пакета не подключаются — переопределяем полностью.
+.plate-size-selector {
+    position: relative;
+    display: block;
+    min-height: var(--input-height);
+    width: 100%;
+    font-family: @font;
+    text-align: left;
+    color: @cGray800;
+    cursor: pointer;
+
+    &__label,
+    &__option {
+        font: 400 var(--fs14) / 1.4 @font;
+        color: @cGray800;
+    }
+
+    &__caret {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: @cGray600;
+        transition: transform @transitTime @transitEase;
+
+        .multiselect--active & {
+            transform: rotate(180deg);
+        }
+    }
+
+    // Внутренние элементы vue-multiselect
+    .multiselect__tags {
+        display: flex;
+        align-items: center;
+        min-height: var(--input-height);
+        padding: 0 var(--m40) 0 var(--m12);
+        border: var(--input-border-width) solid @cGray300;
+        border-radius: var(--br8);
+        background: @cWhite;
+        cursor: pointer;
+    }
+
+    .multiselect__single {
+        display: flex;
+        align-items: center;
+        min-height: var(--input-height);
+        margin: 0;
+        padding: 0;
+        font: 500 var(--fs14) / 1.2 @font;
+        color: @cNavy900;
+        background: transparent;
+    }
+
+    .multiselect__placeholder {
+        display: flex;
+        align-items: center;
+        min-height: var(--input-height);
+        margin: 0;
+        padding: 0;
+        font: 400 var(--fs14) / 1.2 @font;
+        color: @cGray500;
+    }
+
+    .multiselect__select {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: var(--m40);
+        height: var(--input-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &::before {
+            content: none; // убираем дефолтную стрелку пакета
+        }
+    }
+
+    .multiselect__content-wrapper {
+        position: absolute;
+        z-index: 10;
+        top: calc(100% + var(--m4));
+        left: 0;
+        right: 0;
+        max-height: unit((240 / 16), rem);
+        overflow-y: auto;
+        border: var(--input-border-width) solid @cGray300;
+        border-radius: var(--br8);
+        background: @cWhite;
+        box-shadow: 0 unit((8 / 16), rem) unit((16 / 16), rem) fade(@cNavy950, 8);
+    }
+
+    .multiselect__content {
+        list-style: none;
+        margin: 0;
+        padding: var(--m4) 0;
+    }
+
+    .multiselect__element {
+        display: block;
+    }
+
+    .multiselect__option {
+        display: flex;
+        align-items: center;
+        min-height: var(--input-height);
+        padding: 0 var(--m12);
+        font: 400 var(--fs14) / 1.2 @font;
+        color: @cGray800;
+        cursor: pointer;
+
+        &--highlight {
+            background: @cWhite100;
+            color: @cNavy900;
+        }
+
+        &--selected {
+            background: @cWhite100;
+            color: @cBlue600;
+            font-weight: 600;
+        }
+    }
+
+    @media @mediaHover {
+        .multiselect__option:hover {
+            background: @cWhite100;
+        }
+    }
+}

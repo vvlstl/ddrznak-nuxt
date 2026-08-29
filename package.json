@@ -19,7 +19,8 @@
     "debounce": "^3.0.0",
     "nuxt": "^4.5.0",
     "radix-vue": "^1.9.17",
-    "swiper": "^14.0.7"
+    "swiper": "^14.0.7",
+    "vue-multiselect": "^3.5.0"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.16.0",

@@ -1,0 +1,72 @@
+<template>
+	<div class="constructor-field">
+		<div class="constructor-field__label-row">
+			<label class="constructor-field__label">Размер пластины</label>
+		</div>
+		<Multiselect
+			class="plate-size-selector"
+			:model-value="selected"
+			:options="options"
+			:searchable="false"
+			:allow-empty="false"
+			:show-labels="false"
+			track-by="value"
+			label="label"
+			placeholder="Выберите размер"
+			@select="onSelect"
+		>
+			<template #singleLabel="{ option }">
+				<span class="plate-size-selector__label">{{ option.label }}</span>
+			</template>
+			<template #option="{ option }">
+				<span class="plate-size-selector__option">{{ option.label }}</span>
+			</template>
+			<template #caret="{ toggle }">
+				<div
+					class="multiselect__select"
+					@mousedown.prevent.stop="toggle()"
+				>
+					<span class="plate-size-selector__caret">
+						<Icon name="tabler:chevron-down"/>
+					</span>
+				</div>
+			</template>
+		</Multiselect>
+	</div>
+</template>
+
+<script setup lang="ts">
+	import Multiselect from 'vue-multiselect';
+	import type {TPlateSize} from '~/types/plate/TPlateColor.ts';
+
+	type TOption = {
+		value: TPlateSize;
+		label: string;
+	};
+
+	type TComponentProps = {
+		modelValue: TPlateSize;
+	};
+
+	const emit = defineEmits<{
+		'update:modelValue': [TPlateSize];
+	}>();
+
+	const props = defineProps<TComponentProps>();
+
+	const options: TOption[] = [
+		{value: '520x112', label: '520 × 112 мм'},
+		{value: '245x160', label: '245 × 160 мм'},
+		{value: '288x206', label: '288 × 206 мм'},
+		{value: '190x145', label: '190 × 145 мм'},
+		{value: '150x100', label: '150 × 100 мм'},
+	];
+
+	const selected = computed(() =>
+		options.find(o => o.value === props.modelValue) ?? options[0],
+	);
+
+	function onSelect(option: TOption) {
+		emit('update:modelValue', option.value);
+	}
+</script>
