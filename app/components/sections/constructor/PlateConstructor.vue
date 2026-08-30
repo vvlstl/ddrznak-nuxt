@@ -36,7 +36,8 @@
 						</div>
 
 						<div class="constructor__preview-plate">
-							<PlateStandardA
+							<component
+								:is="plateComponent"
 								:combination="state.combination"
 								:color="state.color"
 								:font="state.font"
@@ -161,6 +162,11 @@
 	const RAISED_FLAG_PRICE = 250;
 
 	const sizeByType = computed(() => SIZE_LABEL[state.size]);
+
+	const plateComponent = computed(() => {
+		const standardSizes = ['520x112', '245x160'];
+		return standardSizes.includes(state.size) ? PlateStandard : PlateStandardA;
+	});
 
 	const total = computed(() => {
 		const priceTable = state.flag ? FONT_PRICE_WITH_FLAG : FONT_PRICE_WITHOUT_FLAG;

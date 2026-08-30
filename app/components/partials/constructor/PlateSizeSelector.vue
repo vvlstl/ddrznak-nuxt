@@ -26,9 +26,9 @@
 					class="multiselect__select"
 					@mousedown.prevent="toggle()"
 				>
-					<span class="multiselect__caret plate-size-selector__caret">
-						<Icon name="tabler:chevron-down"/>
-					</span>
+                <span class="multiselect__caret plate-size-selector__caret">
+                   <Icon name="tabler:chevron-down"/>
+                </span>
 				</div>
 			</template>
 		</Multiselect>
@@ -55,11 +55,10 @@
 	const props = defineProps<TComponentProps>();
 
 	const options: TOption[] = [
-		{value: '520x112', label: '520 × 112 мм'},
-		{value: '245x160', label: '245 × 160 мм'},
-		{value: '288x206', label: '288 × 206 мм'},
-		{value: '190x145', label: '190 × 145 мм'},
-		{value: '150x100', label: '150 × 100 мм'},
+		{value: '520x112', label: 'Тип 1 — 520 × 112 мм'},
+		{value: '290x170', label: 'Тип 1А — 290 × 170 мм'},
+		{value: '288x206', label: 'Тип 3 — 288 × 206 мм'},
+		{value: '190x145', label: 'Тип 4А — 190 × 145 мм'},
 	];
 
 	const selected = computed(() =>
