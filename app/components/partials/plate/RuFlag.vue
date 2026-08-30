@@ -5,6 +5,7 @@
 	>
 		<div class="flag__text">RUS</div>
 		<svg
+			v-if="flag"
 			class="flag__icon"
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 25 15"
@@ -24,6 +25,7 @@
 </template>
 <script setup lang="ts">
 	defineProps<{
+		flag?: boolean;
 		isRaisedFlag?: boolean;
 	}>();
 </script>

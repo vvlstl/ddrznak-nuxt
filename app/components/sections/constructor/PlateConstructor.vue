@@ -36,7 +36,7 @@
 						</div>
 
 						<div class="constructor__preview-plate">
-							<PlatePreview
+							<PlateStandardA
 								:combination="state.combination"
 								:color="state.color"
 								:font="state.font"
@@ -94,11 +94,12 @@
 	import PlateFlagSelector from '~/components/partials/constructor/PlateFlagSelector.vue';
 	import PlateSizeSelector from '~/components/partials/constructor/PlateSizeSelector.vue';
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
-	import PlatePreview from '~/components/partials/plate/PlatePreview.vue';
+	import PlateStandard from '~/components/partials/plate/PlateStandard.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
 	import type {TPlateType, TPlateSize} from '~/types/plate/TPlateColor.ts';
 	import type {TPlateFont} from '~/types/plate/TPlateColor.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
+	import PlateStandardA from "~/components/partials/plate/PlateStandardA.vue";
 
 	const state = reactive({
 		type: 'auto' as TPlateType,

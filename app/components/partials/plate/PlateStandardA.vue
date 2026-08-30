@@ -1,20 +1,22 @@
 <template>
 	<div
-		class="plate"
+		class="plate plate--290x170"
 		:class="[`plate--${color}`, fontClass]"
 	>
-		<div class="plate__number">
+		<div class="plate__row">
 			<div class="plate__char">{{ combination.letterFirst }}</div>
 			<div class="plate__char">{{ combination.digits }}</div>
-			<div class="plate__char">{{ combination.lettersLast }}</div>
 		</div>
-		<div class="plate__region">
-			<div class="plate__region-value">{{ combination.region }}</div>
-			<RuFlag
-				v-if="flag"
-				class="plate__flag"
-				:is-raised-flag="raisedFlag"
-			/>
+		<div class="plate__row-bottom">
+			<div class="plate__char">{{ combination.lettersLast }}</div>
+			<div class="plate__region">
+				<div class="plate__region-value">{{ combination.region }}</div>
+				<RuFlag
+					class="plate__flag"
+					:flag="flag"
+					:is-raised-flag="raisedFlag"
+				/>
+			</div>
 		</div>
 	</div>
 </template>
