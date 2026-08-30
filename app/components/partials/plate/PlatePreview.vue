@@ -13,7 +13,7 @@
 			<RuFlag
 				v-if="flag"
 				class="plate__flag"
-				:class="{ 'plate__flag--raised': raisedFlag }"
+				:is-raised-flag="raisedFlag"
 			/>
 		</div>
 	</div>

@@ -1,10 +1,10 @@
 @import "../../_var";
 
 .plate-flag-selector {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--m12);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: var(--grid-gap);
 
     &__row {
         display: flex;
@@ -34,12 +34,12 @@
 
     &__knob {
         .size(unit((16 / 16), rem));
+        .transit(transform);
         border-radius: 50%;
         background: @cWhite;
         position: absolute;
         left: unit((3 / 16), rem);
         top: unit((3 / 16), rem);
-        transition: transform @transitTime @transitEase;
     }
 
     &__toggle--on {
@@ -54,12 +54,7 @@
         display: flex;
         align-items: baseline;
         gap: var(--m6);
-        font: 400 var(--fs14) / 1.4 @font;
+        font: 500 var(--fs14) / 1.4 @font;
         color: @cGray800;
-    }
-
-    &__price {
-        font: 500 var(--fs12) / 1.2 @font;
-        color: @cBlue600;
     }
 }

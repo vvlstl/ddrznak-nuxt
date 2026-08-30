@@ -1,5 +1,8 @@
 <template>
-	<div class="flag">
+	<div
+		class="flag"
+		:class="{'flag--raised': isRaisedFlag}"
+	>
 		<div class="flag__text">RUS</div>
 		<svg
 			class="flag__icon"
@@ -20,4 +23,7 @@
 	</div>
 </template>
 <script setup lang="ts">
+	defineProps<{
+		isRaisedFlag?: boolean;
+	}>();
 </script>

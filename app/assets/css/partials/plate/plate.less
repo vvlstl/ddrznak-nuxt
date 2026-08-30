@@ -3,6 +3,8 @@
 .plate {
     --color: @cBlack;
     --font-stroke-width: 0px;
+    --emboss-light: fade(@cWhite, 40);
+    --emboss-shadow: fade(@cBlack, 50);
 
     position: relative;
     display: inline-flex;
@@ -10,8 +12,8 @@
     border-radius: var(--br8);
     box-shadow: 0 1px 0 fade(@cWhite, 60) inset,
         0 -1px 0 fade(@cBlack, 15) inset,
-        0 unit((30 / 16), rem) unit((60 / 16), rem) unit((-10 / 16), rem) fade(@cNavy900, 65),
-        0 unit((12 / 16), rem) unit((24 / 16), rem) unit((-8 / 16), rem) fade(@cNavy900, 40);
+    0 unit((30 / 16), rem) unit((60 / 16), rem) unit((-10 / 16), rem) fade(@cNavy900, 65),
+    0 unit((12 / 16), rem) unit((24 / 16), rem) unit((-8 / 16), rem) fade(@cNavy900, 40);
     background: linear-gradient(180deg, @cWhite 0%, #ededed 50%, #d8d8d8 100%);
     color: var(--color);
 
@@ -31,6 +33,11 @@
         padding: unit((12 / 16), rem);
         border-radius: var(--br8);
         border: var(--m4) solid var(--color);
+    }
+
+    &__char,
+    &__region-value {
+        text-shadow: -1px -1px 0 var(--emboss-light), 1px 1px 0 var(--emboss-shadow);
     }
 
     &__char {
@@ -86,6 +93,8 @@
     }
 
     &--blue {
+        --emboss-light: fade(@cWhite, 20);
+        --emboss-shadow: fade(@cBlack, 80);
         --color: @cWhite;
         background: linear-gradient(180deg, #1e52ba 0%, #0033a0 50%, #002270 100%);
 
@@ -95,6 +104,8 @@
     }
 
     &--red {
+        --emboss-light: fade(@cWhite, 20);
+        --emboss-shadow: fade(@cBlack, 80);
         --color: @cWhite;
         background: linear-gradient(180deg, #e52d2d 0%, #c41212 50%, #990000 100%);
 
@@ -104,6 +115,8 @@
     }
 
     &--black {
+        --emboss-light: fade(@cWhite, 20);
+        --emboss-shadow: fade(@cBlack, 80);
         --color: @cWhite;
         background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
 

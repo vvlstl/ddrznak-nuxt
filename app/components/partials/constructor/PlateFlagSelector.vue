@@ -34,10 +34,7 @@
 				>
 					<span class="plate-flag-selector__knob"/>
 				</span>
-				<span class="plate-flag-selector__text">
-					Рельефный флаг
-					<span class="plate-flag-selector__price">+250 ₽</span>
-				</span>
+				<span class="plate-flag-selector__text">Рельефный флаг</span>
 			</button>
 		</div>
 	</div>

@@ -1,6 +1,9 @@
 @import "../../_var";
 
 .flag {
+    --emboss-light: fade(@cWhite, 40);
+    --emboss-shadow: fade(@cBlack, 50);
+
     display: inline-flex;
     align-items: center;
 
@@ -8,10 +11,17 @@
         font: 700 var(--fs24) / 1 @font;
         letter-spacing: 0.15em;
     }
-}
 
-// Рельефный флаг: имитация штамповки — объёмная тень со смещением вниз-вправо
-.plate__flag--raised {
-    filter: drop-shadow(1px 1px 0 fade(@cBlack, 35))
-    drop-shadow(2px 2px 1px fade(@cBlack, 18));
+    &--raised {
+        .flag {
+            &__text {
+                text-shadow: -1px -1px 0 var(--emboss-light),
+                1px 1px 0 var(--emboss-shadow);
+            }
+
+            &__icon {
+                filter: drop-shadow(-1px -1px 0 fade(@cWhite, 30)) drop-shadow(1px 1px 0 fade(@cBlack, 50));
+            }
+        }
+    }
 }
