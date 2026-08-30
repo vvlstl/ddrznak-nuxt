@@ -1,0 +1,122 @@
+@import "../_var";
+
+.multiselect {
+    &__tags {
+        display: flex;
+        align-items: center;
+        min-height: var(--input-height);
+        padding: 0 var(--m40) 0 var(--m12);
+        border: var(--input-border-width) solid @cGray300;
+        border-radius: var(--br8);
+        background: @cWhite;
+        cursor: pointer;
+    }
+
+    &__single {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        min-height: var(--input-height);
+        margin: 0;
+        padding: 0;
+        font: 500 var(--fs14) / 1.2 @font;
+        color: @cNavy900;
+        background: transparent;
+    }
+
+    &__placeholder {
+        display: flex;
+        align-items: center;
+        min-height: var(--input-height);
+        margin: 0;
+        padding: 0;
+        font: 400 var(--fs14) / 1.2 @font;
+        color: @cGray500;
+    }
+
+    &__select {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: var(--m40);
+        height: var(--input-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &::before {
+            content: none; // убираем дефолтную стрелку пакета
+        }
+    }
+
+    &__content-wrapper {
+        position: absolute;
+        z-index: 10;
+        top: calc(100% + var(--m4));
+        left: 0;
+        right: 0;
+        max-height: unit((240 / 16), rem);
+        overflow-y: auto;
+        border: var(--input-border-width) solid @cGray300;
+        border-radius: var(--br8);
+        background: @cWhite;
+        box-shadow: 0 unit((8 / 16), rem) unit((16 / 16), rem) fade(@cNavy950, 8);
+    }
+
+    &__content {
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: var(--m4) 0;
+    }
+
+    &__option {
+        display: flex;
+        align-items: center;
+        min-height: var(--input-height);
+        padding: 0 var(--m12);
+        font: 400 var(--fs14) / 1.2 @font;
+        color: @cGray800;
+        cursor: pointer;
+
+        &--highlight {
+            background: @cWhite100;
+            color: @cNavy900;
+        }
+
+        &--selected {
+            background: @cWhite100;
+            color: @cBlue600;
+            font-weight: 600;
+        }
+    }
+
+    &__caret {
+        .transit(transform);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: @cGray600;
+    }
+
+    &--active {
+        .multiselect {
+            &__caret {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    @media @mediaHover {
+        &__option:hover {
+            background: @cWhite100;
+        }
+    }
+}

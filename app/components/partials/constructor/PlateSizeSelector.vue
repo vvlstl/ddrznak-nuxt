@@ -24,9 +24,9 @@
 			<template #caret="{ toggle }">
 				<div
 					class="multiselect__select"
-					@mousedown.prevent.stop="toggle()"
+					@mousedown.prevent="toggle()"
 				>
-					<span class="plate-size-selector__caret">
+					<span class="multiselect__caret plate-size-selector__caret">
 						<Icon name="tabler:chevron-down"/>
 					</span>
 				</div>

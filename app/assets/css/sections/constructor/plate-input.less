@@ -3,7 +3,7 @@
 .plate-input {
     .clear-input();
     .transit(~'border-color, background-color, box-shadow');
-    background: @cWhite100;
+    background: @cWhite;
     border: 1px solid @cGray400;
     color: @cNavy900;
     padding: var(--m14) var(--m10);
@@ -14,12 +14,12 @@
     border-radius: unit((6 / 16), rem);
     text-transform: uppercase;
     width: 100%;
+    z-index: 1;
 
     &:focus {
         outline: none;
         border-color: @cBlue600;
         background: @cWhite;
-        box-shadow: 0 0 0 3px fade(@cBlue600, 12);
     }
 
     &::placeholder {
