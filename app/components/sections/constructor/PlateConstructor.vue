@@ -18,10 +18,11 @@
 						<PlateColorSelector v-model="state.color"/>
 						<PlateFontSelector v-model="state.font"/>
 						<PlateFlagSelector
+							:enabled="flagEnabled"
 							v-model:flag="state.flag"
 							v-model:raised="state.raisedFlag"
 						/>
-						<PlateSizeSelector v-model="state.size"/>
+						<PlateSizeSelector v-model="state.size" :disabled="state.type === 'trailer'"/>
 						<PlateInputGroup v-model="state.combination"/>
 					</div>
 
@@ -41,8 +42,8 @@
 								:combination="state.combination"
 								:color="state.color"
 								:font="state.font"
-								:flag="state.flag"
-								:raised-flag="state.raisedFlag"
+								:flag="flagEnabled && state.flag"
+								:raised-flag="flagEnabled && state.raisedFlag"
 							/>
 						</div>
 
@@ -125,7 +126,6 @@
 		trailer: '520 × 112 мм',
 		tractor: '288 × 206 мм',
 		moped: '190 × 145 мм',
-		bicycle: '150 × 100 мм',
 	};
 
 	const DEFAULT_SIZE_BY_TYPE: Record<TPlateType, TPlateSize> = {
@@ -134,7 +134,6 @@
 		trailer: '520x112',
 		tractor: '288x206',
 		moped: '190x145',
-		bicycle: '150x100',
 	};
 
 	const SIZE_LABEL: Record<TPlateSize, string> = {
@@ -142,7 +141,6 @@
 		'245x160': '245 × 160 мм',
 		'288x206': '288 × 206 мм',
 		'190x145': '190 × 145 мм',
-		'150x100': '150 × 100 мм',
 	};
 
 	const FONT_PRICE_WITH_FLAG: Record<TPlateFont, number> = {
@@ -163,14 +161,17 @@
 
 	const sizeByType = computed(() => SIZE_LABEL[state.size]);
 
+	const flagEnabled = computed(() => state.color === 'white');
+
 	const plateComponent = computed(() => {
 		const standardSizes = ['520x112', '245x160'];
 		return standardSizes.includes(state.size) ? PlateStandard : PlateStandardA;
 	});
 
 	const total = computed(() => {
-		const priceTable = state.flag ? FONT_PRICE_WITH_FLAG : FONT_PRICE_WITHOUT_FLAG;
-		const raised = state.raisedFlag ? RAISED_FLAG_PRICE : 0;
+		const useFlag = state.flag && state.color === 'white';
+		const priceTable = useFlag ? FONT_PRICE_WITH_FLAG : FONT_PRICE_WITHOUT_FLAG;
+		const raised = (state.raisedFlag && state.color === 'white') ? RAISED_FLAG_PRICE : 0;
 		return priceTable[state.font] + raised;
 	});
 

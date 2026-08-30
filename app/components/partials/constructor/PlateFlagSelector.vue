@@ -7,6 +7,7 @@
 			<button
 				type="button"
 				class="plate-flag-selector__row"
+				:disabled="!enabled"
 				:aria-pressed="flag"
 				@click="onToggleFlag"
 			>
@@ -23,7 +24,7 @@
 			<button
 				type="button"
 				class="plate-flag-selector__row"
-				:disabled="!flag"
+				:disabled="!flag || !enabled"
 				:aria-pressed="raised"
 				@click="onToggleRaised"
 			>
@@ -44,9 +45,12 @@
 	type TComponentProps = {
 		flag: boolean;
 		raised: boolean;
+		enabled?: boolean;
 	};
 
-	const props = defineProps<TComponentProps>();
+	const props = withDefaults(defineProps<TComponentProps>(), {
+		enabled: true,
+	});
 
 	const emit = defineEmits<{
 		'update:flag': [boolean];
@@ -54,6 +58,7 @@
 	}>();
 
 	function onToggleFlag() {
+		if (!props.enabled) return;
 		const next = !props.flag;
 		emit('update:flag', next);
 		if (!next && props.raised) {
@@ -62,6 +67,7 @@
 	}
 
 	function onToggleRaised() {
+		if (!props.enabled) return;
 		if (!props.flag) return;
 		emit('update:raised', !props.raised);
 	}

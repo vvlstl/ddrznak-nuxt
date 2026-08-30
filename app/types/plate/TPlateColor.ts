@@ -10,15 +10,13 @@ export type TPlateType =
     | 'moto'
     | 'trailer'
     | 'tractor'
-    | 'moped'
-    | 'bicycle';
+    | 'moped';
 
 export type TPlateFormat =
     | 'standard'
     | 'square'
     | 'tractor'
-    | 'moped'
-    | 'bicycle';
+    | 'moped';
 
 export type TPlateFlag = 'flag' | 'no-flag';
 
@@ -27,8 +25,7 @@ export type TPlateSize =
     | '245x160'
     | '288x206'
     | '290x170'
-    | '190x145'
-    | '150x100';
+    | '190x145';
 
 export type TPlateFont = 'standard' | 'strict' | 'maximum' | 'vip';
 

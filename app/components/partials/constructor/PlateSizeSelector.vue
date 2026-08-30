@@ -13,6 +13,7 @@
 			track-by="value"
 			label="label"
 			placeholder="Выберите размер"
+			:disabled="disabled"
 			@select="onSelect"
 		>
 			<template #singleLabel="{ option }">
@@ -46,6 +47,7 @@
 
 	type TComponentProps = {
 		modelValue: TPlateSize;
+		disabled?: boolean;
 	};
 
 	const emit = defineEmits<{

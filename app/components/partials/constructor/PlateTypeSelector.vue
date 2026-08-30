@@ -73,12 +73,6 @@
 			icon: 'tabler:scooter',
 			price: 4900,
 		},
-		{
-			value: 'bicycle',
-			label: 'Велосипед',
-			icon: 'tabler:bike',
-			price: 2900,
-		},
 	];
 
 	function onSelect(option: TOption) {

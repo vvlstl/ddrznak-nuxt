@@ -84,6 +84,10 @@
         color: @cGray800;
         cursor: pointer;
 
+        .hover ({
+            background: @cWhite100;
+        });
+
         &--highlight {
             background: @cWhite100;
             color: @cNavy900;
@@ -114,9 +118,19 @@
         }
     }
 
-    @media @mediaHover {
-        &__option:hover {
-            background: @cWhite100;
+    &--disabled {
+        pointer-events: none;
+        opacity: @disabledOpacity;
+
+        .multiselect {
+            &__tags {
+                border-color: @cGray200;
+                background: @cGray100;
+            }
+
+            &__caret {
+                color: @cGray500;
+            }
         }
     }
 }
