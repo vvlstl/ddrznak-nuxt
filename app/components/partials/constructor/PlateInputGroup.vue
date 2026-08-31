@@ -60,7 +60,13 @@
 
 	const props = defineProps<TComponentProps>();
 
-	const ALLOWED_LETTERS = 'АВЕКМНОРСТУХ';
+	const LATIN_TO_CYR: Record<string, string> = {
+		'A': 'А', 'B': 'В', 'E': 'Е', 'K': 'К', 'M': 'М',
+		'H': 'Н', 'O': 'О', 'P': 'Р', 'C': 'С', 'T': 'Т',
+		'Y': 'У', 'X': 'Х',
+	};
+
+	const CYR_VALUES = new Set(Object.values(LATIN_TO_CYR));
 
 	const letterFirst = ref(props.modelValue.letterFirst);
 	const digits = ref(props.modelValue.digits);
@@ -80,8 +86,12 @@
 	});
 
 	function sanitizeLetter(v: string, maxLen: number) {
-		const upper = v.toUpperCase().replace(/[^А-ЯЁ]/g, '');
-		return upper.split('').filter(c => ALLOWED_LETTERS.includes(c)).join('').slice(0, maxLen);
+		return v.toUpperCase()
+			.split('')
+			.map(c => LATIN_TO_CYR[c] ?? c)
+			.filter(c => CYR_VALUES.has(c))
+			.join('')
+			.slice(0, maxLen);
 	}
 
 	function sanitizeDigit(v: string, maxLen: number) {
