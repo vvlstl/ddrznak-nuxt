@@ -42,7 +42,7 @@
 	}>();
 
 	const isOpen = ref(true);
-	const contentRef = ref<HTMLElement | null>(null);
+	const contentRef = useTemplateRef<HTMLElement>('contentRef');
 
 	let scrollLocked = false;
 

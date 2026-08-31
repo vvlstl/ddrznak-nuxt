@@ -42,8 +42,8 @@
 		color: 'white',
 	});
 
-	const btnPrev = ref<HTMLButtonElement | null>(null);
-	const btnNext = ref<HTMLButtonElement | null>(null);
+	const btnPrev = useTemplateRef<HTMLButtonElement>('btnPrev');
+	const btnNext = useTemplateRef<HTMLButtonElement>('btnNext');
 
 	defineExpose({
 		btnPrev,

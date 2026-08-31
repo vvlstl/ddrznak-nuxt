@@ -31,8 +31,8 @@
 
 	const props = defineProps<TComponentProps>();
 
-	const container = ref<null | HTMLElement>(null);
-	const content = ref<null | HTMLElement>(null);
+	const container = useTemplateRef<HTMLElement>('container');
+	const content = useTemplateRef<HTMLElement>('content');
 
 	const contentHeight = ref<number>(0);
 	const spoilerHeight = ref<null | number>(props.isOpen ? null : 0);

@@ -73,10 +73,10 @@
 	const lettersLast = ref(props.modelValue.lettersLast);
 	const region = ref(props.modelValue.region);
 
-	const l1Ref = ref<HTMLInputElement | null>(null);
-	const n1Ref = ref<HTMLInputElement | null>(null);
-	const l2Ref = ref<HTMLInputElement | null>(null);
-	const regionRef = ref<HTMLInputElement | null>(null);
+	const l1Ref = useTemplateRef<HTMLInputElement>('l1Ref');
+	const n1Ref = useTemplateRef<HTMLInputElement>('n1Ref');
+	const l2Ref = useTemplateRef<HTMLInputElement>('l2Ref');
+	const regionRef = useTemplateRef<HTMLInputElement>('regionRef');
 
 	watch(() => props.modelValue, (val) => {
 		letterFirst.value = val.letterFirst;

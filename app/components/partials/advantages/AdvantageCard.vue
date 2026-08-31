@@ -34,6 +34,6 @@
 	}
 	defineProps<TComponentProps>();
 
-	const counterRef = ref<HTMLElement | null>(null);
+	const counterRef = useTemplateRef<HTMLElement>('counterRef');
 	useCounterAnimation(counterRef);
 </script>
