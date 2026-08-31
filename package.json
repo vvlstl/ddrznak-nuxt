@@ -8,7 +8,14 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "ci:act": "act -W .github/workflows/nuxtjs.yml",
+    "ci:act:dry": "act --dryrun -W .github/workflows/nuxtjs.yml",
+    "ci:generate": "pnpm run generate",
+    "ci:verify": "tsx scripts/verify-build.ts",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@iconify-json/tabler": "^1.2.37",
@@ -26,8 +33,13 @@
     "@nuxt/eslint": "^1.16.0",
     "@nuxt/hints": "^1.1.4",
     "@types/body-scroll-lock": "^3.1.2",
+    "@types/node": "^26.4.0",
     "autoprefixer": "^10.5.0",
     "eslint": "^10.4.1",
-    "less": "^4.6.4"
+    "husky": "^9.1.7",
+    "less": "^4.6.4",
+    "lint-staged": "^17.4.1",
+    "tsx": "^4.23.13",
+    "vitest": "^3.2.7"
   }
 }

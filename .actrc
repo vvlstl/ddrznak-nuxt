@@ -1,0 +1,3 @@
+--platform ubuntu-latest=node:24-bookworm
+--workflows .github/workflows
+--reuse
