@@ -1,35 +1,47 @@
 <template>
-		<main>
-			<PromoBlock/>
-			<TrustMarquee class="page__section"/>
-			<AdvantagesSection
-				id="advantages"
-				class="page__section reveal"
-				:items="advantages"
-			/>
-			<WorksSlider id="works" class="page__section reveal"/>
-			<PlateConstructor id="constructor" class="page__section reveal"/>
-			<ProcessSteps id="process" class="page__section reveal"/>
-			<FaqAccordion id="faq" class="page__section reveal"/>
-			<CtaSection class="page__section"/>
-		</main>
+	<main>
+		<PromoBlock/>
+		<TrustMarquee class="page__section"/>
+		<AdvantagesSection
+			id="advantages"
+			class="page__section reveal"
+			:items="advantages"
+		/>
+		<WorksSlider id="works" class="page__section reveal"/>
+		<PlateConstructor id="constructor" class="page__section reveal"/>
+		<ProcessSteps id="process" class="page__section reveal"/>
+		<FaqAccordion id="faq" class="page__section reveal"/>
+		<CtaSection class="page__section"/>
+	</main>
 </template>
 
 <script setup lang="ts">
 	import PromoBlock from '~/components/sections/promo-block/PromoBlock.vue';
-	import TrustMarquee from '~/components/sections/trust-marquee/TrustMarquee.vue';
-	import WorksSlider from '~/components/sections/works-slider/WorksSlider.vue';
-	import PlateConstructor from '~/components/sections/constructor/PlateConstructor.vue';
-	import ProcessSteps from '~/components/sections/process/ProcessSteps.vue';
-	import FaqAccordion from '~/components/sections/faq/FaqAccordion.vue';
-	import CtaSection from '~/components/sections/cta/CtaSection.vue';
 	import type {TAdvantageCard} from '~/types/advantages/TAdvantageCard.ts';
-	import AdvantagesSection from "~/components/sections/advantages/AdvantagesSection.vue";
 
-	/** LCP-критичная секция (PromoBlock) импортируется статически.
-	 * Остальные секции можно оборачивать в defineAsyncComponent —
-	 * они уйдут в отдельные чанки и не блокируют initial render.
-	 */
+	// LCP-критичная секция импортируется статически.
+	// Остальные уходят в отдельные чанки и не блокируют initial render.
+	const TrustMarquee = defineAsyncComponent(
+		() => import('~/components/sections/trust-marquee/TrustMarquee.vue')
+	);
+	const AdvantagesSection = defineAsyncComponent(
+		() => import('~/components/sections/advantages/AdvantagesSection.vue')
+	);
+	const WorksSlider = defineAsyncComponent(
+		() => import('~/components/sections/works-slider/WorksSlider.vue')
+	);
+	const PlateConstructor = defineAsyncComponent(
+		() => import('~/components/sections/constructor/PlateConstructor.vue')
+	);
+	const ProcessSteps = defineAsyncComponent(
+		() => import('~/components/sections/process/ProcessSteps.vue')
+	);
+	const FaqAccordion = defineAsyncComponent(
+		() => import('~/components/sections/faq/FaqAccordion.vue')
+	);
+	const CtaSection = defineAsyncComponent(
+		() => import('~/components/sections/cta/CtaSection.vue')
+	);
 
 	const advantages: TAdvantageCard[] = [
 		{
