@@ -37,3 +37,4 @@ coverage/
 /.opencode/
 /AGENTS. md
 /CLAUDE.md
+bin/
