@@ -65,7 +65,6 @@
 </template>
 
 <script setup lang="ts">
-	import {computed, ref} from 'vue';
 	import {Swiper, SwiperSlide} from 'swiper/vue';
 	import {EffectFade, Navigation,} from 'swiper/modules';
 
@@ -176,7 +175,7 @@
 	defineSlots<{
 		header?: () => unknown;
 
-		slide?: (props: {
+		slide?: (_props: {
 			item: SliderItem;
 			index: number;
 			isActive: boolean;

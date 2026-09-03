@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import type {TAdvantageCard} from "~/types/advantages/TAdvantageCard.ts";
 
-const props = defineProps<{
+defineProps<{
   item: TAdvantageCard;
 }>();
 </script>

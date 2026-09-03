@@ -26,5 +26,5 @@
 		text: string;
 	}
 
-	const props = defineProps<TComponentProps>();
+	defineProps<TComponentProps>();
 </script>

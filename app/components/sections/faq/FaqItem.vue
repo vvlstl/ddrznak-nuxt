@@ -28,14 +28,12 @@
 
 	type TComponentProps = {
 		item: TFaqItem;
-		isOpen?: boolean;
+		defaultOpen?: boolean;
 	}
 
-	const props = withDefaults(defineProps<TComponentProps>(), {
-		isOpen: false,
-	});
+	const props = defineProps<TComponentProps>();
 
-	const isOpen = ref<boolean>(false);
+	const isOpen = ref<boolean>(props.defaultOpen ?? false);
 
 	function toggle(state?: boolean) {
 		if (typeof state !== 'boolean') state = !isOpen.value;

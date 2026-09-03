@@ -19,7 +19,10 @@ function dirExists(path) {
 }
 
 function dirNotEmpty(path) {
-  const items = (globalThis as any).__items || (globalThis as any).__items = [];
+  if (!(globalThis as any).__items) {
+    (globalThis as any).__items = [];
+  }
+  const items = (globalThis as any).__items;
   if (!items.length) {
     const { readdirSync } = require('node:fs');
     try {

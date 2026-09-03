@@ -40,7 +40,7 @@
 							v-for="item in items"
 							:key="item.id"
 							:item="item"
-							:is-open="openId === item.id"
+							:default-open="openId === item.id"
 						/>
 					</div>
 				</div>

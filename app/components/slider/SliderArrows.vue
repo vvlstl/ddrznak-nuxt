@@ -37,7 +37,7 @@
 		color?: string,
 	};
 
-	const props = withDefaults(defineProps<TComponentProps>(), {
+	withDefaults(defineProps<TComponentProps>(), {
 		blockName: 'slider',
 		color: 'white',
 	});

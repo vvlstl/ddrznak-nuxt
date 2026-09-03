@@ -40,7 +40,7 @@
 		'update:price': [number];
 	}>();
 
-	const props = defineProps<TComponentProps>();
+	defineProps<TComponentProps>();
 
 	const options: TOption[] = [
 		{

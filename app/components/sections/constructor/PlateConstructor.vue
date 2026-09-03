@@ -98,8 +98,7 @@
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
 	import PlateStandard from '~/components/partials/plate/PlateStandard.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
-	import type {TPlateType, TPlateSize} from '~/types/plate/TPlateColor.ts';
-	import type {TPlateFont} from '~/types/plate/TPlateColor.ts';
+	import type {TPlateType, TPlateSize, TPlateFont} from '~/types/plate/TPlateColor.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 	import PlateStandardA from "~/components/partials/plate/PlateStandardA.vue";
 
@@ -117,16 +116,7 @@
 		raisedFlag: false,
 		size: '520x112' as TPlateSize,
 		basePrice: 4900,
-		framePriceAdd: 0,
 	});
-
-	const SIZE_BY_TYPE: Record<TPlateType, string> = {
-		auto: '520 × 112 мм',
-		moto: '245 × 160 мм',
-		trailer: '520 × 112 мм',
-		tractor: '288 × 206 мм',
-		moped: '190 × 145 мм',
-	};
 
 	const DEFAULT_SIZE_BY_TYPE: Record<TPlateType, TPlateSize> = {
 		auto: '520x112',
@@ -185,10 +175,6 @@
 
 	function onTypePrice(price: number) {
 		state.basePrice = price;
-	}
-
-	function onFramePriceAdd(priceAdd: number) {
-		state.framePriceAdd = priceAdd;
 	}
 
 	const toast = reactive({

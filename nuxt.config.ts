@@ -22,6 +22,11 @@ export default defineNuxtConfig({
             gzip: true,
             brotli: true,
         },
+        prerender: {
+            crawlLinks: false,
+            routes: [],
+            continueOnError: true,
+        },
         routeRules: {
             '/_nuxt/**': {
                 headers: {

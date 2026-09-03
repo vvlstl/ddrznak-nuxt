@@ -26,7 +26,7 @@
 	import AdvantageGridCard from "~/components/sections/advantages/AdvantageGridCard.vue";
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 
-	const props = defineProps<{
+	defineProps<{
 		items: TAdvantageCard[];
 	}>();
 
