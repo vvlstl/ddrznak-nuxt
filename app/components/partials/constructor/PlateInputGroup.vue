@@ -106,6 +106,7 @@
 	const FIELD_DEFS = {
 		letterFirst: { field: 'letterFirst', kind: 'letter', maxLen: 1, placeholder: 'А'    } as TFieldDef,
 		letters2:    { field: 'letters',     kind: 'letter', maxLen: 2, placeholder: 'АА'   } as TFieldDef,
+		digits2:     { field: 'digits',      kind: 'digit',  maxLen: 2, placeholder: '55'   } as TFieldDef,
 		digits3:     { field: 'digits',      kind: 'digit',  maxLen: 3, placeholder: '777'  } as TFieldDef,
 		digits4:     { field: 'digits',      kind: 'digit',  maxLen: 4, placeholder: '7777' } as TFieldDef,
 		lettersLast: { field: 'lettersLast', kind: 'letter', maxLen: 2, placeholder: 'АА'   } as TFieldDef,
@@ -133,8 +134,8 @@
 			{ row: [FIELD_DEFS.letters2, FIELD_DEFS.region] },
 		],
 		moped: [
-			{ row: [FIELD_DEFS.letters2, FIELD_DEFS.region] },
-			FIELD_DEFS.digits4,
+			{ row: [FIELD_DEFS.letters2, FIELD_DEFS.digits2] },
+			{ row: [FIELD_DEFS.lettersLast, FIELD_DEFS.region] },
 		],
 		offroad: [
 			{ row: [FIELD_DEFS.letters2, FIELD_DEFS.region] },

@@ -15,20 +15,20 @@
 							v-model="state.type"
 							@update:price="onTypePrice"
 						/>
-						<PlateColorSelector v-model="state.color"/>
-						<PlateFontSelector v-model="state.font"/>
-						<PlateFlagSelector
-							v-model:flag="state.flag"
-							v-model:raised="state.raisedFlag"
-							:enabled="flagEnabled"
-						/>
 						<PlateSizeSelector
 							v-model="state.size"
 							:allowed-sizes="typeConfig.sizes"
 						/>
+						<PlateFontSelector v-model="state.font"/>
 						<PlateInputGroup
 							v-model="state.combination"
 							:input-schema="typeConfig.inputSchema"
+						/>
+						<PlateColorSelector v-model="state.color"/>
+						<PlateFlagSelector
+							v-model:flag="state.flag"
+							v-model:raised="state.raisedFlag"
+							:enabled="flagEnabled"
 						/>
 					</div>
 
@@ -46,6 +46,7 @@
 							<component
 								:is="plateComponent"
 								:combination="state.combination"
+								:type="state.type"
 								:color="state.color"
 								:font="state.font"
 								:flag="flagEnabled && state.flag"

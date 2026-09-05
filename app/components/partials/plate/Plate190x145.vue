@@ -1,13 +1,37 @@
 <template>
 	<div
 		class="plate plate--190x145"
-		:class="[`plate--${color}`, fontClass]"
+		:class="{
+			[`plate--${props.type}`]: props.type,
+			[`plate--${color}`]: props.color,
+			[`plate--font-${props.font}`]: props.font,
+		}"
 	>
 		<div class="plate__row">
-			<div class="plate__char">{{ combination.digits }}</div>
+			<template v-if="type === 'moped'">
+				<div class="plate__char">{{ combination.letters }}</div>
+				<div class="plate__char">{{ combination.digits }}</div>
+			</template>
+			<template v-else>
+				<div class="plate__char">{{ combination.digits }}</div>
+			</template>
 		</div>
 		<div class="plate__row-bottom">
-			<div class="plate__char">{{ combination.letters }}</div>
+
+			<div
+				v-if="type === 'moped'"
+				class="plate__char"
+			>
+				{{ combination.lettersLast }}
+			</div>
+			<div
+				v-else
+				class="plate__char"
+			>
+				{{ combination.letters }}
+			</div>
+
+
 			<div class="plate__region">
 				<div class="plate__region-value">{{ combination.region }}</div>
 				<RuFlag
@@ -22,12 +46,13 @@
 
 <script setup lang="ts">
 	import RuFlag from '~/components/partials/plate/RuFlag.vue';
-	import type {TPlateColor, TPlateCombination, TPlateFont} from '~/types/plate/TPlateColor.ts';
+	import type {TPlateColor, TPlateCombination, TPlateFont, TPlateType} from '~/types/plate/TPlateColor.ts';
 
 	type TComponentProps = {
 		combination: TPlateCombination;
 		color?: TPlateColor;
 		font?: TPlateFont;
+		type?: TPlateType;
 		flag?: boolean;
 		raisedFlag?: boolean;
 	}
@@ -35,11 +60,9 @@
 	const props = withDefaults(defineProps<TComponentProps>(), {
 		color: 'white',
 		font: 'standard',
+		type: undefined,
 		flag: true,
 		raisedFlag: false,
 	});
 
-	const fontClass = computed(() =>
-		props.font !== 'standard' ? `plate--font-${props.font}` : null,
-	);
 </script>

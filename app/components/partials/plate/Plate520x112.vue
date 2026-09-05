@@ -1,7 +1,11 @@
 <template>
 	<div
 		class="plate"
-		:class="[`plate--${color}`, fontClass]"
+		:class="{
+			[`plate--${props.type}`]: props.type,
+			[`plate--${color}`]: props.color,
+			[`plate--font-${props.font}`]: props.font,
+		}"
 	>
 		<div class="plate__number">
 			<div class="plate__char">{{ firstChar }}</div>
@@ -24,12 +28,13 @@
 
 <script setup lang="ts">
 	import RuFlag from '~/components/partials/plate/RuFlag.vue';
-	import type {TPlateColor, TPlateCombination, TPlateFont} from '~/types/plate/TPlateColor.ts';
+	import type {TPlateColor, TPlateCombination, TPlateFont, TPlateType} from '~/types/plate/TPlateColor.ts';
 
 	type TComponentProps = {
 		combination: TPlateCombination;
 		color?: TPlateColor;
 		font?: TPlateFont;
+		type?: TPlateType;
 		flag?: boolean;
 		raisedFlag?: boolean;
 	}
@@ -37,14 +42,11 @@
 	const props = withDefaults(defineProps<TComponentProps>(), {
 		color: 'white',
 		font: 'standard',
+		type: undefined,
 		flag: true,
 		raisedFlag: false,
 	});
 
 	// Для схемы trailer первый блок — 2 буквы (letters), для auto — 1 буква (letterFirst)
 	const firstChar = computed(() => props.combination.letterFirst || props.combination.letters);
-
-	const fontClass = computed(() =>
-		props.font !== 'standard' ? `plate--font-${props.font}` : null,
-	);
 </script>

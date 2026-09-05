@@ -80,6 +80,7 @@ export function getDefaultCombination(schema: TInputSchema): TPlateCombination {
         case 'tractor':
             return {...base, digits: '7777', letters: 'АА', region: '77'};
         case 'moped':
+            return {...base, letters: 'ММ', digits: '55', lettersLast: 'АА', region: '23'};
         case 'offroad':
             return {...base, letters: 'АА', region: '77', digits: '7777'};
     }

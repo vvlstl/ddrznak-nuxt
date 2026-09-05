@@ -81,7 +81,6 @@
     &__row {
         display: flex;
         gap: var(--m28);
-
     }
 
     &--290x170 {
@@ -236,6 +235,62 @@
                 top: calc(-1 * var(--m6));
                 left: calc(-1 * var(--m6));
                 transform: translateY(calc(-50% + var(--m6)));
+                z-index: 2;
+            }
+        }
+    }
+
+
+    &--moped {
+        .plate {
+            &__row {
+                gap: var(--m20);
+            }
+        }
+    }
+
+    &--offroad {
+        flex-direction: column-reverse;
+        padding: 0 var(--m12) var(--m10);
+
+        .plate {
+            &__row {
+                margin-bottom: 0;
+                margin-top: var(--m12);
+            }
+
+            &__row-bottom {
+                align-items: flex-start;
+                flex: 1 1 auto;
+            }
+
+            &__region {
+                top: calc(-1 * var(--m4));
+                right: calc(-1 * var(--m4));
+                bottom: unset;
+                padding: var(--m8) var(--m20) var(--m20);
+
+                &:before {
+                    .pseudo();
+                    inset: calc(-1 * var(--m4));
+                    border: var(--m4) solid var(--color);
+                    border-radius: var(--br10);
+                    mask-image: linear-gradient(to right,
+                    transparent calc(unit((62 / 16), rem) + unit((30 / 16), rem)),
+                    black calc(unit((62 / 16), rem) + unit((30 / 16), rem))),
+                    linear-gradient(to top,
+                    transparent var(--m20),
+                    black var(--m20));
+                    mask-composite: add;
+                }
+            }
+
+            &__flag {
+                position: absolute;
+                top: unset;
+                bottom: calc(-1 * var(--m6));
+                left: calc(-1 * var(--m6));
+                transform: translateY(calc(50% - var(--m6)));
                 z-index: 2;
             }
         }
