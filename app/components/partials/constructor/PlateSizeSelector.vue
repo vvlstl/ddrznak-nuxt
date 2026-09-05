@@ -6,7 +6,7 @@
 		<Multiselect
 			class="plate-size-selector"
 			:model-value="selected"
-			:options="options"
+			:options="allowedSizes"
 			:searchable="false"
 			:allow-empty="false"
 			:show-labels="false"
@@ -39,15 +39,11 @@
 <script setup lang="ts">
 	import Multiselect from 'vue-multiselect';
 	import type {TPlateSize} from '~/types/plate/TPlateColor.ts';
-
-	type TOption = {
-		value: TPlateSize;
-		label: string;
-	};
+	import type {TSizeOption} from '~/utils/plateTypeConfig.ts';
 
 	type TComponentProps = {
 		modelValue: TPlateSize;
-		disabled?: boolean;
+		allowedSizes: TSizeOption[];
 	};
 
 	const emit = defineEmits<{
@@ -56,17 +52,13 @@
 
 	const props = defineProps<TComponentProps>();
 
-	const options: TOption[] = [
-		{value: '520x112', label: 'Тип 1 — 520 × 112 мм'},
-		{value: '290x170', label: 'Тип 1А — 290 × 170 мм'},
-		{value: '245x185', label: 'Тип 4 — 245 × 185 мм'},
-	];
+	const disabled = computed(() => props.allowedSizes.length <= 1);
 
 	const selected = computed(() =>
-		options.find(o => o.value === props.modelValue) ?? options[0],
+		props.allowedSizes.find(o => o.value === props.modelValue) ?? props.allowedSizes[0],
 	);
 
-	function onSelect(option: TOption) {
+	function onSelect(option: TSizeOption) {
 		emit('update:modelValue', option.value);
 	}
 </script>

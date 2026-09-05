@@ -22,8 +22,14 @@
 							v-model:raised="state.raisedFlag"
 							:enabled="flagEnabled"
 						/>
-						<PlateSizeSelector v-model="state.size" :disabled="state.type === 'trailer'"/>
-						<PlateInputGroup v-model="state.combination"/>
+						<PlateSizeSelector
+							v-model="state.size"
+							:allowed-sizes="typeConfig.sizes"
+						/>
+						<PlateInputGroup
+							v-model="state.combination"
+							:input-schema="typeConfig.inputSchema"
+						/>
 					</div>
 
 					<!-- Превью -->
@@ -98,10 +104,13 @@
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
 	import Plate520X112 from '~/components/partials/plate/Plate520x112.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
-	import type {TPlateType, TPlateSize, TPlateFont} from '~/types/plate/TPlateColor.ts';
+	import type {TPlateCombination, TPlateType, TPlateSize, TPlateFont} from '~/types/plate/TPlateColor.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
 	import Plate290X170 from "~/components/partials/plate/Plate290x170.vue";
 	import Plate245x185 from "~/components/partials/plate/Plate245x185.vue";
+	import Plate288x206 from "~/components/partials/plate/Plate288x206.vue";
+	import Plate190x145 from "~/components/partials/plate/Plate190x145.vue";
+	import {getDefaultCombination, formatCombination, PLATE_TYPE_CONFIG} from '~/utils/plateTypeConfig.ts';
 
 	const state = reactive({
 		type: 'auto' as TPlateType,
@@ -109,9 +118,10 @@
 		combination: {
 			letterFirst: 'А',
 			digits: '777',
+			letters: '',
 			lettersLast: 'АА',
 			region: '77',
-		},
+		} as TPlateCombination,
 		font: 'standard' as TPlateFont,
 		flag: true,
 		raisedFlag: false,
@@ -119,9 +129,18 @@
 		basePrice: 4900,
 	});
 
+	const typeConfig = computed(() => PLATE_TYPE_CONFIG[state.type]);
+
+	watch(() => state.type, (newType) => {
+		const config = PLATE_TYPE_CONFIG[newType];
+		state.size = config.defaultSize;
+		state.combination = getDefaultCombination(config.inputSchema);
+	});
+
 	const SIZE_LABEL: Record<TPlateSize, string> = {
 		'520x112': '520 × 112 мм',
-		'245x160': '245 × 160 мм',
+		'290x170': '290 × 170 мм',
+		'245x185': '245 × 185 мм',
 		'288x206': '288 × 206 мм',
 		'190x145': '190 × 145 мм',
 	};
@@ -149,6 +168,8 @@
 	const plateComponent = computed(() => {
 		if (state.size === '290x170') return Plate290X170;
 		if (state.size === '245x185') return Plate245x185;
+		if (state.size === '288x206') return Plate288x206;
+		if (state.size === '190x145') return Plate190x145;
 
 		return Plate520X112;
 	});
@@ -177,8 +198,7 @@
 	let toastTimer: ReturnType<typeof setTimeout> | null = null;
 
 	function onOrder() {
-		const c = state.combination;
-		const plate = `${c.letterFirst || '·'} ${c.digits || '···'} ${c.lettersLast || '··'} | ${c.region || '···'}`;
+		const plate = formatCombination(state.combination);
 		toast.title = 'Заявка принята';
 		toast.text = `Номер ${plate} отправлен в производство. Менеджер свяжется в течение 15 минут.`;
 		toast.visible = true;

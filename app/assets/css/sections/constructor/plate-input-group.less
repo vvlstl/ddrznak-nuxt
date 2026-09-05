@@ -1,7 +1,23 @@
 @import "../../_var";
 
 .plate-input-group {
-    display: flex;
+    display: grid;
     gap: var(--m12);
     align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+
+    &--vertical {
+        flex-direction: column;
+        align-items: stretch;
+        grid-template-columns: 100%;
+
+        .plate-input-group {
+            &__row {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: var(--m12);
+                align-items: center;
+            }
+        }
+    }
 }

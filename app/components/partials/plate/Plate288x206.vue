@@ -1,23 +1,21 @@
 <template>
 	<div
-		class="plate"
+		class="plate plate--288x206"
 		:class="[`plate--${color}`, fontClass]"
 	>
-		<div class="plate__number">
-			<div class="plate__char">{{ firstChar }}</div>
+		<div class="plate__row">
 			<div class="plate__char">{{ combination.digits }}</div>
-			<div
-				v-if="combination.lettersLast"
-				class="plate__char"
-			>{{ combination.lettersLast }}</div>
 		</div>
-		<div class="plate__region">
-			<div class="plate__region-value">{{ combination.region }}</div>
-			<RuFlag
-				class="plate__flag"
-				:flag="flag"
-				:is-raised-flag="raisedFlag"
-			/>
+		<div class="plate__row-bottom">
+			<div class="plate__char">{{ lettersLabel }}</div>
+			<div class="plate__region">
+				<div class="plate__region-value">{{ combination.region }}</div>
+				<RuFlag
+					class="plate__flag"
+					:flag="flag"
+					:is-raised-flag="raisedFlag"
+				/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -41,8 +39,7 @@
 		raisedFlag: false,
 	});
 
-	// Для схемы trailer первый блок — 2 буквы (letters), для auto — 1 буква (letterFirst)
-	const firstChar = computed(() => props.combination.letterFirst || props.combination.letters);
+	const lettersLabel = computed(() => props.combination.letters || props.combination.lettersLast);
 
 	const fontClass = computed(() =>
 		props.font !== 'standard' ? `plate--font-${props.font}` : null,

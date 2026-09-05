@@ -58,7 +58,7 @@
 		{
 			value: 'trailer',
 			label: 'Прицеп',
-			icon: 'tabler:truck',
+			icon: 'tabler:caravan',
 			price: 5400,
 		},
 		{

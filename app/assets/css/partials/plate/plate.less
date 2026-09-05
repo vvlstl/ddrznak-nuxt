@@ -125,8 +125,8 @@
                 min-height: unit((58 / 16), rem);
                 margin: 0;
                 position: absolute;
-                bottom: calc(-1 * unit((3 / 16), rem));
-                right: calc(-1 * unit((3 / 16), rem));
+                bottom: calc(-1 * var(--m4));
+                right: calc(-1 * var(--m4));
                 padding: var(--m16) var(--m16) var(--m8);
                 border-color: transparent;
 
@@ -135,16 +135,99 @@
                     inset: calc(-1 * var(--m4));
                     border: var(--m4) solid var(--color);
                     border-radius: var(--br10);
-                    mask-image: linear-gradient(
-                            to right, transparent calc(unit((62 / 16), rem) + unit((30 / 16), rem)),
-                            black calc(unit((62 / 16), rem) + unit((30 / 16), rem))
-                    ),
-                        linear-gradient(to bottom, transparent var(--m20), black var(--m20));
+                    mask-image: linear-gradient(to right, transparent calc(unit((62 / 16), rem) + unit((30 / 16), rem)),
+                    black calc(unit((62 / 16), rem) + unit((30 / 16), rem))),
+                    linear-gradient(to bottom, transparent var(--m20), black var(--m20));
                     mask-composite: add;
                 }
             }
 
             &__region-value {
+                font-size: var(--fs58);
+            }
+
+            &__flag {
+                position: absolute;
+                top: calc(-1 * var(--m6));
+                left: calc(-1 * var(--m6));
+                transform: translateY(calc(-50% + var(--m6)));
+                z-index: 2;
+            }
+        }
+    }
+
+    &--288x206 {
+        min-width: unit((225 / 16), rem);
+        min-height: unit((192 / 16), rem);
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: var(--m12) var(--m8);
+
+        .plate {
+            &__row {
+                justify-content: center;
+                margin-bottom: var(--m16);
+            }
+
+            &__region {
+                min-width: unit((86 / 16), rem);
+                min-height: unit((86 / 16), rem);
+                margin: 0;
+                gap: var(--m4);
+                position: absolute;
+                bottom: calc(-1 * var(--m4));
+                right: calc(-1 * var(--m4));
+                padding: var(--m4) var(--m8) var(--m2);
+            }
+
+            &__region-value {
+                font-size: var(--fs58);
+            }
+        }
+    }
+
+    &--190x145 {
+        min-width: unit((216 / 16), rem);
+        min-height: unit((166 / 16), rem);
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: var(--m12) var(--m12) var(--m10);
+
+        .plate {
+            &__row {
+                justify-content: center;
+                margin-bottom: var(--m20);
+            }
+
+            &__row-bottom {
+                box-sizing: border-box;
+                padding-right: calc(unit((90 / 16), rem) + var(--m12));
+                gap: 0;
+            }
+
+            &__region {
+                min-width: unit((60 / 16), rem);
+                min-height: unit((44 / 16), rem);
+                margin: 0;
+                position: absolute;
+                bottom: calc(-1 * var(--m4));
+                right: calc(-1 * var(--m4));
+                padding: var(--m20) var(--m20) var(--m8);
+                border-color: transparent;
+
+                &:before {
+                    .pseudo();
+                    inset: calc(-1 * var(--m4));
+                    border: var(--m4) solid var(--color);
+                    border-radius: var(--br10);
+                    mask-image: linear-gradient(to right, transparent calc(unit((62 / 16), rem) + unit((30 / 16), rem)),
+                    black calc(unit((62 / 16), rem) + unit((30 / 16), rem))),
+                    linear-gradient(to bottom, transparent var(--m20), black var(--m20));
+                    mask-composite: add;
+                }
+            }
+
+            &__char {
                 font-size: var(--fs58);
             }
 
