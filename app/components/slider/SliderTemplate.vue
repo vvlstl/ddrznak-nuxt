@@ -100,6 +100,9 @@
 		items: () => [],
 		additionalSettings: () => ({}),
 		themeBtn: 'light-blue',
+		sliderName: undefined,
+		title: undefined,
+		blockName: undefined,
 	});
 
 	const swiperRef = useTemplateRef<InstanceType<typeof Swiper>>('swiperRef');
