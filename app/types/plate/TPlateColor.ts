@@ -10,7 +10,8 @@ export type TPlateType =
     | 'moto'
     | 'trailer'
     | 'tractor'
-    | 'moped';
+    | 'moped'
+    | 'offroad';
 
 
 export type TPlateSize =
@@ -22,7 +23,7 @@ export type TPlateSize =
 
 export type TPlateFont = 'standard' | 'strict' | 'maximum' | 'vip';
 
-export type TInputSchema = 'auto' | 'trailer' | 'moto' | 'tractor' | 'moped';
+export type TInputSchema = 'auto' | 'trailer' | 'moto' | 'tractor' | 'moped' | 'offroad';
 
 export type TPlateCombination = {
     letterFirst: string;

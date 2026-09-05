@@ -1,7 +1,10 @@
 <template>
 	<div class="constructor-field">
 		<label class="constructor-field__label">Цвет пластины</label>
-		<div class="constructor-field__grid">
+		<div
+			class="constructor-field__grid"
+			:style="`--column-count: ${options.length}`"
+		>
 			<button
 				v-for="option in options"
 				:key="option.value"

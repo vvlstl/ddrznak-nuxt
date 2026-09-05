@@ -73,6 +73,12 @@
 			icon: 'tabler:scooter',
 			price: 4900,
 		},
+		{
+			value: 'offroad',
+			label: 'Внедорожный',
+			icon: 'tabler:car-off-road',
+			price: 5900,
+		},
 	];
 
 	function onSelect(option: TOption) {

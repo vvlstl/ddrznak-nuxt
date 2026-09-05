@@ -54,6 +54,13 @@ export const PLATE_TYPE_CONFIG: Record<TPlateType, TPlateTypeConfig> = {
         ],
         inputSchema: 'moped',
     },
+    offroad: {
+        defaultSize: '190x145',
+        sizes: [
+            {value: '190x145', label: 'Тип 4А — 190 × 145 мм'},
+        ],
+        inputSchema: 'offroad',
+    },
 };
 
 export function getDefaultCombination(schema: TInputSchema): TPlateCombination {
@@ -73,6 +80,7 @@ export function getDefaultCombination(schema: TInputSchema): TPlateCombination {
         case 'tractor':
             return {...base, digits: '7777', letters: 'АА', region: '77'};
         case 'moped':
+        case 'offroad':
             return {...base, letters: 'АА', region: '77', digits: '7777'};
     }
 }

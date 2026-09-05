@@ -24,8 +24,9 @@
     }
 
     &__grid {
-        display: flex;
-        flex-wrap: wrap;
+        --column-count: 4;
+        display: grid;
+        grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
         gap: var(--m12);
     }
 

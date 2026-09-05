@@ -136,10 +136,14 @@
 			{ row: [FIELD_DEFS.letters2, FIELD_DEFS.region] },
 			FIELD_DEFS.digits4,
 		],
+		offroad: [
+			{ row: [FIELD_DEFS.letters2, FIELD_DEFS.region] },
+			FIELD_DEFS.digits4,
+		],
 	};
 
 	const schema = computed(() => SCHEMAS[props.inputSchema]);
-	const isVertical = computed(() => ['moto', 'tractor', 'moped'].includes(props.inputSchema));
+	const isVertical = computed(() => ['moto', 'tractor', 'moped', 'offroad'].includes(props.inputSchema));
 
 	// sanitize
 	function sanitizeLetter(v: string, maxLen: number) {

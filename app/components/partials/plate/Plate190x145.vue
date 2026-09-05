@@ -7,7 +7,7 @@
 			<div class="plate__char">{{ combination.digits }}</div>
 		</div>
 		<div class="plate__row-bottom">
-			<div class="plate__char">{{ lettersLabel }}</div>
+			<div class="plate__char">{{ combination.letters }}</div>
 			<div class="plate__region">
 				<div class="plate__region-value">{{ combination.region }}</div>
 				<RuFlag
@@ -38,8 +38,6 @@
 		flag: true,
 		raisedFlag: false,
 	});
-
-	const lettersLabel = computed(() => props.combination.letters || props.combination.lettersLast);
 
 	const fontClass = computed(() =>
 		props.font !== 'standard' ? `plate--font-${props.font}` : null,
