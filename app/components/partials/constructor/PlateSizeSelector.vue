@@ -59,8 +59,7 @@
 	const options: TOption[] = [
 		{value: '520x112', label: 'Тип 1 — 520 × 112 мм'},
 		{value: '290x170', label: 'Тип 1А — 290 × 170 мм'},
-		{value: '288x206', label: 'Тип 3 — 288 × 206 мм'},
-		{value: '190x145', label: 'Тип 4А — 190 × 145 мм'},
+		{value: '245x185', label: 'Тип 4 — 245 × 185 мм'},
 	];
 
 	const selected = computed(() =>

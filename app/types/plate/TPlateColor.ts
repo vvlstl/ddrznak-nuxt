@@ -12,20 +12,11 @@ export type TPlateType =
     | 'tractor'
     | 'moped';
 
-export type TPlateFormat =
-    | 'standard'
-    | 'square'
-    | 'tractor'
-    | 'moped';
-
-export type TPlateFlag = 'flag' | 'no-flag';
 
 export type TPlateSize =
     | '520x112'
-    | '245x160'
-    | '288x206'
     | '290x170'
-    | '190x145';
+    | '245x185'
 
 export type TPlateFont = 'standard' | 'strict' | 'maximum' | 'vip';
 

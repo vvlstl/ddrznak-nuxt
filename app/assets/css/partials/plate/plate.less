@@ -32,7 +32,7 @@
         align-items: center;
         gap: unit((10 / 16), rem);
         box-sizing: border-box;
-        padding: unit((12 / 16), rem);
+        padding: unit((12 / 16), rem) unit((20 / 16), rem);
         border-radius: var(--br10);
         border: var(--m4) solid var(--color);
     }
@@ -100,9 +100,60 @@
             &__region {
                 margin: 0;
                 position: absolute;
+                bottom: calc(-1 * var(--m4));
+                right: calc(-1 * var(--m4));
+                padding: var(--m8) unit((10 / 16), rem) var(--m4);
+            }
+        }
+    }
+
+    &--245x185 {
+        min-width: unit((258 / 16), rem);
+        min-height: unit((200 / 16), rem);
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: var(--m16) var(--m10) var(--m8);
+
+        .plate {
+            &__row {
+                justify-content: center;
+                margin-bottom: var(--m24);
+            }
+
+            &__region {
+                min-width: unit((80 / 16), rem);
+                min-height: unit((58 / 16), rem);
+                margin: 0;
+                position: absolute;
                 bottom: calc(-1 * unit((3 / 16), rem));
                 right: calc(-1 * unit((3 / 16), rem));
-                padding: var(--m8) unit((10 / 16), rem) var(--m4);
+                padding: var(--m16) var(--m16) var(--m8);
+                border-color: transparent;
+
+                &:before {
+                    .pseudo();
+                    inset: calc(-1 * var(--m4));
+                    border: var(--m4) solid var(--color);
+                    border-radius: var(--br10);
+                    mask-image: linear-gradient(
+                            to right, transparent calc(unit((62 / 16), rem) + unit((30 / 16), rem)),
+                            black calc(unit((62 / 16), rem) + unit((30 / 16), rem))
+                    ),
+                        linear-gradient(to bottom, transparent var(--m20), black var(--m20));
+                    mask-composite: add;
+                }
+            }
+
+            &__region-value {
+                font-size: var(--fs58);
+            }
+
+            &__flag {
+                position: absolute;
+                top: calc(-1 * var(--m6));
+                left: calc(-1 * var(--m6));
+                transform: translateY(calc(-50% + var(--m6)));
+                z-index: 2;
             }
         }
     }

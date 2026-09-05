@@ -96,11 +96,12 @@
 	import PlateFlagSelector from '~/components/partials/constructor/PlateFlagSelector.vue';
 	import PlateSizeSelector from '~/components/partials/constructor/PlateSizeSelector.vue';
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
-	import PlateStandard from '~/components/partials/plate/PlateStandard.vue';
+	import Plate520X112 from '~/components/partials/plate/Plate520x112.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
 	import type {TPlateType, TPlateSize, TPlateFont} from '~/types/plate/TPlateColor.ts';
 	import SectionHeader from "~/components/ui/SectionHeader.vue";
-	import PlateStandardA from "~/components/partials/plate/PlateStandardA.vue";
+	import Plate290X170 from "~/components/partials/plate/Plate290x170.vue";
+	import Plate245x185 from "~/components/partials/plate/Plate245x185.vue";
 
 	const state = reactive({
 		type: 'auto' as TPlateType,
@@ -117,14 +118,6 @@
 		size: '520x112' as TPlateSize,
 		basePrice: 4900,
 	});
-
-	const DEFAULT_SIZE_BY_TYPE: Record<TPlateType, TPlateSize> = {
-		auto: '520x112',
-		moto: '245x160',
-		trailer: '520x112',
-		tractor: '288x206',
-		moped: '190x145',
-	};
 
 	const SIZE_LABEL: Record<TPlateSize, string> = {
 		'520x112': '520 × 112 мм',
@@ -154,8 +147,10 @@
 	const flagEnabled = computed(() => state.color === 'white');
 
 	const plateComponent = computed(() => {
-		const standardSizes = ['520x112', '245x160'];
-		return standardSizes.includes(state.size) ? PlateStandard : PlateStandardA;
+		if (state.size === '290x170') return Plate290X170;
+		if (state.size === '245x185') return Plate245x185;
+
+		return Plate520X112;
 	});
 
 	const total = computed(() => {
@@ -163,10 +158,6 @@
 		const priceTable = useFlag ? FONT_PRICE_WITH_FLAG : FONT_PRICE_WITHOUT_FLAG;
 		const raised = (state.raisedFlag && state.color === 'white') ? RAISED_FLAG_PRICE : 0;
 		return priceTable[state.font] + raised;
-	});
-
-	watch(() => state.type, (type) => {
-		state.size = DEFAULT_SIZE_BY_TYPE[type];
 	});
 
 	const formattedTotal = computed(() =>
