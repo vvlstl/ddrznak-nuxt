@@ -37,14 +37,35 @@
 				</span>
 				<span class="plate-flag-selector__text">Рельефный флаг</span>
 			</button>
+
+			<button
+				type="button"
+				class="plate-flag-selector__row"
+				:disabled="!enabled || !holesAllowed"
+				:aria-pressed="holesEnabled"
+				@click="onToggleHoles"
+			>
+				<span
+					class="plate-flag-selector__toggle"
+					:class="{ 'plate-flag-selector__toggle--on': holesEnabled }"
+					aria-hidden="true"
+				>
+					<span class="plate-flag-selector__knob"/>
+				</span>
+				<span class="plate-flag-selector__text">{{ holesEnabled ? 'С отверстиями' : 'Без отверстий' }}</span>
+			</button>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
+	import type {TPlateType} from '~/types/plate/TPlateColor.ts';
+
 	type TComponentProps = {
 		flag: boolean;
 		raised: boolean;
+		holesEnabled: boolean;
+		type?: TPlateType;
 		enabled?: boolean;
 	};
 
@@ -52,9 +73,16 @@
 		enabled: true,
 	});
 
+	const HOLE_ALLOWED_TYPES: TPlateType[] = ['auto', 'trailer'];
+
+	const holesAllowed = computed(() =>
+		HOLE_ALLOWED_TYPES.includes(props.type!),
+	);
+
 	const emit = defineEmits<{
 		'update:flag': [boolean];
 		'update:raised': [boolean];
+		'update:holesEnabled': [boolean];
 	}>();
 
 	function onToggleFlag() {
@@ -64,6 +92,12 @@
 		if (!next && props.raised) {
 			emit('update:raised', false);
 		}
+	}
+
+	function onToggleHoles() {
+		if (!props.enabled) return;
+		if (!holesAllowed.value) return;
+		emit('update:holesEnabled', !props.holesEnabled);
 	}
 
 	function onToggleRaised() {

@@ -28,6 +28,8 @@
 						<PlateFlagSelector
 							v-model:flag="state.flag"
 							v-model:raised="state.raisedFlag"
+							v-model:holes-enabled="state.holesEnabled"
+							:type="state.type"
 							:enabled="flagEnabled"
 						/>
 					</div>
@@ -126,6 +128,7 @@
 		font: 'standard' as TPlateFont,
 		flag: true,
 		raisedFlag: false,
+		holesEnabled: false,
 		size: '520x112' as TPlateSize,
 		basePrice: 4900,
 	});
