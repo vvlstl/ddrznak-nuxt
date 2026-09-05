@@ -5,12 +5,12 @@
 				<li class="burger-menu__item">
 					<a class="link burger-menu__nav-link">Избранное</a>
 				</li>
-				<li class="burger-menu__item" v-for="link in menu" :key="link.url">
+				<li v-for="link in menu" :key="link.url" class="burger-menu__item">
 					<a
 						:href="link.url"
 						class="link burger-menu__nav-link"
-						v-html="link.text"
 						@click="onClick"
+						v-html="link.text"
 					/>
 				</li>
 			</ul>

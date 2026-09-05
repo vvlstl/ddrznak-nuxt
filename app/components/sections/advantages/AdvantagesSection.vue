@@ -10,9 +10,9 @@
 				/>
 				<div class="advantages-section__grid custom-scrollbar custom-scrollbar--hidden">
 					<AdvantageGridCard
-						class="advantages-section__item"
 						v-for="item in items"
 						:key="item.id"
+						class="advantages-section__item"
 						:item="item"
 					/>
 				</div>

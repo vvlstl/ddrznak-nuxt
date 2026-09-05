@@ -18,9 +18,9 @@
 						<PlateColorSelector v-model="state.color"/>
 						<PlateFontSelector v-model="state.font"/>
 						<PlateFlagSelector
-							:enabled="flagEnabled"
 							v-model:flag="state.flag"
 							v-model:raised="state.raisedFlag"
+							:enabled="flagEnabled"
 						/>
 						<PlateSizeSelector v-model="state.size" :disabled="state.type === 'trailer'"/>
 						<PlateInputGroup v-model="state.combination"/>

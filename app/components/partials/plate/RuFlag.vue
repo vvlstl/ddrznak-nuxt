@@ -15,10 +15,11 @@
 			<rect x="0" y="0" width="25" height="5" fill="#FFFFFF"/>
 			<rect x="0" y="5" width="25" height="5" fill="#0000FF"/>
 			<rect x="0" y="10" width="25" height="5" fill="#FF0000"/>
-			<rect x="0" y="0" width="25" height="15" rx="1"
-			      fill="none"
-			      stroke="#000"
-			      stroke-width="2"
+			<rect
+				x="0" y="0" width="25" height="15" rx="1"
+				fill="none"
+				stroke="#000"
+				stroke-width="2"
 			/>
 		</svg>
 	</div>

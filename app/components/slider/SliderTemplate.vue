@@ -32,15 +32,12 @@
 			:class="sliderName && `${sliderName}__swiper`"
 			v-bind="swiperSettings"
 			@swiper="onSwiper"
-			@slideChange="onSlideChange"
-			@zoomChange="onZoomChange"
+			@slide-change="onSlideChange"
+			@zoom-change="onZoomChange"
 		>
 			<SwiperSlide
 				v-for="(item, index) in items"
 				:key="item.id"
-				class="slider__slide"
-				:class="sliderName && `${sliderName}__slide`"
-				:zoom="useZoom"
 				v-slot="{
 					isActive,
 					isPrev,
@@ -48,6 +45,9 @@
 					isVisible,
 					isDuplicate,
 				}"
+				class="slider__slide"
+				:class="sliderName && `${sliderName}__slide`"
+				:zoom="useZoom"
 			>
 				<slot
 					name="slide"

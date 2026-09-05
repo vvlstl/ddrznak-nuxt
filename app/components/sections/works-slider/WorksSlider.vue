@@ -3,14 +3,14 @@
 		<div class="container">
 			<div class="works-slider__container">
 				<SliderTemplate
+					ref="swiperRef"
 					:items="worksItems"
-					blockName="Выполненные работы"
+					block-name="Выполненные работы"
 					title="Номера, которые мы<br>произвели за последний месяц"
 					slider-name="works-slider"
 					use-click-navigation
-					ref="swiperRef"
 				>
-					<template #header></template>
+					<template #header/>
 					<template #slide="{ item, index }">
 						<WorkCard
 							:item="item"

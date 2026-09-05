@@ -1,9 +1,9 @@
 <template>
 	<div class="advantages-list">
 		<AdvantageCard
-			class="advantages-list__item"
 			v-for="item in items"
 			:key="item.id"
+			class="advantages-list__item"
 			:item="item"
 		/>
 	</div>

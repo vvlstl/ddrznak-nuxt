@@ -1,5 +1,6 @@
 <template>
 	<div
+		ref="container"
 		class="spoiler"
 		:class="{
             'spoiler--open': isOpen,
@@ -8,11 +9,10 @@
             '--content-height': spoilerHeight === null ? 'auto' : spoilerHeight + 'px',
             '--spoiler-speed': speed + 'ms',
         }"
-		ref="container"
 		@transitionend="onTransitionEnd"
 	>
-		<div class="spoiler__content" ref="content">
-			<slot></slot>
+		<div ref="content" class="spoiler__content">
+			<slot/>
 		</div>
 	</div>
 </template>

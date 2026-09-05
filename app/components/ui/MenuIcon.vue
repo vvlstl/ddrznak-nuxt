@@ -3,7 +3,7 @@
 		class="menu-icon"
 		:class="{ 'menu-icon--cross': isCross }"
 	>
-		<i></i><i></i><i></i>
+		<i/><i/><i/>
 	</span>
 </template>
 

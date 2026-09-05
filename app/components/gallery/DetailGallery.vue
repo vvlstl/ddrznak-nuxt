@@ -73,7 +73,7 @@
 					class="detail-gallery__swiper"
 					v-bind="swiperParams"
 					@swiper="onSwiper"
-					@zoomChange="onZoomChange"
+					@zoom-change="onZoomChange"
 				>
 					<SwiperSlide
 						v-for="(item, index) in items"

@@ -8,8 +8,8 @@
                 <span
 	                v-if="item.counter"
 	                ref="counterRef"
-	                v-html="item.title"
 	                :data-counter="item.counter"
+	                v-html="item.title"
                 />
 				<span
 					v-else

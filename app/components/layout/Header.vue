@@ -1,11 +1,11 @@
 <template>
 	<header
+		ref="root"
 		class="header"
 		:class="{
 			'header--fixed': isFixed,
 			'header--menu-open': isMenuOpen,
 		}"
-		ref="root"
 	>
 		<div class="container">
 			<nav class="header__container">
@@ -55,8 +55,8 @@
 			<BurgerMenu
 				v-if="isMenuOpen"
 				:menu="navLinks"
-				@close="closeMenu"
 				class="header__menu-burger"
+				@close="closeMenu"
 			/>
 		</transition>
 	</header>

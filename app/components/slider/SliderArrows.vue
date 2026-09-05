@@ -4,8 +4,8 @@
 		:class="{[blockName + '__arrows']: blockName}"
 	>
 		<button
-			class="btn btn--square"
 			ref="btnPrev"
+			class="btn btn--square"
 			:class="{
                 [blockName + '__prev']: blockName,
                 ['btn--' + color]: color,
@@ -17,8 +17,8 @@
 		</button>
 
 		<button
-			class="btn btn--square"
 			ref="btnNext"
+			class="btn btn--square"
 			:class="{
                 [blockName + '__next']: blockName,
                 ['btn--' + color]: color,
