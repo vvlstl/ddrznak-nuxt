@@ -71,6 +71,7 @@
 
 	const props = withDefaults(defineProps<TComponentProps>(), {
 		enabled: true,
+		type: undefined,
 	});
 
 	const HOLE_ALLOWED_TYPES: TPlateType[] = ['auto', 'trailer'];
