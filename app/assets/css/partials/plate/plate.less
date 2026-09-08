@@ -83,6 +83,25 @@
         gap: var(--m28);
     }
 
+    // Монтажные прорези (включаются флагом holesEnabled)
+    &__hole {
+        .size(unit((10 / 16), rem));
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: fade(@cBlack, 70);
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px fade(@cBlack, 40);
+
+        &:first-of-type {
+            left: calc(var(--m8) + var(--m4));
+        }
+
+        &:last-of-type {
+            right: calc(-1 * var(--m4) + var(--m4));
+        }
+    }
+
     &--290x170 {
         min-width: unit((286 / 16), rem);
         min-height: unit((188 / 16), rem);

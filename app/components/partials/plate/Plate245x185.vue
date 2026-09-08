@@ -5,8 +5,13 @@
 			[`plate--${props.type}`]: props.type,
 			[`plate--${color}`]: props.color,
 			[`plate--font-${props.font}`]: props.font,
+			'plate--holes': props.holesEnabled,
 		}"
 	>
+		<template v-if="holesEnabled">
+			<span class="plate__hole"/>
+			<span class="plate__hole"/>
+		</template>
 		<div class="plate__row">
 			<div class="plate__char">{{ combination.digits }}</div>
 		</div>
@@ -35,6 +40,7 @@
 		type?: TPlateType;
 		flag?: boolean;
 		raisedFlag?: boolean;
+		holesEnabled?: boolean;
 	}
 
 	const props = withDefaults(defineProps<TComponentProps>(), {
@@ -43,6 +49,7 @@
 		type: undefined,
 		flag: true,
 		raisedFlag: false,
+		holesEnabled: false,
 	});
 
 	const lettersLabel = computed(() => props.combination.letters || props.combination.lettersLast);

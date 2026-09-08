@@ -5,8 +5,13 @@
 			[`plate--${props.type}`]: props.type,
 			[`plate--${color}`]: props.color,
 			[`plate--font-${props.font}`]: props.font,
+			'plate--holes': props.holesEnabled,
 		}"
 	>
+		<template v-if="holesEnabled">
+			<span class="plate__hole"/>
+			<span class="plate__hole"/>
+		</template>
 		<div class="plate__number">
 			<div class="plate__char">{{ firstChar }}</div>
 			<div class="plate__char">{{ combination.digits }}</div>
@@ -37,6 +42,7 @@
 		type?: TPlateType;
 		flag?: boolean;
 		raisedFlag?: boolean;
+		holesEnabled?: boolean;
 	}
 
 	const props = withDefaults(defineProps<TComponentProps>(), {
@@ -45,6 +51,7 @@
 		type: undefined,
 		flag: true,
 		raisedFlag: false,
+		holesEnabled: false,
 	});
 
 	// Для схемы trailer первый блок — 2 буквы (letters), для auto — 1 буква (letterFirst)

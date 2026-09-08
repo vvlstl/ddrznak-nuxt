@@ -53,6 +53,7 @@
 								:font="state.font"
 								:flag="flagEnabled && state.flag"
 								:raised-flag="flagEnabled && state.raisedFlag"
+								:holes-enabled="state.holesEnabled"
 							/>
 						</div>
 
