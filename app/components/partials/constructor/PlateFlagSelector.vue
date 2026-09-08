@@ -59,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+	import {HOLE_ALLOWED_TYPES} from '~/utils/plateTypeConfig.ts';
 	import type {TPlateType} from '~/types/plate/TPlateColor.ts';
 
 	type TComponentProps = {
@@ -73,8 +74,6 @@
 		enabled: true,
 		type: undefined,
 	});
-
-	const HOLE_ALLOWED_TYPES: TPlateType[] = ['auto', 'trailer'];
 
 	const holesAllowed = computed(() =>
 		HOLE_ALLOWED_TYPES.includes(props.type!),

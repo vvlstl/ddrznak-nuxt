@@ -53,7 +53,7 @@
 								:font="state.font"
 								:flag="flagEnabled && state.flag"
 								:raised-flag="flagEnabled && state.raisedFlag"
-								:holes-enabled="state.holesEnabled"
+								:holes-enabled="state.holesEnabled && HOLE_ALLOWED_TYPES.includes(state.type)"
 							/>
 						</div>
 
@@ -114,7 +114,7 @@
 	import Plate245x185 from "~/components/partials/plate/Plate245x185.vue";
 	import Plate288x206 from "~/components/partials/plate/Plate288x206.vue";
 	import Plate190x145 from "~/components/partials/plate/Plate190x145.vue";
-	import {getDefaultCombination, formatCombination, PLATE_TYPE_CONFIG} from '~/utils/plateTypeConfig.ts';
+	import {getDefaultCombination, formatCombination, PLATE_TYPE_CONFIG, HOLE_ALLOWED_TYPES} from '~/utils/plateTypeConfig.ts';
 
 	const state = reactive({
 		type: 'auto' as TPlateType,
@@ -140,6 +140,9 @@
 		const config = PLATE_TYPE_CONFIG[newType];
 		state.size = config.defaultSize;
 		state.combination = getDefaultCombination(config.inputSchema);
+		if (!HOLE_ALLOWED_TYPES.includes(newType)) {
+			state.holesEnabled = false;
+		}
 	});
 
 	const SIZE_LABEL: Record<TPlateSize, string> = {

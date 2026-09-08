@@ -16,6 +16,9 @@ export type TPlateTypeConfig = {
     inputSchema: TInputSchema;
 };
 
+// Типы, для которых доступны монтажные отверстия
+export const HOLE_ALLOWED_TYPES: TPlateType[] = ['auto', 'trailer'];
+
 export const PLATE_TYPE_CONFIG: Record<TPlateType, TPlateTypeConfig> = {
     auto: {
         defaultSize: '520x112',
