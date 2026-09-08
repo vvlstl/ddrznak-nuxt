@@ -71,6 +71,16 @@ export default defineNuxtConfig({
         }
     },
 
+    // @nuxt/hints: lazyLoad шлёт POST на /__nuxt_hints/lazy-load без учёта
+    // app.baseURL → 404. Отключаем отправку (devtools), сам модуль остаётся.
+    hints: {
+        features: {
+            lazyLoad: {
+                devtools: false,
+            },
+        },
+    },
+
     vite: {
         sourcemap: false,
         css: {

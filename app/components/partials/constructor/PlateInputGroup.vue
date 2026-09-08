@@ -19,6 +19,7 @@
 						class="plate-input"
 						:maxlength="rowItem.maxLen"
 						:placeholder="rowItem.placeholder"
+						:aria-label="FIELD_ARIA_LABELS[rowItem.field]"
 						@input="onInput(rowItem.field, $event, rowItem.kind, rowItem.maxLen)"
 					>
 				</div>
@@ -30,6 +31,7 @@
 					class="plate-input"
 					:maxlength="item.maxLen"
 					:placeholder="item.placeholder"
+					:aria-label="FIELD_ARIA_LABELS[item.field]"
 					@input="onInput(item.field, $event, item.kind, item.maxLen)"
 				>
 			</template>
@@ -64,6 +66,15 @@
 	};
 
 	type TSchemaItem = TFieldDef | TRowDef;
+
+	// подпись поля для aria-label (доступность: input без label)
+	const FIELD_ARIA_LABELS: Record<TFieldType, string> = {
+		letterFirst: 'Первая буква',
+		letters: 'Буквы',
+		digits: 'Цифры',
+		lettersLast: 'Последние буквы',
+		region: 'Регион',
+	};
 
 	type TComponentProps = {
 		modelValue: TPlateCombination;

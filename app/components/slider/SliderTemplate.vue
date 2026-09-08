@@ -25,42 +25,46 @@
 			</div>
 		</slot>
 
-		<Swiper
-			v-if="items.length"
-			ref="swiperRef"
-			class="slider__swiper"
-			:class="sliderName && `${sliderName}__swiper`"
-			v-bind="swiperSettings"
-			@swiper="onSwiper"
-			@slide-change="onSlideChange"
-			@zoom-change="onZoomChange"
-		>
-			<SwiperSlide
-				v-for="(item, index) in items"
-				:key="item.id"
-				v-slot="{
-					isActive,
-					isPrev,
-					isNext,
-					isVisible,
-					isDuplicate,
-				}"
-				class="slider__slide"
-				:class="sliderName && `${sliderName}__slide`"
-				:zoom="useZoom"
+		<!-- Swiper меняет DOM после монтирования (swiper-* классы, transform) → SSR-разметка
+		     гидрируется с расхождением. Рендерим только на клиенте. -->
+		<ClientOnly>
+			<Swiper
+				v-if="items.length"
+				ref="swiperRef"
+				class="slider__swiper"
+				:class="sliderName && `${sliderName}__swiper`"
+				v-bind="swiperSettings"
+				@swiper="onSwiper"
+				@slide-change="onSlideChange"
+				@zoom-change="onZoomChange"
 			>
-				<slot
-					name="slide"
-					:item="item"
-					:index="index"
-					:is-active="isActive"
-					:is-prev="isPrev"
-					:is-next="isNext"
-					:is-visible="isVisible"
-					:is-duplicate="isDuplicate"
-				/>
-			</SwiperSlide>
-		</Swiper>
+				<SwiperSlide
+					v-for="(item, index) in items"
+					:key="item.id"
+					v-slot="{
+						isActive,
+						isPrev,
+						isNext,
+						isVisible,
+						isDuplicate,
+					}"
+					class="slider__slide"
+					:class="sliderName && `${sliderName}__slide`"
+					:zoom="useZoom"
+				>
+					<slot
+						name="slide"
+						:item="item"
+						:index="index"
+						:is-active="isActive"
+						:is-prev="isPrev"
+						:is-next="isNext"
+						:is-visible="isVisible"
+						:is-duplicate="isDuplicate"
+					/>
+				</SwiperSlide>
+			</Swiper>
+		</ClientOnly>
 	</div>
 </template>
 

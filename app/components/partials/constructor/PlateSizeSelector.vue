@@ -5,6 +5,7 @@
 		</div>
 		<Multiselect
 			class="plate-size-selector"
+			id="plate-size-selector"
 			:model-value="selected"
 			:options="allowedSizes"
 			:searchable="false"

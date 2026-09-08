@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="promo-block__content">
 				<div class="promo-block__info">
-					<div class="promo-block__title">Красивые номера<br>для вашего автомобиля</div>
+					<h1 class="promo-block__title">Красивые номера<br>для вашего автомобиля</h1>
 					<div class="promo-block__description">
 						Дубликаты номерных знаков по&nbsp;всей России. Собственное производство, никаких посредников.
 					</div>
