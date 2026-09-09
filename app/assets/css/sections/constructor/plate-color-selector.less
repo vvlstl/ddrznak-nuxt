@@ -1,0 +1,15 @@
+@import "../../_var";
+
+.plate-color-selector {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(var(--column-count, 5), minmax(0, 1fr));
+        gap: var(--m12);
+    }
+
+    @media @mediaSm {
+        &__grid {
+            display: inline-flex;
+        }
+    }
+}

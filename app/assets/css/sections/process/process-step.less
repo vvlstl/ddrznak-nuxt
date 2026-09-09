@@ -35,7 +35,18 @@
         color: @cGray700;
     }
 
-    @media @mediaMd {
-        padding: var(--m24);
+    @media @mediaLg {
+        padding: var(--m12);
+    }
+
+    @media @mediaSm {
+        &__num {
+            font-size: var(--fs24);
+            margin-bottom: var(--m12);
+        }
+
+        &__title {
+            margin-bottom: var(--m4);
+        }
     }
 }

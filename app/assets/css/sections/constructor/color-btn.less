@@ -1,19 +1,19 @@
 @import "../../_var";
 
 .color-btn {
+    --border-color: @cGray300;
+    --bg-color: @cWhite;
+    --txt-color: @cGray700;
+
     .clear-btn();
     .transit(~'border-color, color, background-color');
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--m6);
-    border: 1px solid @cGray300;
-    padding: var(--m8) var(--m12);
-    border-radius: var(--br8);
-    min-width: unit((68 / 16), rem);
     font: 500 var(--fs12) / 1.2 @font;
-    color: @cGray700;
-    background: @cWhite;
+    color: var(--txt-color);
+    background: var(--bg-color);
     cursor: pointer;
     text-align: center;
 
@@ -70,14 +70,29 @@
     }
 
     &--active {
-        border-color: @cBlue600;
-        background: @cWhite100;
-        color: @cBlue600;
+        --border-color: @cBlue600;
+        --bg-color: @cWhite100;
+        --txt-color: @cBlue600;
 
         .color-btn {
             &__check {
                 opacity: 1;
             }
+        }
+    }
+
+    @media @mediaMoreSm {
+        border: 1px solid var(--border-color);
+        padding: var(--m8) var(--m12);
+        border-radius: var(--br8);
+        min-width: unit((68 / 16), rem);
+    }
+
+    @media @mediaSm {
+        --bg-color: transparent;
+
+        &__text {
+            display: none;
         }
     }
 }

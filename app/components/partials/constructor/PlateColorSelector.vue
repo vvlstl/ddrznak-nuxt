@@ -1,8 +1,8 @@
 <template>
-	<div class="constructor-field">
+	<div class="constructor-field plate-color-selector">
 		<label class="constructor-field__label">Цвет пластины</label>
 		<div
-			class="constructor-field__grid"
+			class="plate-color-selector__grid"
 			:style="`--column-count: ${options.length}`"
 		>
 			<button
@@ -18,7 +18,7 @@
 						<Icon name="tabler:check" />
 					</span>
 				</span>
-				<span>{{ option.label }}</span>
+				<span class="color-btn__text">{{ option.label }}</span>
 			</button>
 		</div>
 	</div>

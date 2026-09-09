@@ -3,7 +3,7 @@
 .constructor-field {
     display: flex;
     flex-direction: column;
-    gap: var(--m16);
+    gap: var(--m8);
 
     &__label-row {
         display: flex;
@@ -14,7 +14,6 @@
     &__label {
         font: 600 var(--fs14) / 1.4 @font;
         letter-spacing: var(--letter-spacing);
-        text-transform: uppercase;
         color: @cNavy900;
     }
 
@@ -32,5 +31,29 @@
 
     &__item {
         flex: 1 1 unit((100 / 16), rem);
+    }
+
+    @media @mediaLg {
+        &__grid {
+            --column-count: 3;
+
+            gap: var(--m8);
+        }
+    }
+
+    @media @mediaSm {
+        gap: var(--m4);
+
+        &__grid {
+            --column-count: 2;
+        }
+
+        &__label {
+            font-size: var(--fs12);
+        }
+
+        &__hint {
+            font-size: var(--fs10);
+        }
     }
 }

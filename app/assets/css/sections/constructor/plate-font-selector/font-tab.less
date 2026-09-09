@@ -3,11 +3,11 @@
 .font-tab {
     .clear-btn();
     .transit(color);
-    flex: 1;
+    flex: 1 1 auto;
     text-align: center;
     box-sizing: border-box;
     padding: var(--m8);
-    font: 400 var(--fs13) / 1 @font;
+    font: 400 var(--fs18) / 1 @font;
     color: @cGray500;
     background: @cWhite;
     cursor: pointer;
@@ -27,5 +27,13 @@
         background: @cBlue600;
         color: @cWhite;
         font-weight: 600;
+    }
+
+    @media @mediaLg {
+        font-size: var(--fs16);
+    }
+
+    @media @mediaSm {
+        font-size: var(--fs12);
     }
 }
