@@ -57,22 +57,18 @@
 							/>
 						</div>
 
+						<PlateOrderSummary
+							:type="state.type"
+							:size="state.size"
+							:font="state.font"
+							:color="state.color"
+							:flag="flagEnabled && state.flag"
+							:raised-flag="flagEnabled && state.raisedFlag"
+							:holes-enabled="state.holesEnabled && HOLE_ALLOWED_TYPES.includes(state.type)"
+							:total="total"
+						/>
+
 						<div class="constructor__price">
-							<div class="constructor__price-row">
-								<div>
-									<div class="constructor__price-label">Итого</div>
-									<div class="constructor__price-value">
-										{{ formattedTotal }} <span class="constructor__price-currency">₽</span>
-									</div>
-								</div>
-
-
-								<div class="constructor__spec">
-									<div class="constructor__spec-label">Размер</div>
-									<div class="constructor__spec-value">{{ sizeByType }}</div>
-								</div>
-
-							</div>
 							<button
 								type="button"
 								class="btn btn--primary constructor__order-btn"
@@ -106,6 +102,7 @@
 	import PlateFlagSelector from '~/components/partials/constructor/PlateFlagSelector.vue';
 	import PlateSizeSelector from '~/components/partials/constructor/PlateSizeSelector.vue';
 	import PlateInputGroup from '~/components/partials/constructor/PlateInputGroup.vue';
+	import PlateOrderSummary from '~/components/partials/constructor/PlateOrderSummary.vue';
 	import Plate520X112 from '~/components/partials/plate/Plate520x112.vue';
 	import ToastNotification from '~/components/ui/toast/ToastNotification.vue';
 	import type {TPlateCombination, TPlateType, TPlateSize, TPlateFont} from '~/types/plate/TPlateColor.ts';
@@ -145,14 +142,6 @@
 		}
 	});
 
-	const SIZE_LABEL: Record<TPlateSize, string> = {
-		'520x112': '520 × 112 мм',
-		'290x170': '290 × 170 мм',
-		'245x185': '245 × 185 мм',
-		'288x206': '288 × 206 мм',
-		'190x145': '190 × 145 мм',
-	};
-
 	const FONT_PRICE_WITH_FLAG: Record<TPlateFont, number> = {
 		standard: 700,
 		strict: 1250,
@@ -168,8 +157,6 @@
 	};
 
 	const RAISED_FLAG_PRICE = 250;
-
-	const sizeByType = computed(() => SIZE_LABEL[state.size]);
 
 	const flagEnabled = computed(() => state.color === 'white');
 
@@ -188,10 +175,6 @@
 		const raised = (state.raisedFlag && state.color === 'white') ? RAISED_FLAG_PRICE : 0;
 		return priceTable[state.font] + raised;
 	});
-
-	const formattedTotal = computed(() =>
-		total.value.toLocaleString('ru-RU').replace(/,/g, ' '),
-	);
 
 	function onTypePrice(price: number) {
 		state.basePrice = price;

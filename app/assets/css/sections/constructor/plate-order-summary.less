@@ -1,0 +1,67 @@
+@import "../../_var";
+
+.plate-order-summary {
+    margin: 0 0 var(--m20);
+    padding: 0;
+    list-style: none;
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--m12);
+        padding: var(--m8) 0;
+        border-bottom: 1px solid @cGray200;
+
+        &:first-child {
+            border-top: 1px solid @cGray200;
+        }
+    }
+
+    &__key {
+        display: flex;
+        align-items: center;
+        gap: var(--m4);
+        font: 400 var(--fs12) / 1 @font;
+        color: @cGray500;
+        white-space: nowrap;
+        flex-shrink: 0;
+
+        svg, span {
+            font-size: unit((16 / 16), rem);
+        }
+    }
+
+    &__val {
+        display: flex;
+        align-items: center;
+        gap: var(--m4);
+        font: 500 unit((13 / 16), rem) / 1.2 @font;
+        color: @cNavy900;
+        text-align: right;
+
+        &--mono {
+            font-family: @fontPlate;
+            letter-spacing: 0.05em;
+        }
+
+        &--muted {
+            color: @cGray500;
+            font-weight: 400;
+        }
+
+        &--total {
+            font: 800 var(--fs18) / 1 @font;
+            color: @cNavy900;
+        }
+    }
+
+    &__dot {
+        width: unit((12 / 16), rem);
+        height: unit((12 / 16), rem);
+        border-radius: unit((3 / 16), rem);
+        border: 1px solid @cGray300;
+        flex-shrink: 0;
+        display: inline-block;
+    }
+}
