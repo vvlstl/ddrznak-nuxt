@@ -9,9 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  # [FIX] administration: write нужен configure-pages с enablement: true —
-  # без него action не может включить Pages у репозитория, если ещё не включён.
-  administration: write
 
 concurrency:
   group: "pages"
@@ -57,13 +54,11 @@ jobs:
           node-version: "24"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
+      # [FIX] Требует Pages, включённого в репо: Settings → Pages →
+      # Source: GitHub Actions. enablement: true тут не вариант —
+      # GITHUB_TOKEN не умеет включать Pages (нужен PAT).
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        # [FIX] enablement: true — action сам включает GitHub Pages у репозитория.
-        # Без него падает 404 (Get Pages site failed), если Pages ещё не включён
-        # вручную в Settings → Pages.
-        with:
-          enablement: true
 
       - name: Restore cache
         uses: actions/cache@v4
