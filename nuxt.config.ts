@@ -13,7 +13,16 @@ export default defineNuxtConfig({
     },
 
     app: {
-        baseURL: '/ddrznak-nuxt/'
+        baseURL: '/ddrznak-nuxt/',
+        head: {
+            script: [
+                {
+                    // Прогрессивное улучшение: класс js ставится до первой отрисовки.
+                    // Стили reveal-анимаций применяются только при наличии JS.
+                    innerHTML: "document.documentElement.classList.add('js')",
+                },
+            ],
+        },
     },
 
     nitro: {

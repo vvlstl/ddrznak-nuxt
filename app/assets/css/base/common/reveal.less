@@ -1,6 +1,7 @@
 @import "../../_var";
 
-.reveal {
+// Скрытие только при включённом JS — без JS контент виден сразу (SSR/SEO)
+.js .reveal {
     opacity: 0;
     transform: translateY(var(--m40));
     transition: opacity 0.6s ease, transform 0.6s ease;
