@@ -15,7 +15,8 @@
 	 * preload с crossorigin=anonymous обязателен для font/woff2, иначе браузер
 	 * скачает шрифт повторно при парсинге @font-face.
 	 */
-	const fontBase = '/fonts/'
+	// Пути под app.baseURL — статический хостинг на подпути (GitHub Pages)
+	const fontBase = useBase('fonts/')
 	const fontPreloads = computed(() => ([
 		{
 			rel: 'preload',

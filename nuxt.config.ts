@@ -66,9 +66,20 @@ export default defineNuxtConfig({
     ],
 
     icon: {
-        serverBundle: {
-            collections: ['tabler']
-        }
+        // Статический хостинг (GitHub Pages) — серверного /api/_nuxt_icon нет.
+        // Все иконки бандлим в клиент, рантайм-фетч отключаем.
+        provider: 'none',
+        clientBundle: {
+            scan: true,
+            sizeLimitKb: 512,
+        },
+    },
+
+    // Статический хостинг — IPX-оптимизация недоступна (провайдер ipxStatic
+    // требует prerender для генерации _ipx/, который отключён из-за бага
+    // сборки). Отдаём исходники как есть.
+    image: {
+        provider: 'none',
     },
 
     // @nuxt/hints: lazyLoad шлёт POST на /__nuxt_hints/lazy-load без учёта

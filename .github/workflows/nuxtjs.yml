@@ -82,6 +82,12 @@ jobs:
       - name: Disable Jekyll processing
         run: touch ./.output/public/.nojekyll
 
+      # [FIX] Prerender отключён (баг сборки), Nuxt генерит только SPA-шелл
+      # 200.html. GitHub Pages для пути /ddrznak-nuxt/ ищет index.html —
+      # копируем SPA-шелл, чтобы корень сайта открывался.
+      - name: Create index.html from SPA shell
+        run: cp ./.output/public/200.html ./.output/public/index.html
+
       - name: Verify artifact integrity
         run: |
           echo "[FIX] Build output contents:"
@@ -95,6 +101,10 @@ jobs:
           fi
           if [ ! -d ./.output/public/_nuxt ]; then
             echo "::error::_nuxt/ directory missing — build output is incomplete"
+            exit 1
+          fi
+          if [ ! -f ./.output/public/index.html ]; then
+            echo "::error::index.html missing — site root will 404 on GitHub Pages"
             exit 1
           fi
           echo "[FIX] Artifact integrity check passed"

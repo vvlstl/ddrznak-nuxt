@@ -31,18 +31,23 @@
 
 	const {show} = usePopup();
 
+	// srcImg лежит в public/ — приводим пути к baseURL для статического хостинга
+	const worksItems = computed<TWorkCard[]>(() =>
+		rawWorksItems.map((item) => ({...item, srcImg: useBase(item.srcImg)}))
+	);
+
 	function openGallery(index: number) {
-		const clicked = worksItems[index];
+		const clicked = worksItems.value[index];
 		if (!clicked) return;
 
-		const sources = clicked.gallery ?? worksItems.map((item) => item.srcImg);
+		const sources = clicked.gallery ?? worksItems.value.map((item) => item.srcImg);
 		const items: TGalleryItem[] = sources.map((src) => ({picture: {src}}));
 		const initialSlide = clicked.gallery ? 0 : index;
 
 		show('gallery', {items, initialSlide});
 	}
 
-	const worksItems: TWorkCard[] = [
+	const rawWorksItems: TWorkCard[] = [
 		{
 			id: 1,
 			client: 'Частный клиент',

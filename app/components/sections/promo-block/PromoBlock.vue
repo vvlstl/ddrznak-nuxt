@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="promo-block__picture">
-					<NuxtPicture src="/images/promo-block/car.webp"/>
+					<NuxtPicture :src="useBase('/images/promo-block/car.webp')"/>
 				</div>
 			</div>
 			<div class="promo-block__advantages">
